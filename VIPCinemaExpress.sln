@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIPCinemaExpress", "VIPCinemaExpress\VIPCinemaExpress.csproj", "{5059C3DA-5C02-42A1-A2D7-24F9DD0057E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8727D3B4-E223-40F2-9019-9B8B938A7C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{DAC47168-B42F-49E0-B127-3B58ADE7E679}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5059C3DA-5C02-42A1-A2D7-24F9DD0057E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5059C3DA-5C02-42A1-A2D7-24F9DD0057E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5059C3DA-5C02-42A1-A2D7-24F9DD0057E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5059C3DA-5C02-42A1-A2D7-24F9DD0057E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8727D3B4-E223-40F2-9019-9B8B938A7C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8727D3B4-E223-40F2-9019-9B8B938A7C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8727D3B4-E223-40F2-9019-9B8B938A7C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8727D3B4-E223-40F2-9019-9B8B938A7C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC47168-B42F-49E0-B127-3B58ADE7E679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC47168-B42F-49E0-B127-3B58ADE7E679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC47168-B42F-49E0-B127-3B58ADE7E679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC47168-B42F-49E0-B127-3B58ADE7E679}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
