@@ -15,6 +15,7 @@ namespace BLL
         public string Telefono { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
+        public string Usuario { get; set; }
         public string Contrasena { get; set; }
 
         public Usuarios()
@@ -26,6 +27,7 @@ namespace BLL
             this.Telefono = "";
             this.Celular = "";
             this.Email = "";
+            this.Usuario = "";
             this.Contrasena = "";
         }
 
@@ -33,7 +35,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direcccion, Telefono, Celular, Email, Contrasena) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Contrasena));
+            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direcccion, Telefono, Celular, Email, Usuario, Contrasena) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena));
             return retorno;
         }
 
@@ -41,7 +43,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Contrasena = '{6}', where UsuarioId = {7}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Contrasena, this.UsuarioId));
+            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Usuario = '{6}', Contrasena = '{7}', where UsuarioId = {8}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.UsuarioId));
             return retorno;
         }
 
@@ -67,6 +69,7 @@ namespace BLL
                 this.Telefono = dt.Rows[0]["Telefono"].ToString();
                 this.Celular = dt.Rows[0]["Celular"].ToString();
                 this.Email = dt.Rows[0]["Email"].ToString();
+                this.Usuario = dt.Rows[0]["Usuario"].ToString();
                 this.Contrasena = dt.Rows[0]["Contrasena"].ToString();
             }
 

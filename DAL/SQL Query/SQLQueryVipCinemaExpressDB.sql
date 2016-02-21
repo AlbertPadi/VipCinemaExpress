@@ -48,6 +48,7 @@ create table Usuarios(
 			Telefono varchar(20),
 			Celular varchar(20),
 			Email varchar(40),
+			Usuario varchar(40),
 			Contrasena varchar(30)
 )
 
