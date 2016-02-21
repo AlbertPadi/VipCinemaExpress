@@ -148,6 +148,7 @@
     <Content Include="js\plugins\morris\morris.min.js" />
     <Content Include="js\plugins\morris\raphael.min.js" />
     <Content Include="Registros\rCarteleras.aspx" />
+    <Content Include="Registros\rCines.aspx" />
     <Content Include="Registros\rPeliculas.aspx" />
     <Content Include="Registros\rReservaciones.aspx" />
     <Content Include="Registros\rSalas.aspx" />
@@ -175,6 +176,13 @@
     </Compile>
     <Compile Include="Registros\rCarteleras.aspx.designer.cs">
       <DependentUpon>rCarteleras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCines.aspx.cs">
+      <DependentUpon>rCines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCines.aspx.designer.cs">
+      <DependentUpon>rCines.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rPeliculas.aspx.cs">
       <DependentUpon>rPeliculas.aspx</DependentUpon>
