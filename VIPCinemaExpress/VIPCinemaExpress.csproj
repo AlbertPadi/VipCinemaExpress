@@ -119,34 +119,34 @@
     <Content Include="bootstrap-elements.html" />
     <Content Include="bootstrap-grid.html" />
     <Content Include="charts.html" />
-    <Content Include="css\bootstrap-rtl.css" />
-    <Content Include="css\bootstrap-rtl.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\plugins\morris.css" />
-    <Content Include="css\sb-admin-rtl.css" />
-    <Content Include="css\sb-admin.css" />
-    <Content Include="Default.aspx" />
-    <Content Include="font-awesome\css\font-awesome.css" />
-    <Content Include="font-awesome\css\font-awesome.min.css" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="adm\css\bootstrap-rtl.css" />
+    <Content Include="adm\css\bootstrap-rtl.min.css" />
+    <Content Include="adm\css\bootstrap.css" />
+    <Content Include="adm\css\bootstrap.min.css" />
+    <Content Include="adm\css\plugins\morris.css" />
+    <Content Include="adm\css\sb-admin-rtl.css" />
+    <Content Include="adm\css\sb-admin.css" />
+    <Content Include="adm\Default.aspx" />
+    <Content Include="adm\font-awesome\css\font-awesome.css" />
+    <Content Include="adm\font-awesome\css\font-awesome.min.css" />
+    <Content Include="adm\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="adm\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forms.html" />
     <Content Include="index-rtl.html" />
     <Content Include="index.html" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery.js" />
-    <Content Include="js\plugins\flot\excanvas.min.js" />
-    <Content Include="js\plugins\flot\flot-data.js" />
-    <Content Include="js\plugins\flot\jquery.flot.js" />
-    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
-    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
-    <Content Include="js\plugins\flot\jquery.flot.tooltip.min.js" />
-    <Content Include="js\plugins\morris\morris-data.js" />
-    <Content Include="js\plugins\morris\morris.js" />
-    <Content Include="js\plugins\morris\morris.min.js" />
-    <Content Include="js\plugins\morris\raphael.min.js" />
+    <Content Include="adm\js\bootstrap.js" />
+    <Content Include="adm\js\bootstrap.min.js" />
+    <Content Include="adm\js\jquery.js" />
+    <Content Include="adm\js\plugins\flot\excanvas.min.js" />
+    <Content Include="adm\js\plugins\flot\flot-data.js" />
+    <Content Include="adm\js\plugins\flot\jquery.flot.js" />
+    <Content Include="adm\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="adm\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="adm\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="adm\js\plugins\morris\morris-data.js" />
+    <Content Include="adm\js\plugins\morris\morris.js" />
+    <Content Include="adm\js\plugins\morris\morris.min.js" />
+    <Content Include="adm\js\plugins\morris\raphael.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Registros\rCarteleras.aspx" />
     <Content Include="Registros\rCines.aspx" />
@@ -163,11 +163,11 @@
     <Compile Include="Consultas\MostrarImagen.ashx.cs">
       <DependentUpon>MostrarImagen.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="adm\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="adm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -220,12 +220,19 @@
     <Compile Include="Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
+    <Compile Include="adm\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="adm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteUser.Master.cs">
+      <DependentUpon>SiteUser.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteUser.Master.designer.cs">
+      <DependentUpon>SiteUser.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -233,42 +240,43 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="font-awesome\less\bordered-pulled.less" />
-    <Content Include="font-awesome\less\core.less" />
-    <Content Include="font-awesome\less\fixed-width.less" />
-    <Content Include="font-awesome\less\font-awesome.less" />
-    <Content Include="font-awesome\less\icons.less" />
-    <Content Include="font-awesome\less\larger.less" />
-    <Content Include="font-awesome\less\list.less" />
-    <Content Include="font-awesome\less\mixins.less" />
-    <Content Include="font-awesome\less\path.less" />
-    <Content Include="font-awesome\less\rotated-flipped.less" />
-    <Content Include="font-awesome\less\spinning.less" />
-    <Content Include="font-awesome\less\stacked.less" />
-    <Content Include="font-awesome\less\variables.less" />
-    <Content Include="font-awesome\scss\font-awesome.scss" />
-    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
-    <Content Include="font-awesome\scss\_core.scss" />
-    <Content Include="font-awesome\scss\_fixed-width.scss" />
-    <Content Include="font-awesome\scss\_icons.scss" />
-    <Content Include="font-awesome\scss\_larger.scss" />
-    <Content Include="font-awesome\scss\_list.scss" />
-    <Content Include="font-awesome\scss\_mixins.scss" />
-    <Content Include="font-awesome\scss\_path.scss" />
-    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
-    <Content Include="font-awesome\scss\_spinning.scss" />
-    <Content Include="font-awesome\scss\_stacked.scss" />
-    <Content Include="font-awesome\scss\_variables.scss" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Site.Master" />
+    <Content Include="adm\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="adm\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="adm\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="adm\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="adm\font-awesome\less\bordered-pulled.less" />
+    <Content Include="adm\font-awesome\less\core.less" />
+    <Content Include="adm\font-awesome\less\fixed-width.less" />
+    <Content Include="adm\font-awesome\less\font-awesome.less" />
+    <Content Include="adm\font-awesome\less\icons.less" />
+    <Content Include="adm\font-awesome\less\larger.less" />
+    <Content Include="adm\font-awesome\less\list.less" />
+    <Content Include="adm\font-awesome\less\mixins.less" />
+    <Content Include="adm\font-awesome\less\path.less" />
+    <Content Include="adm\font-awesome\less\rotated-flipped.less" />
+    <Content Include="adm\font-awesome\less\spinning.less" />
+    <Content Include="adm\font-awesome\less\stacked.less" />
+    <Content Include="adm\font-awesome\less\variables.less" />
+    <Content Include="adm\font-awesome\scss\font-awesome.scss" />
+    <Content Include="adm\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="adm\font-awesome\scss\_core.scss" />
+    <Content Include="adm\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="adm\font-awesome\scss\_icons.scss" />
+    <Content Include="adm\font-awesome\scss\_larger.scss" />
+    <Content Include="adm\font-awesome\scss\_list.scss" />
+    <Content Include="adm\font-awesome\scss\_mixins.scss" />
+    <Content Include="adm\font-awesome\scss\_path.scss" />
+    <Content Include="adm\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="adm\font-awesome\scss\_spinning.scss" />
+    <Content Include="adm\font-awesome\scss\_stacked.scss" />
+    <Content Include="adm\font-awesome\scss\_variables.scss" />
+    <Content Include="adm\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="adm\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="adm\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="adm\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="adm\Site.Master" />
     <Content Include="Consultas\MostrarImagen.ashx" />
+    <Content Include="SiteUser.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -282,6 +290,7 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
