@@ -19,37 +19,38 @@
                         </ol>
                     </div>
                     <!-- Componentes -->
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Sala Id:</label>
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">Sala Id:</label>
                         <div class="col-xs-4">
                             <asp:TextBox ID="SalaIdTextBox" class="form-control" runat="server" placeholder="SalaId Id"></asp:TextBox>
                         </div>
                         <asp:Button ID="BuscarButton" runat="server" class="btn btn-info" Text="Buscar" />
                     </div>
 
-                    
-                        <label class="control-label col-xs-3">CineId:</label>
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">CineId:</label>
                         <div class="col-xs-4">
                             <asp:TextBox ID="CineIdTextBox" class="form-control" runat="server" placeholder="Cine Id"></asp:TextBox>
                         </div>
+                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Numero asientos:</label>
+                        <div class="form-group row">
+                            <label class="control-label col-xs-2">Numero asientos:</label>
                             <div class="col-xs-4">
                                 <asp:TextBox ID="MontoTextBox" class="form-control" runat="server" placeholder="Numero Asientos"></asp:TextBox>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Descripcion:</label>
+                        <div class="form-group row">
+                            <label class="control-label col-xs-2">Descripcion:</label>
                             <div class="col-xs-4">
                                 <asp:TextBox ID="DescripcionTextBox" class="form-control" runat="server" placeholder="Descripcion"></asp:TextBox>
                             </div>
                         </div>
 
 
-                        <div class="form-group">
-                        <div class="col-xs-offset-3 col-xs-9">
+                        <div class="form-group row">
+                        <div class="col-xs-offset-2 col-xs-9">
                             <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" />
                             <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" />
                             <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" />
