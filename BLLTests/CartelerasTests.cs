@@ -13,25 +13,32 @@ namespace BLL.Tests
         [TestMethod()]
         public void CartelerasTest()
         {
-            Assert.Fail();
+            
         }
 
         [TestMethod()]
         public void InsertarTest()
         {
-            Assert.Fail();
+            Carteleras cartelera = new Carteleras();
+            cartelera.PeliculaId = 0;
+            Assert.IsTrue(cartelera.Insertar());
         }
 
         [TestMethod()]
         public void EditarTest()
         {
-            Assert.Fail();
+            Carteleras cartelera = new Carteleras();
+            cartelera.CarteleraId = 1;
+            cartelera.PeliculaId = 1;
+            Assert.IsTrue(cartelera.Editar());
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            Carteleras cartelera = new Carteleras();
+            cartelera.CarteleraId = 1;
+            Assert.IsTrue(cartelera.Editar());
         }
 
         [TestMethod()]

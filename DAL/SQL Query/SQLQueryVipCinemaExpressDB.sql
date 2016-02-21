@@ -32,6 +32,8 @@ create table Peliculas(
 			Imagen image,
 			Video varchar(300)
 )
+insert into Peliculas(Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Video) values('asdf', 'dsfgw', 'Espanor', 1, 'Guancho', 'Pepe, Yano, Haron', 0, '254521', '5465', 'sd/D')
+select *from Peliculas
 
 create table Carteleras(
 			CarteleraId int primary key identity,
