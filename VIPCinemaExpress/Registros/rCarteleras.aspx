@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rCarteleras.aspx.cs" Inherits="VIPCinemaExpress.Registros.rCarteleras" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adm/Site.Master" AutoEventWireup="true" CodeBehind="rCarteleras.aspx.cs" Inherits="VIPCinemaExpress.Registros.rCarteleras" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

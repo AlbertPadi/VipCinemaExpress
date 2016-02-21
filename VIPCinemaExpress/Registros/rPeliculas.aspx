@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="rPeliculas.aspx.cs" Inherits="VIPCinemaExpress.Registros.rPeliculas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adm/Site.Master" AutoEventWireup="true" CodeBehind="rPeliculas.aspx.cs" Inherits="VIPCinemaExpress.Registros.rPeliculas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,11 +10,11 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Cambiar este Texto <small>Cambiar este texto tambien.</small>
+                        <h1 class="page-header">Vip Cinema Express <small>Registro Peliculas</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i>Cambiar este Texto
+                                <i class="fa fa-dashboard"></i>Registre peliculas desde este formulario
                               
                             </li>
                         </ol>
