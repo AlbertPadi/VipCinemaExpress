@@ -148,6 +148,7 @@
     <Content Include="js\plugins\morris\morris.min.js" />
     <Content Include="js\plugins\morris\raphael.min.js" />
     <Content Include="Registros\rReservaciones.aspx" />
+    <Content Include="Registros\rSalas.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="Registros\rReservaciones.aspx.designer.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rSalas.aspx.cs">
+      <DependentUpon>rSalas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rSalas.aspx.designer.cs">
+      <DependentUpon>rSalas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
