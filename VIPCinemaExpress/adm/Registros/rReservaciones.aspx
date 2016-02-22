@@ -78,7 +78,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
                             <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" />
-                            <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" />
+                            <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
                             <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" />
                         </div>
                     </div>

@@ -18,5 +18,10 @@ namespace VIPCinemaExpress.adm.Registros
         {
             
         }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

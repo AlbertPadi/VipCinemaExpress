@@ -1,123 +1,260 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-Template Name: Ost Magazine
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteUser.master.cs" Inherits="VIPCinemaExpress.SiteUser" %>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Ost Magazine</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
-<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-<script type="text/javascript" src="layout/scripts/jquery.cycle.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    $('#featured_slide').after('<div id="fsn"><ul id="fs_pagination">').cycle({
-        timeout: 5000,
-        fx: 'fade',
-        pager: '#fs_pagination',
-        pause: 1,
-        pauseOnPagerHover: 0
-    });
-});
-</script>
-      <asp:ContentPlaceHolder ID="head" runat="server">
+
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>GotYA FREE BOOTSTRAP THEME by BootstrapMaster</title> 
+	<meta name="description" content="GotYa Free Bootstrap Theme"/>
+	<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+	<meta name="author" content="Łukasz Holeczek from creativeLabs"/>
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: Facebook Open Graph -->
+	<meta property="og:title" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<!-- end: Facebook Open Graph -->
+
+    <!-- start: CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+	<!-- end: CSS -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body id="top">
-    <form runat="server">
-<div class="wrapper col0">
-  <div id="topline">
-    <ul>
-      <li><a href="#">Libero</a></li>
-      <li><a href="#">Maecenas</a></li>
-      <li><a href="#">Mauris</a></li>
-      <li class="last"><a href="#">Suspendisse</a></li>
-    </ul>
-    <div id="search">
-      <form action="#" method="post">
-        <fieldset>
-          <legend>Site Search</legend>
-          <input type="text" value="Search Our Website&hellip;"  onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-          <input type="submit" name="go" id="go" value="Search" />
-        </fieldset>
-      </form>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper col1">
-  <div id="header">
-    <div id="topnav">
-      <ul>
-        <li class="last"><a href="#">Link text</a><span>Test Text Here</span></li>
-        <li><a href="#">DropDown</a><span>Test Text Here</span>
-          <ul>
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-          </ul>
-        </li>
-        <li><a href="pages/full-width.html">Full Width</a><span>Test Text Here</span></li>
-        <li><a href="pages/style-demo.html">Style Demo</a><span>Test Text Here</span></li>
-        <li class="active"><a href="index.html">Homepage</a><span>Test Text Here</span></li>
-      </ul>
-    </div>
-    <div id="logo">
-      <h1><a href="index.html"><strong>O</strong>st <strong>M</strong>agazine</a></h1>
-      <p>Free Website Template</p>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-<!-- ####################################################################################################### -->
-<div class="wrapper col2">
-  <div id="featured_slide">
-    <div class="featured_box">
-      <div class="floater">
-        <h2>1. Aliquatjusto quisque nam</h2>
-        <p>Orcimagna rhoncus et a nec antesque sed temportor pellus nibh conseque. Accumstsemper wisi pretium feugiat non ut eleifendrerisque at et condisse sce.</p>
-      </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="images/demo/930x375.gif" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>2. Aliquatjusto quisque nam</h2>
-        <p>Duisvest lacus pellus purus temper maurisus et sodalesuada loreet sapiente et. Quissociis magnisl orci dui nulla ut antesque malesuada sed pede et.</p>
-      </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="images/demo/930x375.gif" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>3. Dapiensociis temper donec</h2>
-        <p>Pharetiumurna habitur et enim pellentesque phasellus aliquam nunc quis justo nam. Lobortororci dapibulum ac intesquet ut id sed intesque nec alique.</p>
-      </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="images/demo/930x375.gif" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>4. Dapiensociis temper donec</h2>
-        <p>Pharetiumurna habitur et enim pellentesque phasellus aliquam nunc quis justo nam. Lobortororci dapibulum ac intesquet ut id sed intesque nec alique.</p>
-      </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="images/demo/930x375.gif" alt="" /> </div>
-    <div class="featured_box">
-      <div class="floater">
-        <h2>5. Nullain convallis ris elis</h2>
-        <p>Nullamcorpervivamus nisl in sed adipit donec feugiat lor vel velit volutpat. Wisihabitur diculisi ac curabitur cursuspendreris sociis sed eger ipsum.</p>
-      </div>
-      <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      <img src="images/demo/930x375.gif" alt="" /> </div>
-  </div>
-</div>
+<body>
+	<form id="form1" runat="server">
+	<!--start: Header -->
+	<header>
+		
+		<!--start: Container -->
+		<div class="container">
+			
+			<!--start: Row -->
+			<div class="row">
+					
+				<!--start: Logo -->
+				<div class="logo span3">
+						
+					<a class="brand" href="#"><img src="img/logo.png" alt="Logo"></a>
+						
+				</div>
+				<!--end: Logo -->
+					
+				<!--start: Navigation -->
+				<div class="span9">
+					
+					<div class="navbar navbar-inverse">
+			    		<div class="navbar-inner">
+			          		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			          		</a>
+			          		<div class="nav-collapse collapse">
+			            		<ul class="nav">
+			              			<li class="active"><a href="Default.aspx">Home</a></li>
+			              			<li><a href="about.html">About</a></li>
+									<li><a href="services.html">Services</a></li>
+									<li><a href="pricing.html">Pricing</a></li>
+			              			<li><a href="contact.html">Contact</a></li>
+			              			<li class="dropdown">
+			                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+			                			<ul class="dropdown-menu">
+			                  				<li><a href="#">Action</a></li>
+			                  				<li><a href="#">Another action</a></li>
+			                  				<li><a href="#">Something else here</a></li>
+			                  				<li class="divider"></li>
+			                  				<li class="nav-header">Nav header</li>
+			                  				<li><a href="#">Separated link</a></li>
+			                  				<li><a href="#">One more separated link</a></li>
+			                			</ul>
+			              			</li>
+			            		</ul>
+			          		</div>
+			        	</div>
+			      	</div>
+					
+				</div>	
+				<!--end: Navigation -->
+					
+			</div>
+			<!--end: Row -->
+			
+		</div>
+		<!--end: Container-->			
+			
+	</header>
+	<!--end: Header-->
+	
+
+    
+    <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-
+    </div>
     </form>
+	<!-- start: Footer -->
+	<div id="footer">
+		
+		<!-- start: Container -->
+		<div class="container">
+			
+			<!-- start: Row -->
+			<div class="row">
+
+				<!-- start: About -->
+				<div class="span3">
+					
+					<h3>About Us</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+					</p>
+						
+				</div>
+				<!-- end: About -->
+
+				<!-- start: Photo Stream -->
+				<div class="span3">
+					
+					<h3>We are here!</h3>
+					<div id="small-map-container"><a href="contact.html"></a></div>
+					<iframe id="small-map" width="210" height="210" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;aq=0&amp;oq=Los&amp;sll=50.143066,18.85267&amp;sspn=0.057207,0.168915&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Los+Angeles,+Hrabstwo+Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;ll=34.052234,-118.243685&amp;spn=0.036979,0.084457&amp;z=14&amp;iwloc=near&amp;output=embed"></iframe>
+					
+				</div>
+				<!-- end: Photo Stream -->
+
+				<div class="span6">
+				
+					<!-- start: Follow Us -->
+					<h3>Follow Us!</h3>
+					<ul class="social-grid">
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-twitter">
+											<a href="http://twitter.com"></a>
+										</div>
+										<div class="social-info-back social-twitter-hover">
+											<a href="http://twitter.com"></a>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-facebook">
+											<a href="http://facebook.com"></a>
+										</div>
+										<div class="social-info-back social-facebook-hover">
+											<a href="http://facebook.com"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-dribbble">
+											<a href="http://dribbble.com"></a>
+										</div>
+										<div class="social-info-back social-dribbble-hover">
+											<a href="http://dribbble.com"></a>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-flickr">
+											<a href="http://flickr.com"></a>
+										</div>
+										<div class="social-info-back social-flickr-hover">
+											<a href="http://flickr.com"></a>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- end: Follow Us -->
+				
+					<!-- start: Newsletter -->
+					<form id="newsletter">
+						<h3>Newsletter</h3>
+						<p>Please leave us your email</p>
+						<label for="newsletter_input">@:</label>
+						<input type="text" id="newsletter_input"/>
+						<input type="submit" id="newsletter_submit" value="submit">
+					</form>
+					<!-- end: Newsletter -->
+				
+				</div>
+				
+			</div>
+			<!-- end: Row -->	
+			
+		</div>
+		<!-- end: Container  -->
+
+	</div>
+	<!-- end: Footer -->
+
+	<!-- start: Copyright -->
+	<div id="copyright">
+	
+		<!-- start: Container -->
+		<div class="container">
+		
+			<p>
+				&copy; 2013, creativeLabs. <a href="http://bootstrapmaster.com" alt="Bootstrap Themes">Bootstrap Themes</a> designed by BootstrapMaster in Poland <img src="img/poland2.png" alt="Poland" style="margin-top:-4px">
+			</p>
+	
+		</div>
+		<!-- end: Container  -->
+		
+	</div>	
+	<!-- end: Copyright -->
+
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-1.8.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/flexslider.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/jquery.cslider.js"></script>
+<script src="js/slider.js"></script>
+<script defer="defer" src="js/custom.js"></script>
+<!-- end: Java Script -->
+
 </body>
 </html>
