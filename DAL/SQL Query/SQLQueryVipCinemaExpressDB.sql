@@ -51,7 +51,7 @@ create table Usuarios(
 			Usuario varchar(40),
 			Contrasena varchar(30)
 )
-
+select * from Usuarios
 create table Reservaciones(
 			ReservacionId int primary key identity,
 			CineId int References Cines(CineId),

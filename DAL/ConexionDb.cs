@@ -19,7 +19,7 @@ namespace DAL
         public ConexionDb()
         {
 
-              con = new SqlConnection(ConfigurationManager.ConnectionStrings["VipCinemaExpressDB"].ConnectionString);
+              con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString);
               //con = new SqlConnection(@"Data Source=DESKTOP-4C3B5SF\SQLEXPRESS;Initial Catalog=VipCinemaExpressDB;Integrated Security=True");
               Cmd = new SqlCommand();
 

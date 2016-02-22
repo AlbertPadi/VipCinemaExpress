@@ -35,7 +35,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direcccion, Telefono, Celular, Email, Usuario, Contrasena) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena));
+            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direccion, Telefono, Celular, Email, Usuario, Contrasena) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena));
             return retorno;
         }
 
