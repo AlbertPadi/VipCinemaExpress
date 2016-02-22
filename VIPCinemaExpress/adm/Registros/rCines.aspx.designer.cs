@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VIPCinemaExpress.Registros {
+namespace VIPCinemaExpress.adm.Registros {
     
     
-    public partial class rPeliculas {
+    public partial class rCines {
         
         /// <summary>
-        /// PeliculaIdTextBox control.
+        /// CineIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PeliculaIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CineIdTextBox;
         
         /// <summary>
         /// BuscarButton control.
@@ -31,85 +31,49 @@ namespace VIPCinemaExpress.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// ClasificaiconTextBox control.
+        /// NombreTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ClasificaiconTextBox;
+        protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
         
         /// <summary>
-        /// IdiomaDropDownList control.
+        /// CiudadTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList IdiomaDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox CiudadTextBox;
         
         /// <summary>
-        /// IdiomaTextBox control.
+        /// DireccionTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdiomaTextBox;
+        protected global::System.Web.UI.WebControls.TextBox DireccionTextBox;
         
         /// <summary>
-        /// SubtiSiRadioButton control.
+        /// TelefonoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SubtiSiRadioButton;
+        protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
         
         /// <summary>
-        /// SubtiNoRadioButton control.
+        /// EmailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SubtiNoRadioButton;
-        
-        /// <summary>
-        /// DirectorTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DirectorTextBox;
-        
-        /// <summary>
-        /// ActoresTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ActoresTextBox;
-        
-        /// <summary>
-        /// ActivaRadioButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton ActivaRadioButton;
-        
-        /// <summary>
-        /// NoActivaRadioButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton NoActivaRadioButton;
+        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
         
         /// <summary>
         /// NuevoButton control.

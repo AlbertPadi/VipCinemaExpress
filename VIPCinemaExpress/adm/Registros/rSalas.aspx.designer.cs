@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VIPCinemaExpress.Registros {
+namespace VIPCinemaExpress.adm.Registros {
     
     
     public partial class rSalas {

@@ -5,18 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace VIPCinemaExpress.Registros
+namespace VIPCinemaExpress.adm.Registros
 {
-    public partial class rReservaciones : System.Web.UI.Page
+    public partial class rCines : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-        }
 
-        protected void CineIdTextBox_TextChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

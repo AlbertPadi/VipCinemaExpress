@@ -45,6 +45,7 @@
     <Compile Include="Peliculas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservaciones.cs" />
+    <Compile Include="ReservacionesDetalle.cs" />
     <Compile Include="Salas.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>

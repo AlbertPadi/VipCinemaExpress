@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
-namespace VIPCinemaExpress.Registros
+namespace VIPCinemaExpress.adm.Registros
 {
     public partial class rUsuarios : System.Web.UI.Page
     {

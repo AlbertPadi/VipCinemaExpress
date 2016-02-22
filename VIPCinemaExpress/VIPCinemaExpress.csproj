@@ -115,10 +115,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="blank-page.html" />
-    <Content Include="bootstrap-elements.html" />
-    <Content Include="bootstrap-grid.html" />
-    <Content Include="charts.html" />
     <Content Include="adm\css\bootstrap-rtl.css" />
     <Content Include="adm\css\bootstrap-rtl.min.css" />
     <Content Include="adm\css\bootstrap.css" />
@@ -131,9 +127,6 @@
     <Content Include="adm\font-awesome\css\font-awesome.min.css" />
     <Content Include="adm\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="adm\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="forms.html" />
-    <Content Include="index-rtl.html" />
-    <Content Include="index.html" />
     <Content Include="adm\js\bootstrap.js" />
     <Content Include="adm\js\bootstrap.min.js" />
     <Content Include="adm\js\jquery.js" />
@@ -147,16 +140,17 @@
     <Content Include="adm\js\plugins\morris\morris.js" />
     <Content Include="adm\js\plugins\morris\morris.min.js" />
     <Content Include="adm\js\plugins\morris\raphael.min.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="index.html" />
     <Content Include="Login.aspx" />
-    <Content Include="Registros\rCarteleras.aspx" />
-    <Content Include="Registros\rCines.aspx" />
-    <Content Include="Registros\rPeliculas.aspx" />
-    <Content Include="Registros\rReservaciones.aspx" />
-    <Content Include="Registros\rSalas.aspx" />
-    <Content Include="Registros\rUsuarios.aspx" />
+    <Content Include="adm\Registros\rCarteleras.aspx" />
+    <Content Include="adm\Registros\rCines.aspx" />
+    <Content Include="adm\Registros\rPeliculas.aspx" />
+    <Content Include="adm\Registros\rReservaciones.aspx" />
+    <Content Include="adm\Registros\rSalas.aspx" />
+    <Content Include="adm\Registros\rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="tables.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +164,13 @@
     <Compile Include="adm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,46 +179,46 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registros\rCarteleras.aspx.cs">
+    <Compile Include="adm\Registros\rCarteleras.aspx.cs">
       <DependentUpon>rCarteleras.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCarteleras.aspx.designer.cs">
+    <Compile Include="adm\Registros\rCarteleras.aspx.designer.cs">
       <DependentUpon>rCarteleras.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rCines.aspx.cs">
+    <Compile Include="adm\Registros\rCines.aspx.cs">
       <DependentUpon>rCines.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rCines.aspx.designer.cs">
+    <Compile Include="adm\Registros\rCines.aspx.designer.cs">
       <DependentUpon>rCines.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rPeliculas.aspx.cs">
+    <Compile Include="adm\Registros\rPeliculas.aspx.cs">
       <DependentUpon>rPeliculas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rPeliculas.aspx.designer.cs">
+    <Compile Include="adm\Registros\rPeliculas.aspx.designer.cs">
       <DependentUpon>rPeliculas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rReservaciones.aspx.cs">
+    <Compile Include="adm\Registros\rReservaciones.aspx.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rReservaciones.aspx.designer.cs">
+    <Compile Include="adm\Registros\rReservaciones.aspx.designer.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rSalas.aspx.cs">
+    <Compile Include="adm\Registros\rSalas.aspx.cs">
       <DependentUpon>rSalas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rSalas.aspx.designer.cs">
+    <Compile Include="adm\Registros\rSalas.aspx.designer.cs">
       <DependentUpon>rSalas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rUsuarios.aspx.cs">
+    <Compile Include="adm\Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rUsuarios.aspx.designer.cs">
+    <Compile Include="adm\Registros\rUsuarios.aspx.designer.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="adm\Site.Master.cs">
@@ -290,7 +291,11 @@
       <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="layout\" />
+    <Folder Include="pages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
