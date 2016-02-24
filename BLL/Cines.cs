@@ -9,12 +9,13 @@ namespace BLL
     public class Cines : ClaseMaestra
     {
         public int CineId { get; set; }
+        
         public string Nombres { get; set; }
         public string Ciudad { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-
+        public List<Salas> Sala { get; set; }
         public Cines()
         {
             this.CineId = 0;
@@ -23,13 +24,27 @@ namespace BLL
             this.Direccion = "";
             this.Telefono = "";
             this.Email = "";
+            Sala = new List<Salas>();
         }
 
         public override bool Insertar()
         {
             bool retorno = false;
+            StringBuilder comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
             retorno = conexion.Ejecutar(String.Format("Insert into Cines(Nombres, Ciudad, Direccion, Telefono, Email) values('{0}', '{1}', '{2}', '{3}', '{4}')", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email));
+
+            if (retorno)
+            {
+                this.CineId = (int)conexion.ObtenerDatos("Select MAX(CineId) as CineId from Cines").Rows[0]["CineId"];
+                foreach (var sala in Sala)
+                {
+                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId) Values({0})", sala.SalaId));
+                }
+
+                retorno = conexion.Ejecutar(comando.ToString());
+            }
+
             return retorno;
         }
 

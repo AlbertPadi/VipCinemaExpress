@@ -4,6 +4,7 @@ use VipCinemaExpressDB
 
 create table Cines(
 			CineId int primary key identity,
+			SalaId int References Salas(SalaId),
 			Nombre varchar(40),
 			Ciudad varchar(40),
 			Direccion varchar(40),
@@ -11,13 +12,20 @@ create table Cines(
 			Email varchar(40)
 )
 
+drop table Cines
+
 create table Salas(
 			SalaId int primary key identity,
-			CineId int References Cines(CineId),
 			Descripcion varchar(50),
 			NoAsiento int
 )
 
+create table CinesSalasDetalle(
+			CinesSalasId int primary key identity,
+			SalaId int References Salas(SalaId)
+)
+
+drop table Salas
 create table Usuarios(
 			UsuarioId int primary key identity,
 			Nombres varchar(40),
