@@ -27,11 +27,11 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (cines.Insertar())
                 {
-                    Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
                 }
             }
             else
@@ -47,11 +47,11 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (cines.Editar())
                 {
-                    Response.Write("<SCRIPT>'Se han actualizado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Se han actualizado los datos'</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>'Error al actualizar los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Error al actualizar los datos'</SCRIPT>");
                 }
                 
 
@@ -69,16 +69,16 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
             }
 
             if (cines.Eliminar())
             {
-                Response.Write("<SCRIPT>'Se han eliminado los datos'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Se han eliminado los datos'</SCRIPT>");
             }
             else
             {
-                Response.Write("<SCRIPT>'Error al eliminar'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Error al eliminar'</SCRIPT>");
             }
         }
 
@@ -113,7 +113,7 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                Response.Write("<SCRIPT>'Inserte un Id'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Inserte un Id'</SCRIPT>");
             }
             
         }

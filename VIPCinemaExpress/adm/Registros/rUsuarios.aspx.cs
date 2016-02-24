@@ -88,6 +88,10 @@ namespace VIPCinemaExpress.adm.Registros
                     HttpContext.Current.Response.Write("<SCRIPT>alert('Error al eliminar')</SCRIPT>");
                 }
             }
+            else
+            {
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
+            }
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -107,6 +111,10 @@ namespace VIPCinemaExpress.adm.Registros
                 EmailTextBox.Text = usuario.Email;
                 UsuarioTextBox.Text = usuario.Usuario;
                 PassWordTextBox.Text = usuario.Contrasena;
+            }
+            else
+            {
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
             }
         }
 

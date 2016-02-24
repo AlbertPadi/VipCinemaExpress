@@ -31,6 +31,24 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
+        /// NombreTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
+        
+        /// <summary>
+        /// GeneroTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GeneroTextBox;
+        
+        /// <summary>
         /// ClasificaiconTextBox control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox IdiomaTextBox;
+        
+        /// <summary>
+        /// AddIdiomaButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddIdiomaButton;
         
         /// <summary>
         /// SubtiSiRadioButton control.
@@ -110,6 +137,42 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton NoActivaRadioButton;
+        
+        /// <summary>
+        /// FechaInicioTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechaInicioTextBox;
+        
+        /// <summary>
+        /// FechaFinTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechaFinTextBox;
+        
+        /// <summary>
+        /// PrecioTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
+        
+        /// <summary>
+        /// VideoFileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload VideoFileUpload;
         
         /// <summary>
         /// NuevoButton control.

@@ -17,34 +17,32 @@ namespace VIPCinemaExpress.adm.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Carteleras cartelera = new Carteleras();
-            int peliculaId;
-            peliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
+            
             if (CarteleraIdTextBox.Text.Length < 0)
             {
-                cartelera.PeliculaId = peliculaId;
+                cartelera.PeliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
                 if (cartelera.Insertar())
                 {
-                    Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
                 }
             }
             else
             {
-                int carteleraId;
-                carteleraId = Convert.ToInt32(CarteleraIdTextBox.Text);
-                cartelera.CarteleraId = carteleraId;
-                peliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
+                
+                
+                cartelera.CarteleraId = Convert.ToInt32(CarteleraIdTextBox.Text);
 
                 if (cartelera.Editar())
                 {
-                    Response.Write("<SCRIPT>'Se han editado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Se han editado los datos'</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>'Error al actualizar'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>'Error al actualizar'</SCRIPT>");
                 }
 
             }
@@ -52,25 +50,24 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            int carteleraId;
             Carteleras cartelera = new Carteleras();
-            carteleraId = Convert.ToInt32(CarteleraIdTextBox.Text);
+            
             if (CarteleraIdTextBox.Text.Length > 0)
             {
-                cartelera.CarteleraId = carteleraId;
+                cartelera.CarteleraId = Convert.ToInt32(CarteleraIdTextBox.Text);
             }
             else
             {
-                Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
             }
 
             if (cartelera.Eliminar())
             {
-                Response.Write("<SCRIPT>'Se eliminaron los datos'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Se eliminaron los datos'</SCRIPT>");
             }
             else
             {
-                Response.Write("<SCRIPT>'No se e=han eliminado los datos'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'No se e=han eliminado los datos'</SCRIPT>");
             }
 
         }
@@ -91,7 +88,7 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
             }
 
             

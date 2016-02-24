@@ -27,8 +27,23 @@
                             <asp:TextBox ID="PeliculaIdTextBox" class="form-control" runat="server" placeholder="Pelicula Id"></asp:TextBox>
                             
                         </div>
-                        <div class="row col-xs-4">
-                            <asp:Button ID="BuscarButton" runat="server" class="btn btn-info" Text="Buscar" />
+
+                        <div class="row col-xs-6">
+                            <asp:Button ID="BuscarButton" runat="server" class="btn btn-info" Text="Buscar" OnClick="BuscarButton_Click" Width="84px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">Nombre:</label>
+                        <div class="col-xs-3">
+                            <asp:TextBox ID="NombreTextBox" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">Genero:</label>
+                        <div class="col-xs-3">
+                            <asp:TextBox ID="GeneroTextBox" class="form-control" runat="server" placeholder="Genero"></asp:TextBox>
                         </div>
                     </div>
 
@@ -41,11 +56,21 @@
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Idioma:</label>
-                        <div class="col-xs-9">
-                            <asp:DropDownList ID="IdiomaDropDownList" runat="server"></asp:DropDownList>
+                        <div class="col-xs-3">
+                            <asp:DropDownList ID="IdiomaDropDownList" runat="server">
+                                <asp:ListItem>Ingles</asp:ListItem>
+                                <asp:ListItem>Español latino</asp:ListItem>
+                                <asp:ListItem>Mandarin</asp:ListItem>
+                                <asp:ListItem>Castellano</asp:ListItem>
+                                <asp:ListItem>Portugues</asp:ListItem>
+                                <asp:ListItem>Frances</asp:ListItem>
+                                <asp:ListItem>Alemán</asp:ListItem>
+                            </asp:DropDownList>
                             <asp:TextBox ID="IdiomaTextBox" class="form-control" runat="server" placeholder="Idioma"></asp:TextBox>
                         </div>
+                        <asp:Button ID="AddIdiomaButton" class="btn btn-info" runat="server" Text="Add" Width="84px" OnClick="AddIdiomaButton_Click"></asp:Button>
                     </div>
+                    
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Subtitulo:</label>
@@ -64,7 +89,7 @@
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Actores:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="ActoresTextBox" class="form-control" runat="server" placeholder="Actores"></asp:TextBox>
+                            <asp:TextBox ID="ActoresTextBox" class="form-control" runat="server" placeholder="Actores" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
 
@@ -77,10 +102,38 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="control-label col-xs-2">Fecha inicio:</label>
+                        <div class="col-xs-9">
+                            <asp:TextBox ID="FechaInicioTextBox" TextMode="DateTime" class="form-control" runat="server" ></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">Fecha fin:</label>
+                        <div class="col-xs-9">
+                            <asp:TextBox ID="FechaFinTextBox"  class="form-control" runat="server" TextMode="DateTime" ></asp:TextBox>
+                        </div>
+                    </div>
+
+                        <div class="form-group row">
+                        <label class="control-label col-xs-2">Precio:</label>
+                        <div class="col-xs-9">
+                            <asp:TextBox ID="PrecioTextBox"  class="form-control" placeholder="Precio" runat="server" ></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-xs-2">Vidoe:</label>
+                        <div class="col-xs-9">
+                            <asp:FileUpload ID="VideoFileUpload" class="form-control" placeholder="Video" runat="server" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <div class="col-xs-offset-2 col-xs-9">
-                            <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" />
-                            <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" />
-                            <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" />
+                            <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
+                            <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                            <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                         </div>
                     </div>
 

@@ -29,11 +29,11 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (sala.Insertar())
                 {
-                    Response.Write("<SCRIPT>alert('Se han guardado los datos')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han guardado los datos')</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>alert('Error al guardar')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al guardar')</SCRIPT>");
                 }
 
             }
@@ -50,11 +50,11 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (sala.Editar())
                 {
-                    Response.Write("<SCRIPT>alert('Se han actualizado los datos')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han actualizado los datos')</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>alert('Error al actualizar')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al actualizar')</SCRIPT>");
                 }
 
             }
@@ -71,16 +71,16 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (sala.Eliminar())
                 {
-                    Response.Write("<SCRIPT>alert('Se han eliminado los datos')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han eliminado los datos')</SCRIPT>");
                 }
                 else
                 {
-                    Response.Write("<SCRIPT>alert('Error al eliminar')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al eliminar')</SCRIPT>");
                 }
             }
             else
             {
-                Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
             }
         }
 
@@ -104,6 +104,10 @@ namespace VIPCinemaExpress.adm.Registros
                 NoAsientoTextBox.Text = sala.NoAsiento.ToString();
                 DescripcionTextBox.Text = sala.Descripcion.ToString();
 
+            }
+            else
+            {
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
             }
         }
     }
