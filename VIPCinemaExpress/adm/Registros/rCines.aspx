@@ -28,6 +28,16 @@
                     </div>
 
                     <div class="form-group row">
+                        <label class="control-label col-xs-2">Salas:</label>
+                        <div class="col-xs-6">
+                            <asp:DropDownList ID="SalasDropDownList" runat="server"></asp:DropDownList>
+                        </div>
+                        <asp:ListBox ID="SalasListBox" runat="server"></asp:ListBox>
+                        <asp:Button ID="AddSalasButton" class="btn btn-info" runat="server" Text="Add" OnClick="AddSalasButton_Click" />
+                    </div>
+                    
+
+                    <div class="form-group row">
                         <label class="control-label col-xs-2">Nombre:</label>
                         <div class="col-xs-6">
                             <asp:TextBox ID="NombreTextBox" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>

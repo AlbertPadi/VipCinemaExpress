@@ -27,12 +27,16 @@ namespace BLL
             Sala = new List<Salas>();
         }
 
+        public void AgregarSalas(int SalaId)
+        {
+            this.Sala.Add(new Salas(SalaId));
+        }
         public override bool Insertar()
         {
             bool retorno = false;
             StringBuilder comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Cines(Nombres, Ciudad, Direccion, Telefono, Email) values('{0}', '{1}', '{2}', '{3}', '{4}')", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email));
+            retorno = conexion.Ejecutar(String.Format("Insert into Cines(Nombre, Ciudad, Direccion, Telefono, Email) values('{0}', '{1}', '{2}', '{3}', '{4}')", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email));
 
             if (retorno)
             {

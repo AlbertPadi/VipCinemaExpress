@@ -20,7 +20,10 @@ namespace BLL
             this.Descripcion = "";
             this.NoAsiento = 0;
         }
-
+        public Salas(int salaId)
+        {
+            this.SalaId = salaId;
+        }
         public override bool Insertar()
         {
             bool retorno = false;

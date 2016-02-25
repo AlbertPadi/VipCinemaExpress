@@ -14,16 +14,20 @@ create table Cines(
 
 drop table Cines
 
+select *from Cines
+
 create table Salas(
 			SalaId int primary key identity,
 			Descripcion varchar(50),
 			NoAsiento int
 )
 
+
 create table CinesSalasDetalle(
 			CinesSalasId int primary key identity,
 			SalaId int References Salas(SalaId)
 )
+select *from CinesSalasDetalle
 
 drop table Salas
 create table Usuarios(

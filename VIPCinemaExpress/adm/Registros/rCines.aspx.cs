@@ -11,20 +11,36 @@ namespace VIPCinemaExpress.adm.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Salas sala = new Salas();
+                SalasDropDownList.DataSource = sala.Listado(" * ", "1=1", "");
+                SalasDropDownList.DataTextField = "Descripcion";
+                SalasDropDownList.DataValueField = "SalaId";
+                SalasDropDownList.DataBind();
+            }
+        }
 
+        protected void AddSalasButton_Click(object sender, EventArgs e)
+        {
+            SalasListBox.Items.Add(SalasDropDownList.Text);
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Cines cines = new Cines();
-            if (CineIdTextBox.Text.Length < 0)
+            int Id = Convert.ToInt32(SalasDropDownList.SelectedValue);
+            if (CineIdTextBox.Text.Length <= 0)
             {
                 cines.Nombres = NombreTextBox.Text;
                 cines.Ciudad = CiudadTextBox.Text;
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-
+                for (int i = 0; i < SalasListBox.Items.Count; i++)
+                {
+                    cines.AgregarSalas(Id);
+                }
                 if (cines.Insertar())
                 {
                     HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
@@ -34,7 +50,7 @@ namespace VIPCinemaExpress.adm.Registros
                     HttpContext.Current.Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
                 }
             }
-            else
+            else if(CineIdTextBox.Text.Length > 0)
             {
                 int cineId;
                 cineId = Convert.ToInt32(CineIdTextBox.Text);
@@ -90,6 +106,7 @@ namespace VIPCinemaExpress.adm.Registros
             TelefonoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
+            SalasListBox.Text = string.Empty;
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -117,5 +134,7 @@ namespace VIPCinemaExpress.adm.Registros
             }
             
         }
+
+        
     }
     }
