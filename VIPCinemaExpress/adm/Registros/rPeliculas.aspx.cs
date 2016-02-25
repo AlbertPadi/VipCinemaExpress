@@ -50,6 +50,7 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.FechaInicio = Convert.ToDateTime(FechaInicioTextBox.Text);
                 pelicula.FechaFin = Convert.ToDateTime(FechaFinTextBox.Text);
                 pelicula.Precio = Convert.ToDouble(PrecioTextBox.Text);
+                pelicula.Imagen = ImagenFileUpload.ToString();
                 pelicula.Video = VideoFileUpload.ToString();
 
                 if (pelicula.Insertar())
@@ -92,6 +93,7 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.FechaInicio = Convert.ToDateTime(FechaInicioTextBox.Text);
                 pelicula.FechaFin = Convert.ToDateTime(FechaFinTextBox.Text);
                 pelicula.Precio = Convert.ToDouble(PrecioTextBox.Text);
+                pelicula.Imagen = ImagenFileUpload.ToString();
                 pelicula.Video = VideoFileUpload.ToString();
 
                 if (pelicula.Insertar())
@@ -162,6 +164,7 @@ namespace VIPCinemaExpress.adm.Registros
                 GeneroTextBox.Text = pelicula.Genero;
                 ClasificaiconTextBox.Text = pelicula.Clasificacion;
                 IdiomaTextBox.Text = pelicula.Idioma;
+                //ImagenFileUpload = pelicula.Imagen;
                 if (pelicula.Subtitulo == 1)
                 {
                     SubtiSiRadioButton.Checked = true;
