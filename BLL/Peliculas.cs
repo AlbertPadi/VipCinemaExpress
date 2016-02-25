@@ -20,6 +20,7 @@ namespace BLL
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
         public double Precio { get; set; }
+        public string Imagen { get; set; }
         public string Video { get; set; }
 
         public Peliculas()
@@ -35,6 +36,7 @@ namespace BLL
             this.FechaInicio = DateTime.Now;
             this.FechaFin = DateTime.Now;
             this.Precio = 0;
+            this.Imagen = "";
             this.Video = "";
         }
 
@@ -42,7 +44,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Precio, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', {10}, '{11}')", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Video));
+            retorno = conexion.Ejecutar(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', {10}, '{11}', {12})", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Imagen, this.Video));
             return retorno;
             
         }
@@ -51,7 +53,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Peliculas set Nombre = '{0}', Genero = '{1}', Clasificacion = '{2}', Idioma = '{3}', Subtitulo = {4}, Director ='{5}', Actores = '{6}', Activa = {7}, FechaInicio = '{8}', FechaFin = '{9}', Precio = {10}, Video = '{11}' where PeliculaId = {12}", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Video, this.PeliculaId));
+            retorno = conexion.Ejecutar(String.Format("Update Peliculas set Nombre = '{0}', Genero = '{1}', Clasificacion = '{2}', Idioma = '{3}', Subtitulo = {4}, Director ='{5}', Actores = '{6}', Activa = {7}, FechaInicio = '{8}', FechaFin = '{9}', Precio = {10}, Imagen = '{11}' Video = '{12}' where PeliculaId = {13}", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Imagen, this.Video, this.PeliculaId));
             return retorno;
         }
 
@@ -82,6 +84,7 @@ namespace BLL
                 this.FechaInicio = (DateTime)dt.Rows[0]["FechaInicio"];
                 this.FechaFin = (DateTime)dt.Rows[0]["FechaFin"];
                 this.Precio = (double)dt.Rows[0]["Precio"];
+                this.Imagen = dt.Rows[0]["Imagen"].ToString();
                 this.Video = dt.Rows[0]["Video"].ToString();
             }
 

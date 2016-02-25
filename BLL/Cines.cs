@@ -55,8 +55,20 @@ namespace BLL
         public override bool Editar()
         {
             bool retorno = false;
+            StringBuilder comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
             retorno = conexion.Ejecutar(String.Format("Update Cines set Nombres = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}' where CineId = {5}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CineId));
+            if (retorno)
+            {
+                conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle wherer CineId = " + this.CineId));
+
+                foreach (var sala in Sala)
+                {
+                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId) Values({0)", sala.SalaId));
+                }
+
+                retorno = conexion.Ejecutar(comando.ToString());
+            }
             return retorno;
         }
 
