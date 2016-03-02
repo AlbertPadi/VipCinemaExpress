@@ -29,6 +29,7 @@ namespace VIPCinemaExpress.adm.Registros
             TelefonoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
+            SalasListBox.Text = string.Empty;
             
         }
         protected void AddSalasButton_Click(object sender, EventArgs e)
@@ -53,12 +54,12 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 if (cines.Insertar())
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han guardado los datos')</SCRIPT>");
                     Limpiar();
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al guardar los datos')</SCRIPT>");
                 }
             }
             else if(CineIdTextBox.Text.Length > 0)
@@ -77,12 +78,12 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 if (cines.Editar())
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Se han actualizado los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han actualizado los datos')</SCRIPT>");
                     Limpiar();
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Error al actualizar los datos'</SCRIPT>");
+                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al actualizar los datos')</SCRIPT>");
                 }
                 
 
@@ -100,16 +101,17 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
+
             }
 
             if (cines.Eliminar())
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Se han eliminado los datos'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Se han eliminado los datos')</SCRIPT>");
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Error al eliminar'</SCRIPT>");
+                HttpContext.Current.Response.Write("<SCRIPT>alert('Error al eliminar los datos')</SCRIPT>");
             }
         }
 
