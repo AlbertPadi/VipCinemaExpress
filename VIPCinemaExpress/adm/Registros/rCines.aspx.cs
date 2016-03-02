@@ -21,6 +21,16 @@ namespace VIPCinemaExpress.adm.Registros
             }
         }
 
+        public void Limpiar()
+        {
+            CineIdTextBox.Text = string.Empty;
+            NombreTextBox.Text = string.Empty;
+            CiudadTextBox.Text = string.Empty;
+            TelefonoTextBox.Text = string.Empty;
+            DireccionTextBox.Text = string.Empty;
+            EmailTextBox.Text = string.Empty;
+            
+        }
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
             SalasListBox.Items.Add(SalasDropDownList.Text);
@@ -44,6 +54,7 @@ namespace VIPCinemaExpress.adm.Registros
                 if (cines.Insertar())
                 {
                     HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
+                    Limpiar();
                 }
                 else
                 {
@@ -60,10 +71,14 @@ namespace VIPCinemaExpress.adm.Registros
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-
+                for (int i = 0; i < SalasListBox.Items.Count; i++)
+                {
+                    cines.AgregarSalas(Id);
+                }
                 if (cines.Editar())
                 {
                     HttpContext.Current.Response.Write("<SCRIPT>'Se han actualizado los datos'</SCRIPT>");
+                    Limpiar();
                 }
                 else
                 {
@@ -100,13 +115,7 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-            CineIdTextBox.Text = string.Empty;
-            NombreTextBox.Text = string.Empty;
-            CiudadTextBox.Text = string.Empty;
-            TelefonoTextBox.Text = string.Empty;
-            DireccionTextBox.Text = string.Empty;
-            EmailTextBox.Text = string.Empty;
-            SalasListBox.Text = string.Empty;
+            Limpiar();
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -123,7 +132,7 @@ namespace VIPCinemaExpress.adm.Registros
 
                     NombreTextBox.Text = cines.Nombres;
                     CiudadTextBox.Text = cines.Ciudad;
-                    TelefonoTextBox.Text = cines.Direccion;
+                    TelefonoTextBox.Text = cines.Telefono;
                     DireccionTextBox.Text = cines.Direccion;
                     EmailTextBox.Text = cines.Email;
                 }

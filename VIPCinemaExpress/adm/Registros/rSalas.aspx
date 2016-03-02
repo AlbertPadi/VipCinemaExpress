@@ -28,13 +28,6 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="control-label col-xs-2">CineId:</label>
-                        <div class="col-xs-4">
-                            <asp:TextBox ID="CineIdTextBox" class="form-control" runat="server" placeholder="Cine Id"></asp:TextBox>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
                         <label class="control-label col-xs-2">Numero asientos:</label>
                         <div class="col-xs-4">
                             <asp:TextBox ID="NoAsientoTextBox" class="form-control" runat="server" placeholder="Numero Asientos"></asp:TextBox>

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cines.cs" />
+    <Compile Include="CinesSalasDetalle.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Carteleras.cs" />
     <Compile Include="Peliculas.cs" />

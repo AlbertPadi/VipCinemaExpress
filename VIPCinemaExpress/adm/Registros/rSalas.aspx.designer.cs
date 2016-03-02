@@ -31,15 +31,6 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// CineIdTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CineIdTextBox;
-        
-        /// <summary>
         /// NoAsientoTextBox control.
         /// </summary>
         /// <remarks>

@@ -15,7 +15,7 @@ namespace BLL
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-        public List<Salas> Sala { get; set; }
+        public List<CinesSalasDetalle> Sala { get; set; }
         public Cines()
         {
             this.CineId = 0;
@@ -24,13 +24,23 @@ namespace BLL
             this.Direccion = "";
             this.Telefono = "";
             this.Email = "";
-            Sala = new List<Salas>();
+            Sala = new List<CinesSalasDetalle>();
         }
 
         public void AgregarSalas(int SalaId)
         {
-            this.Sala.Add(new Salas(SalaId));
+            this.Sala.Add(new CinesSalasDetalle(SalaId));
         }
+
+         public DataTable getSalas(string select)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            dt = conexion.ObtenerDatos(select);
+            return dt;
+            
+        }
+
         public override bool Insertar()
         {
             bool retorno = false;
@@ -43,7 +53,7 @@ namespace BLL
                 this.CineId = (int)conexion.ObtenerDatos("Select MAX(CineId) as CineId from Cines").Rows[0]["CineId"];
                 foreach (var sala in Sala)
                 {
-                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId) Values({0})", sala.SalaId));
+                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId, CineId) Values({0}, {1})", sala.SalaId, this.CineId));
                 }
 
                 retorno = conexion.Ejecutar(comando.ToString());
@@ -57,10 +67,10 @@ namespace BLL
             bool retorno = false;
             StringBuilder comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Cines set Nombres = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}' where CineId = {5}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CineId));
+            retorno = conexion.Ejecutar(String.Format("Update Cines set Nombre = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}' where CineId = {5}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CineId));
             if (retorno)
             {
-                conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle wherer CineId = " + this.CineId));
+                conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle where CineId = " + this.CineId));
 
                 foreach (var sala in Sala)
                 {
@@ -76,22 +86,25 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete from Cines wehre CineId = {0}", this.CineId));
+            retorno = conexion.Ejecutar(String.Format("Delete from Cines where CineId = {0}" +this.CineId +";"
+                    + "Delete from CinesSalasDetalle where CineId = " + this.CineId));
             return retorno;
         }
         public override bool Buscar(int IdBuscado)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(String.Format("Select * from Cines where CineId = '{0}'", IdBuscado));
+            DataTable dtCinesSalas = new DataTable();
+            dt = conexion.ObtenerDatos(String.Format("Select * from Cines Where CineId = '{0}'", IdBuscado));
 
             if (dt.Rows.Count > 0)
             {
-                this.Nombres = dt.Rows[0]["Nombres"].ToString();
+                this.Nombres = dt.Rows[0]["Nombre"].ToString();
                 this.Ciudad = dt.Rows[0]["Ciudad"].ToString();
                 this.Direccion = dt.Rows[0]["Direccion"].ToString();
                 this.Telefono = dt.Rows[0]["Telefono"].ToString();
                 this.Email = dt.Rows[0]["Email"].ToString();
+
             }
 
             return dt.Rows.Count > 0;

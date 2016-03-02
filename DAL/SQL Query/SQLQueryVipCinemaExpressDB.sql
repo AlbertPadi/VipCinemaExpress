@@ -4,32 +4,33 @@ use VipCinemaExpressDB
 
 create table Cines(
 			CineId int primary key identity,
-			SalaId int References Salas(SalaId),
 			Nombre varchar(40),
 			Ciudad varchar(40),
 			Direccion varchar(40),
 			Telefono varchar(20),
 			Email varchar(40)
 )
-
-drop table Cines
-
-select *from Cines
-
+select * from Cines
+go
 create table Salas(
 			SalaId int primary key identity,
 			Descripcion varchar(50),
 			NoAsiento int
 )
-
-
+Select S.Descripcion  
+from  CinesSalasDetalle CSD
+inner join Salas S on S.SalaId = CSD.SalaId 
+where CSD.CineId = 1
+go
 create table CinesSalasDetalle(
 			CinesSalasId int primary key identity,
+			CineId int References Cines(CineId),
 			SalaId int References Salas(SalaId)
 )
+Select SalaId from CinesSalasDetalle
+drop table CinesSalasDetalle
 select *from CinesSalasDetalle
-
-drop table Salas
+go
 create table Usuarios(
 			UsuarioId int primary key identity,
 			Nombres varchar(40),
@@ -42,6 +43,7 @@ create table Usuarios(
 			Contrasena varchar(30)
 )
 
+go
 create table Peliculas(
 			PeliculaId int primary key identity,
 			Nombre varchar(40),
@@ -55,20 +57,17 @@ create table Peliculas(
 			FechaInicio datetime,
 			FechaFin datetime,
 			Precio float,
-			Imagen image,
-			Video varchar(300)
+			Imagen nvarchar(350),
+			Video nvarchar(350)
 )
-insert into Peliculas(Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Video) values('asdf', 'dsfgw', 'Espanor', 1, 'Guancho', 'Pepe, Yano, Haron', 0, '254521', '5465', 'sd/D')
-select *from Peliculas
 drop table Peliculas
+go
 create table Carteleras(
 			CarteleraId int primary key identity,
 			PeliculaId int References Peliculas(PeliculaId)
 )
 drop table Carteleras
-
-select * from Usuarios
-
+go
 create table Reservaciones(
 			ReservacionId int primary key identity,
 			CineId int References Cines(CineId),
@@ -78,6 +77,7 @@ create table Reservaciones(
 			Monto float
 )
 drop table Reservaciones
+go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,
 			ReservacionId int References Reservaciones(ReservacionId),

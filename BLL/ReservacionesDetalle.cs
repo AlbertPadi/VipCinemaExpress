@@ -11,11 +11,10 @@ namespace BLL
         public int ReservacionId { get; set; }
         public int PeliculaId { get; set; }
 
-        public ReservacionesDetalle(int ReservacionId, int PeliculaId)
+        public ReservacionesDetalle(int PeliculaId)
         {
             
             this.ReservacionDetalleId = 0;
-            this.ReservacionId = ReservacionId;
             this.PeliculaId = PeliculaId;
         }
     }

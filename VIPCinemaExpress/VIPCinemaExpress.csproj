@@ -154,7 +154,9 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="services.html" />
+    <Content Include="VistaUsuario\ReservacionesUsuario.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consultas\MostrarImagen.ashx.cs">
@@ -237,6 +239,20 @@
     </Compile>
     <Compile Include="SiteUser.Master.designer.cs">
       <DependentUpon>SiteUser.Master</DependentUpon>
+    </Compile>
+    <Compile Include="VistaUsuario\ReservacionesUsuario.aspx.cs">
+      <DependentUpon>ReservacionesUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VistaUsuario\ReservacionesUsuario.aspx.designer.cs">
+      <DependentUpon>ReservacionesUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

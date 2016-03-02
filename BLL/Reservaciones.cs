@@ -27,9 +27,9 @@ namespace BLL
             Detalle = new List<ReservacionesDetalle>();
         }
 
-        public void AgregarReservacion(int ReservacionId, int PeliculaId)
+        public void AgregarReservacion(int PeliculaId)
         {
-            this.Detalle.Add(new ReservacionesDetalle(ReservacionId, PeliculaId));
+            this.Detalle.Add(new ReservacionesDetalle(PeliculaId));
         }
 
         public override bool Insertar()
@@ -102,7 +102,7 @@ namespace BLL
                 {
                     foreach (DataRow dtr in dtReservas.Rows)
                     {
-                        this.AgregarReservacion((int)dtr["ReservacionId"], (int)dtr["PeliculaId"]);
+                        this.AgregarReservacion((int)dtr["PeliculaId"]);
                     }
                 }
             }

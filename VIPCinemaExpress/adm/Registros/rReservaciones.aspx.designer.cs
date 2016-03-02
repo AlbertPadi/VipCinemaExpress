@@ -31,6 +31,15 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
+        /// CinesDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CinesDropDownList;
+        
+        /// <summary>
         /// CineIdTextBox control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CineIdTextBox;
-        
-        /// <summary>
-        /// BuscarCineButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarCineButton;
         
         /// <summary>
         /// UsuarioIdTextBox control.
@@ -58,6 +58,33 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.TextBox UsuarioIdTextBox;
         
         /// <summary>
+        /// BuscarCineButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuscarCineButton;
+        
+        /// <summary>
+        /// SalaIdDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SalaIdDropDownList;
+        
+        /// <summary>
+        /// AddSalaButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddSalaButton;
+        
+        /// <summary>
         /// SalaIdTextBox control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SalaIdTextBox;
+        
+        /// <summary>
+        /// PeliculaIdDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PeliculaIdDropDownList;
+        
+        /// <summary>
+        /// AddPeliculaButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddPeliculaButton;
         
         /// <summary>
         /// CantidadTextBox control.
@@ -83,6 +128,15 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MontoTextBox;
+        
+        /// <summary>
+        /// PagoButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PagoButton;
         
         /// <summary>
         /// NuevoButton control.

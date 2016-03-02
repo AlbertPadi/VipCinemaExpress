@@ -5,16 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace VIPCinemaExpress
+namespace VIPCinemaExpress.VistaUsuario
 {
-    public partial class SiteUser : System.Web.UI.MasterPage
+    public partial class ReservacionesUsuario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
 
         }

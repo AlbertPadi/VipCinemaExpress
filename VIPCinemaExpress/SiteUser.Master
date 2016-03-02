@@ -11,6 +11,18 @@
 	<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
 	<meta name="author" content="Łukasz Holeczek from creativeLabs"/>
 	<!-- end: Meta -->
+
+        <!-- Bootstrap Core CSS -->
+    <link href="/adm/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/adm/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/adm/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -47,7 +59,7 @@
 	<header>
 		
 		<!--start: Container -->
-		<div class="container">
+
 			
 			<!--start: Row -->
 			<div class="row">
@@ -60,7 +72,7 @@
 				</div>
 				<!--end: Logo -->
 				<!--end: Logo -->
-					
+				
 				<!--start: Navigation -->
 				<div class="span9">
 					
@@ -97,8 +109,7 @@
 					
 				</div>	
 				<!--end: Navigation -->
-					
-			</div>
+	
 			<!--end: Row -->
 			
 		</div>
@@ -111,7 +122,13 @@
     
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
+            <Items>
+            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="1"/>
+            <asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Menu2" Value="2"/>
+            <asp:MenuItem NavigateUrl="~/Menu3.aspx" Text="Menu3" Value="3"/>   
+            </Items>
+            </asp:Menu>
         </asp:ContentPlaceHolder>
     </div>
     </form>
@@ -135,15 +152,6 @@
 				</div>
 				<!-- end: About -->
 
-				<!-- start: Photo Stream -->
-				<div class="span3">
-					
-					<h3>We are here!</h3>
-					<div id="small-map-container"><a href="contact.html"></a></div>
-					<iframe id="small-map" width="210" height="210" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;aq=0&amp;oq=Los&amp;sll=50.143066,18.85267&amp;sspn=0.057207,0.168915&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Los+Angeles,+Hrabstwo+Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;ll=34.052234,-118.243685&amp;spn=0.036979,0.084457&amp;z=14&amp;iwloc=near&amp;output=embed"></iframe>
-					
-				</div>
-				<!-- end: Photo Stream -->
 
 				<div class="span6">
 				

@@ -20,7 +20,7 @@ namespace VIPCinemaExpress.adm.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Peliculas pelicula = new Peliculas();
-            
+            double precio;
             if (PeliculaIdTextBox.Text.Length == 0)
             {
                 pelicula.Nombre = NombreTextBox.Text;
@@ -49,9 +49,10 @@ namespace VIPCinemaExpress.adm.Registros
 
                 pelicula.FechaInicio = Convert.ToDateTime(FechaInicioTextBox.Text);
                 pelicula.FechaFin = Convert.ToDateTime(FechaFinTextBox.Text);
-                pelicula.Precio = Convert.ToDouble(PrecioTextBox.Text);
-                pelicula.Imagen = ImagenFileUpload.ToString();
-                pelicula.Video = VideoFileUpload.ToString();
+                precio = Convert.ToDouble(PrecioTextBox.Text);
+                pelicula.Precio = precio;
+                pelicula.Imagen = imagenTextBox.Text;
+                pelicula.Video = VideoTextBox.Text;
 
                 if (pelicula.Insertar())
                 {
@@ -92,9 +93,10 @@ namespace VIPCinemaExpress.adm.Registros
 
                 pelicula.FechaInicio = Convert.ToDateTime(FechaInicioTextBox.Text);
                 pelicula.FechaFin = Convert.ToDateTime(FechaFinTextBox.Text);
-                pelicula.Precio = Convert.ToDouble(PrecioTextBox.Text);
-                pelicula.Imagen = ImagenFileUpload.ToString();
-                pelicula.Video = VideoFileUpload.ToString();
+                precio = Convert.ToDouble(PrecioTextBox.Text);
+                pelicula.Precio = precio;
+                pelicula.Imagen = imagenTextBox.Text;
+                pelicula.Video = VideoTextBox.Text;
 
                 if (pelicula.Insertar())
                 {
@@ -147,6 +149,8 @@ namespace VIPCinemaExpress.adm.Registros
             FechaFinTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
             GeneroTextBox.Text = string.Empty;
+            imagenTextBox.Text = string.Empty;
+            VideoTextBox.Text = string.Empty;
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -164,7 +168,8 @@ namespace VIPCinemaExpress.adm.Registros
                 GeneroTextBox.Text = pelicula.Genero;
                 ClasificaiconTextBox.Text = pelicula.Clasificacion;
                 IdiomaTextBox.Text = pelicula.Idioma;
-                //ImagenFileUpload = pelicula.Imagen;
+                imagenTextBox.Text = pelicula.Imagen;
+                VideoTextBox.Text = pelicula.Video;
                 if (pelicula.Subtitulo == 1)
                 {
                     SubtiSiRadioButton.Checked = true;

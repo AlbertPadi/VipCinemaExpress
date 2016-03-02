@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adm/Site.Master" AutoEventWireup="true" CodeBehind="rCines.aspx.cs" Inherits="VIPCinemaExpress.adm.Registros.rCines" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <!--Copiar este Pedazo de Codigo para todos los registros y consultas.-->
+    <!--Copiar este Pedazo de Codigo para todos los registros y consultas.-->
     <form runat="server">
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -15,7 +16,7 @@
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>Cambiar este Texto
                             
-			                </li>
+                            </li>
                         </ol>
                     </div>
                     <!-- Componentes -->
@@ -29,15 +30,18 @@
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Salas:</label>
-                        <div class="col-xs-6">
+                        <div class="col-xs-4">
                             <asp:DropDownList ID="SalasDropDownList" runat="server"></asp:DropDownList>
                         </div>
-                        <asp:ListBox ID="SalasListBox" runat="server"></asp:ListBox>
                         <asp:Button ID="AddSalasButton" class="btn btn-info" runat="server" Text="Add" OnClick="AddSalasButton_Click" />
                     </div>
-                    
-
                     <div class="form-group row">
+                        <div class=" col-xs-4">
+                            <asp:ListBox class="control-list col-xs-6" ID="SalasListBox" runat="server" Width="444px"></asp:ListBox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        
                         <label class="control-label col-xs-2">Nombre:</label>
                         <div class="col-xs-6">
                             <asp:TextBox ID="NombreTextBox" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>

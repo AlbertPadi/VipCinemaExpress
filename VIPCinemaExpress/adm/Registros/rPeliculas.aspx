@@ -125,14 +125,15 @@
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Imagen:</label>
                         <div class="col-xs-9">
-                            <asp:FileUpload ID="ImagenFileUpload" class="form-control" runat="server" />
+                            <asp:TextBox ID="imagenTextBox" runat="server"></asp:TextBox>
                         </div>
                     </div>
+                    
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Vidoe:</label>
                         <div class="col-xs-9">
-                            <asp:FileUpload ID="VideoFileUpload" class="form-control" placeholder="Video" runat="server" />
+                            <asp:TextBox ID="VideoTextBox" runat="server"></asp:TextBox>
                         </div>
                     </div>
 
