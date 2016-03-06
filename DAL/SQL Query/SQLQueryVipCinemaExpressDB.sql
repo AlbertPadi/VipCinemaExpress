@@ -21,11 +21,13 @@ create table CinesSalasDetalle(
 			CineId int References Cines(CineId),
 			NombreSala varchar(40),
 			NoAsiento int,
-			EsActiva bit
+			EsActiva int
 			
 )
 select *from CinesSalasDetalle
 
+
+drop table CinesSalasDetalle
 Select SalaId from CinesSalasDetalle
 drop table CinesSalasDetalle
 select *from CinesSalasDetalle

@@ -28,7 +28,8 @@ namespace VIPCinemaExpress.adm.Registros
             TelefonoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             EmailTextBox.Text = string.Empty;
-
+            SalasGridView.DataSource = null;
+            SalasGridView.DataBind();
 
         }
         protected void AddSalasButton_Click(object sender, EventArgs e)
@@ -148,12 +149,44 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+            Cines cine = new Cines();
+            int id;
+            id = Convert.ToInt32(CineIdTextBox.Text);
+
+            if (CineIdTextBox.Text.Length > 0)
+            {
+                if (cine.Buscar(id))
+                {
+
+                    cine.CineId = id;
+                    NombreTextBox.Text = cine.Nombres;
+                    CiudadTextBox.Text = cine.Ciudad;
+                    DireccionTextBox.Text = cine.Direccion;
+                    TelefonoTextBox.Text = cine.Telefono;
+                    EmailTextBox.Text = cine.Email;
+
+                    SalasGridView.DataSource = cine.Sala;
+                    SalasGridView.DataBind();
+
+                }
+                else
+                {
+                    Utilitarios.ShowToastr(this.Page, "Error al buscar los datos", "Error", "Error");
+                }
+
+            }
+            else
+            {
+                Utilitarios.ShowToastr(this.Page, "Ingrese un id", "Error", "Error");
+            }
+
+
 
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
     }
 

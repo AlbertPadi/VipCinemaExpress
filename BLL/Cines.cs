@@ -109,6 +109,7 @@ namespace BLL
 
             if (dt.Rows.Count > 0)
             {
+                this.CineId = IdBuscado;
                 this.Nombres = dt.Rows[0]["Nombre"].ToString();
                 this.Ciudad = dt.Rows[0]["Ciudad"].ToString();
                 this.Direccion = dt.Rows[0]["Direccion"].ToString();
@@ -116,10 +117,18 @@ namespace BLL
                 this.Email = dt.Rows[0]["Email"].ToString();
 
             }
-
+            dtCinesSalas = conexion.ObtenerDatos(String.Format("Select * from CinesSalasDetalle where CineId = {0} --", this.CineId));
+            if (dtCinesSalas.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtCinesSalas.Rows)
+                {
+                    AgregarSalas((string)dr["NombreSala"], (int)dr["NoAsiento"], (int)dr["EsActiva"]);
+                }
+            }
             return dt.Rows.Count > 0;
+
         }
-        
+
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
