@@ -91,8 +91,13 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete from Cines where CineId = {0}" +this.CineId +";"
-                    + "Delete from CinesSalasDetalle where CineId = " + this.CineId));
+            retorno = conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle where CineId = {0}", this.CineId));
+            if (retorno)
+            {
+                conexion.Ejecutar(string.Format("Delete from Cines where CineId = {0}", this.CineId));
+
+            }
+            
             return retorno;
         }
         public override bool Buscar(int IdBuscado)
