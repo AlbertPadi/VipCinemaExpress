@@ -8,12 +8,16 @@ namespace BLL
 {
     public class CinesSalasDetalle: ClaseMaestra
     {
-        public int CineId { get; set; }
-        public int SalaId { get; set; }
+       
+        public string NombreSala { get; set; }
+        public int NoAsiento { get; set; }
+        public int EsActiva { get; set; }
 
-        public CinesSalasDetalle(int salaid)
+        public CinesSalasDetalle(string NombreSala, int NoAsiento, int esActiva)
         {
-            this.SalaId = salaid;
+            this.NombreSala = NombreSala;
+            this.NoAsiento = NoAsiento;
+            this.EsActiva = esActiva;
         }
 
         public override bool Insertar()

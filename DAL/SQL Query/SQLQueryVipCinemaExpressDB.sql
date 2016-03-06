@@ -8,25 +8,24 @@ create table Cines(
 			Ciudad varchar(40),
 			Direccion varchar(40),
 			Telefono varchar(20),
-			Email varchar(40)
+			Email varchar(40),
+			CantidadSalas int
 )
 select * from Cines
 go
-create table Salas(
-			SalaId int primary key identity,
-			Descripcion varchar(50),
-			NoAsiento int
-)
-Select S.Descripcion  
-from  CinesSalasDetalle CSD
-inner join Salas S on S.SalaId = CSD.SalaId 
-where CSD.CineId = 1
+insert into CinesSalasDetalle (CineId, NombreSala, NoAsiento, EsActiva) Values(5, 'hgvh', 200, 1)
+
 go
 create table CinesSalasDetalle(
 			CinesSalasId int primary key identity,
 			CineId int References Cines(CineId),
-			SalaId int References Salas(SalaId)
+			NombreSala varchar(40),
+			NoAsiento int,
+			EsActiva bit
+			
 )
+select *from CinesSalasDetalle
+
 Select SalaId from CinesSalasDetalle
 drop table CinesSalasDetalle
 select *from CinesSalasDetalle
@@ -42,8 +41,9 @@ create table Usuarios(
 			Usuario varchar(40),
 			Contrasena varchar(30)
 )
-
+select *from Usuarios
 go
+Select S.SalaId, S.Descripcion from CinesSalasDetalle CSD inner join Salas S on S.SalaId = CSD.SalaId where CSD.CineId = 6
 create table Peliculas(
 			PeliculaId int primary key identity,
 			Nombre varchar(40),
@@ -72,7 +72,7 @@ create table Reservaciones(
 			ReservacionId int primary key identity,
 			CineId int References Cines(CineId),
 			UsuarioId int References Usuarios(UsuarioId),
-			SalaId int References Salas(SalaId),
+			SalaId int References CinesSalasDetalle(CineSalaId),
 			Cantidad int,
 			Monto float
 )

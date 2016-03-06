@@ -7,7 +7,9 @@ using DAL;
 namespace BLL
 {
     public class Cines : ClaseMaestra
-    {
+        {
+        object identity;
+        int valor = 0;
         public int CineId { get; set; }
         
         public string Nombres { get; set; }
@@ -15,6 +17,7 @@ namespace BLL
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
+        public int CantidadSalas { get; set; }
         public List<CinesSalasDetalle> Sala { get; set; }
         public Cines()
         {
@@ -24,12 +27,13 @@ namespace BLL
             this.Direccion = "";
             this.Telefono = "";
             this.Email = "";
+            this.CantidadSalas = 0;
             Sala = new List<CinesSalasDetalle>();
         }
 
-        public void AgregarSalas(int SalaId)
+        public void AgregarSalas(string NombreSala, int NoAsiento, int esActiva)
         {
-            this.Sala.Add(new CinesSalasDetalle(SalaId));
+             Sala.Add(new CinesSalasDetalle(NombreSala, NoAsiento, esActiva));
         }
 
          public DataTable getSalas(string select)
@@ -43,43 +47,44 @@ namespace BLL
 
         public override bool Insertar()
         {
-            bool retorno = false;
-            StringBuilder comando = new StringBuilder();
+            object identity;
+            int retorno = 0;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Cines(Nombre, Ciudad, Direccion, Telefono, Email) values('{0}', '{1}', '{2}', '{3}', '{4}')", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email));
+            identity = conexion.ObtenerValor(String.Format("Insert into Cines(Nombre, Ciudad, Direccion, Telefono, Email, CantidadSalas) values('{0}', '{1}', '{2}', '{3}', '{4}', {5}) Select @@Identity", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CantidadSalas));
 
-            if (retorno)
-            {
-                this.CineId = (int)conexion.ObtenerDatos("Select MAX(CineId) as CineId from Cines").Rows[0]["CineId"];
-                foreach (var sala in Sala)
+
+            int.TryParse(identity.ToString(), out retorno);
+            this.CineId = retorno;
+
+            foreach (CinesSalasDetalle item in this.Sala)
                 {
-                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId, CineId) Values({0}, {1})", sala.SalaId, this.CineId));
+                    conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(CineId, NombreSala, NoAsiento, EsActiva) Values({0}, '{1}', {2}, {3})", retorno, (string)item.NombreSala, (int)item.NoAsiento, (int)item.EsActiva));
                 }
 
-                retorno = conexion.Ejecutar(comando.ToString());
-            }
-
-            return retorno;
+            return retorno > 0;
+            
+            
         }
 
         public override bool Editar()
         {
             bool retorno = false;
-            StringBuilder comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Cines set Nombre = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}' where CineId = {5}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CineId));
+
+            retorno = conexion.Ejecutar(String.Format("Update Cines set Nombre = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}', CantidadSalas = {5} where CineId = {6}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CantidadSalas, this.CineId));
+            identity = conexion.ObtenerValor(String.Format("select CineId from Cines where CineId = {0}", this.CineId));
+            int.TryParse(identity.ToString(), out valor);
             if (retorno)
             {
-                conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle where CineId = " + this.CineId));
+                conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle where CineId = {0}", valor));
 
-                foreach (var sala in Sala)
+
+                foreach (CinesSalasDetalle item in this.Sala)
                 {
-                    comando.AppendLine(String.Format("Insert into CinesSalasDetalle(SalaId) Values({0)", sala.SalaId));
+                    conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(CineId, NombreSala, NoAsiento, EsActiva) Values({0}, '{1}', {2}, {3})", valor, (string)item.NombreSala, (int)item.NoAsiento, (int)item.EsActiva));
                 }
-
-                retorno = conexion.Ejecutar(comando.ToString());
             }
-            return retorno;
+                return retorno;
         }
 
         public override bool Eliminar()

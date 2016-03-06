@@ -12,12 +12,6 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Vip Cinema Express <small>Registro Peliculas</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i>Registre peliculas desde este formulario
-                              
-                            </li>
-                        </ol>
                     </div>
 
                     <!-- Componentes -->
@@ -57,7 +51,7 @@
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Idioma:</label>
                         <div class="col-xs-3">
-                            <asp:DropDownList ID="IdiomaDropDownList" runat="server">
+                            <asp:DropDownList ID="IdiomaDropDownList" CssClass="form-control" runat="server">
                                 <asp:ListItem>Ingles</asp:ListItem>
                                 <asp:ListItem>Español latino</asp:ListItem>
                                 <asp:ListItem>Mandarin</asp:ListItem>
@@ -104,7 +98,7 @@
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Fecha inicio:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="FechaInicioTextBox" TextMode="DateTime" class="form-control" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="FechaInicioTextBox" class="form-control" runat="server" ></asp:TextBox>
                         </div>
                     </div>
 

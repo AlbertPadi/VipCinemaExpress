@@ -23,11 +23,13 @@ namespace VIPCinemaExpress.adm.Registros
                 cartelera.PeliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
                 if (cartelera.Insertar())
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Se han guardado los datos'</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Se han guardado los datos", "Guardado", "Success");
+                   
+
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Error al guardar los datos'</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
                 }
             }
             else
@@ -38,11 +40,11 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (cartelera.Editar())
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Se han editado los datos'</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Actualizado", "Success");
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>'Error al actualizar'</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Error al actualizar", "Error", "Error");
                 }
 
             }
@@ -58,16 +60,16 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
             }
 
             if (cartelera.Eliminar())
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Se eliminaron los datos'</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Success");
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'No se e=han eliminado los datos'</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Error al eliminar", "Error", "Error");
             }
 
         }
@@ -88,7 +90,7 @@ namespace VIPCinemaExpress.adm.Registros
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
             }
 
             

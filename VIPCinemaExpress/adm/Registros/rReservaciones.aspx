@@ -6,7 +6,7 @@
     <!--Copiar este Pedazo de Codigo para todos los registros y consultas.-->
     <form runat="server">
         <div id="page-wrapper">
-            <div class="container-fluid">
+            <div class="panel-body">
                 <div class="form-horizontal col-md-12" role="form">
                     <!-- Page Heading -->
                     <div class="row">
@@ -20,25 +20,26 @@
                             </ol>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Reservacion ID:</label>
-                            <div class="col-md-8">
+                        <div class="form-group ">
+                            <label for="ReservacionIdTextBox" class="control-label col-xs-3">Reservacion ID:</label>
+                            <div class="col-xs-8">
                                 <asp:TextBox ID="ReservacionIdTextBox" class="form-control" runat="server" placeholder="Reservacion Id"></asp:TextBox>
                             </div>
-                            <asp:Button ID="BuscarButton" CssClass="btn btn-primary" runat="server" class="btn btn-info" Text="Buscar" />
+                            <asp:Button ID="BuscarButton" Class="btn btn-sm btn-info" runat="server" Text="Buscar" />
+
                         </div>
+
 
                         <div class="form-group">
                             <label class="control-label col-xs-3">CineId:</label>
                             <div class="col-xs-8">
                                 <div class="dropdown">
-                                    <asp:DropDownList ID="CinesDropDownList" class="btn btn-primary dropdown-toggle" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="CinesDropDownList" class="form-control" runat="server" OnSelectedIndexChanged="CinesDropDownList_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                                 <asp:TextBox ID="CineIdTextBox" class="form-control" runat="server" placeholder="Cine Id" OnTextChanged="CineIdTextBox_TextChanged" ReadOnly="True"></asp:TextBox>
                             </div>
                             <asp:Button ID="BuscarCineButton" runat="server" class="btn btn-info" Text="Agregar" OnClick="BuscarCineButton_Click1" />
                         </div>
-
 
                         <div class="form-group">
                             <label class="control-label col-xs-3">UsuarioId:</label>
@@ -52,12 +53,12 @@
                             <label class="control-label col-xs-3">Sala Id:</label>
                             <div class="col-xs-8">
                                 <div class="dropdown">
-                                    <asp:DropDownList ID="SalaIdDropDownList" class="btn btn-primary dropdown-toggle" runat="server" ReadOnly="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="SalaIdDropDownList" class="form-control" runat="server"></asp:DropDownList>
                                 </div>
                                 <asp:TextBox ID="SalaIdTextBox" class="form-control" runat="server" placeholder="SalaId Id"></asp:TextBox>
 
                             </div>
-                            <asp:Button ID="AddSalaButton" runat="server" class="btn btn-info" Text="Agregar" />
+                            <asp:Button ID="AddSalaButton" runat="server" class="btn btn-info" TextMode="MultiLine" Text="Agregar" OnClick="AddSalaButton_Click" />
                         </div>
 
                         <div class="form-group">
@@ -70,10 +71,10 @@
                             <label class="control-label col-xs-3">Pelicula Id:</label>
                             <div class="col-xs-8">
                                 <div class="dropdown">
-                                    <asp:DropDownList ID="PeliculaIdDropDownList" class="btn btn-primary dropdown-toggle" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="PeliculaIdDropDownList" class="form-control dropdown-toggle" runat="server"></asp:DropDownList>
                                 </div>
                                 <textarea id="PeliculaTextArea" class="form-control" cols="20" rows="2"></textarea>
-                                
+
                             </div>
                             <asp:Button ID="AddPeliculaButton" runat="server" class="btn btn-info" Text="Agregar" />
                         </div>
@@ -82,7 +83,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3">Cantidad:</label>
                             <div class="col-xs-8">
-                                <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad" ></asp:TextBox>
+                                <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
                             </div>
                         </div>
 
@@ -110,7 +111,8 @@
 
                     </div>
                 </div>
-            </div>
+        </div>
+     
         </div>
     </form>
     <!--Hasta aqui, Copiar este Pedazo de Codigo para todos los registros y consultas.-->

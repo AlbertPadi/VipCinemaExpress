@@ -14,12 +14,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Cambiar este Texto <small>Cambiar este texto tambien.</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i>Cambiar este Texto
-                            
-			    </li>
-                        </ol>
+                        
                     </div>
                     <!-- Componentes -->
                     <div class="form-group">
