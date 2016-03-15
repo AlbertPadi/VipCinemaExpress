@@ -12,9 +12,10 @@ namespace BLL
         public int CineId { get; set; }
         public int UsuarioId { get; set; }
         public int SalaId { get; set; }
+        public DateTime Fecha { get; set; }
         public int Cantidad { get; set; }
         public double Monto { get; set; }
-        public List<ReservacionesDetalle> Detalle;
+        public List<ReservacionesDetalle> Peliculas;
 
         public Reservaciones()
         {
@@ -22,35 +23,46 @@ namespace BLL
             this.CineId = 0;
             this.UsuarioId = 0;
             this.SalaId = 0;
+            this.Fecha = DateTime.Now;
             this.Cantidad = 0;
             this.Monto = 0;
-            Detalle = new List<ReservacionesDetalle>();
+            Peliculas = new List<ReservacionesDetalle>();
         }
 
         public void AgregarReservacion(int PeliculaId)
         {
-            this.Detalle.Add(new ReservacionesDetalle(PeliculaId));
+            this.Peliculas.Add(new ReservacionesDetalle(PeliculaId));
+        }
+
+        public bool AddCine(int id)
+        {
+            DataTable dt = new DataTable();
+            Cines cine = new Cines();
+            ConexionDb conexion = new ConexionDb();
+            dt = conexion.ObtenerDatos(String.Format("Select Nombre, Ciudad, Direccion, Telefono from Cines where CineId = {0}", id));
+            return dt.Rows.Count > 0;
+
         }
 
         public override bool Insertar()
         {
-            bool retorno = false;
-            StringBuilder Comando = new StringBuilder();
+
+
+            object identity;
+            int retorno = 0;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Reservasiones(CineId, UsuarioId, SalaId, Cantidad, Monto) values({0}, {1}, {2}, {3}, {4})", this.CineId, this.UsuarioId, this.SalaId, this.Cantidad, this.Monto));
-            if (retorno)
+            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(CineId, UsuarioId, SalaId, Fecha, Cantidad, Monto)Values({0}, {1}, {2}, '{3}', {4}, {5}) Select @@Identity", this.CineId, this.UsuarioId, this.SalaId, this.Fecha, this.Cantidad, this.Monto));
+
+
+            int.TryParse(identity.ToString(), out retorno);
+            this.ReservacionId = retorno;
+
+            foreach (ReservacionesDetalle item in this.Peliculas)
             {
-                this.ReservacionId = (int)conexion.ObtenerValor("Select Max(from ReservacionId)");
-
-                foreach (ReservacionesDetalle ResDetalle in Detalle)
-                {
-                    conexion.Ejecutar(String.Format("insert into ReservacionesDetalle(ReservacionId, PeliculaId) Values({0}, {1})", this.ReservacionId, ResDetalle.PeliculaId));
-                }
-
-                retorno = conexion.Ejecutar(Comando.ToString());
+                conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(ReservacionId, PeliculaId) Values({0}, {1})", retorno, (int)item.PeliculaId));
             }
 
-            return retorno;
+            return retorno > 0;
         }
 
         public override bool Editar()
@@ -58,13 +70,13 @@ namespace BLL
             bool retorno = false;
             StringBuilder Comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set CineId = {0}, UsuarioId = {1}, SalaId = {2}, Cantidad = {3}, Monto = {4} where ReservacionId = {5}", this.CineId, this.UsuarioId, this.SalaId, this.Cantidad, this.Monto, this.ReservacionId));
+            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set CineId = {0}, UsuarioId = {1}, SalaId = {2}, Fecha = '{3}', Cantidad = {4}, Monto = {5} where ReservacionId = {6}", this.CineId, this.UsuarioId, this.SalaId, this.Cantidad, this.Monto, this.ReservacionId));
 
             if (retorno)
             {
-                conexion.Ejecutar("Delete from ReservacionesDetalle where ReservacionId="+ this.ReservacionId);
+                conexion.Ejecutar("Delete from ReservacionesDetalle where ReservacionId=" + this.ReservacionId);
 
-                foreach (ReservacionesDetalle ResDetalle in Detalle)
+                foreach (ReservacionesDetalle ResDetalle in Peliculas)
                 {
                     conexion.Ejecutar(String.Format("insert into ReservacionesDetalle(ReservacionId, PeliculaId) Values({0}, {1})", this.ReservacionId, ResDetalle.PeliculaId));
                 }
@@ -78,7 +90,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete from Reservasiones where ReservasionId = {0}"+ this.ReservacionId + ": " + "delete from ReservacionesDetalle where ReservacionId =" + this.ReservacionId));
+            retorno = conexion.Ejecutar(String.Format("Delete from Reservasiones where ReservasionId = {0}" + this.ReservacionId + ": " + "delete from ReservacionesDetalle where ReservacionId =" + this.ReservacionId));
             return retorno;
         }
         public override bool Buscar(int IdBuscado)
@@ -93,6 +105,7 @@ namespace BLL
                 this.CineId = (int)dt.Rows[0]["CineId"];
                 this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                 this.SalaId = (int)dt.Rows[0]["SalaId"];
+                this.Fecha = (DateTime)dt.Rows[0]["Fecha"];
                 this.Cantidad = (int)dt.Rows[0]["Cantidad"];
                 this.Monto = (double)dt.Rows[0]["Monto"];
 

@@ -9,7 +9,9 @@
 			<div class="da-slide">
 				<h2>Transporter 3</h2>
 				<p>Es una pelicula de accion pura, el protagonista Jason busca la venganza de quien coloca un dispositivo para eliminarlo</p>
-				<a href="#" class="da-link">Reservar</a>
+
+				<!--<asp:Button ID="ReservarButton" href="/adm/Registros/rReservaciones.aspx" class="btn btn-primary" runat="server" Text="Reservar" />-->
+                <a href="/adm/Registros/rReservaciones.aspx" class="da-link">Reservar</a>
 				<div class="da-img"><img src="img/parallax-slider/Transporter3.png" alt="image01" /></div>
 			</div>
 			<div class="da-slide">

@@ -43,7 +43,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Usuario = '{6}', Contrasena = '{7}', where UsuarioId = {8}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.UsuarioId));
+            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Usuario = '{6}', Contrasena = '{7}' where UsuarioId = {8}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.UsuarioId));
             return retorno;
         }
 
@@ -59,7 +59,7 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(String.Format("Slect * from Usuarios where UsuarioId = {0}", IdBuscado));
+            dt = conexion.ObtenerDatos(String.Format("select *from Usuarios where UsuarioId = {0}", IdBuscado));
 
             if (dt.Rows.Count > 0)
             {

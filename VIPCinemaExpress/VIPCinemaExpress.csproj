@@ -202,7 +202,13 @@
     <Content Include="adm\assets\lineicons\index.html" />
     <Content Include="adm\assets\lineicons\lte-ie7.js" />
     <Content Include="adm\assets\lineicons\style.css" />
+    <Content Include="adm\Consultas\cCarteleras.aspx" />
+    <Content Include="adm\Consultas\cCines.aspx" />
+    <Content Include="adm\Consultas\cPeliculas.aspx" />
+    <Content Include="adm\Consultas\cReservaciones.aspx" />
+    <Content Include="adm\Consultas\cUsuarios.aspx" />
     <Content Include="adm\Default.aspx" />
+    <Content Include="adm\Registros\rArchivo.aspx" />
     <Content Include="contact.html" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
@@ -462,9 +468,11 @@
     <Content Include="js\custom.js" />
     <Content Include="js\flexslider.js" />
     <Content Include="js\jquery-1.8.2.js" />
+    <Content Include="css\jquery-ui.css" />
     <Content Include="js\jquery.cslider.js" />
     <Content Include="js\jquery.gmap.min.js" />
     <Content Include="js\slider.js" />
+    <Content Include="js\widget.js" />
     <Content Include="Login.aspx" />
     <Content Include="adm\Registros\rCarteleras.aspx" />
     <Content Include="adm\Registros\rCines.aspx" />
@@ -480,7 +488,42 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas\MostrarImagen.ashx.cs">
+    <Compile Include="adm\Consultas\cCarteleras.aspx.cs">
+      <DependentUpon>cCarteleras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Consultas\cCarteleras.aspx.designer.cs">
+      <DependentUpon>cCarteleras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Consultas\cCines.aspx.cs">
+      <DependentUpon>cCines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Consultas\cCines.aspx.designer.cs">
+      <DependentUpon>cCines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Consultas\cPeliculas.aspx.cs">
+      <DependentUpon>cPeliculas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Consultas\cPeliculas.aspx.designer.cs">
+      <DependentUpon>cPeliculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Consultas\cReservaciones.aspx.cs">
+      <DependentUpon>cReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Consultas\cReservaciones.aspx.designer.cs">
+      <DependentUpon>cReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Consultas\cUsuarios.aspx.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Consultas\cUsuarios.aspx.designer.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Consultas\MostrarImagen.ashx.cs">
       <DependentUpon>MostrarImagen.ashx</DependentUpon>
     </Compile>
     <Compile Include="adm\Default.aspx.cs">
@@ -489,6 +532,13 @@
     </Compile>
     <Compile Include="adm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Registros\rArchivo.aspx.cs">
+      <DependentUpon>rArchivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Registros\rArchivo.aspx.designer.cs">
+      <DependentUpon>rArchivo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -576,7 +626,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="adm\Site.Master" />
-    <Content Include="Consultas\MostrarImagen.ashx" />
+    <Content Include="adm\Consultas\MostrarImagen.ashx" />
     <Content Include="SiteUser.Master" />
     <Content Include="css\fonts\BebasNeue-webfont.eot" />
     <Content Include="css\fonts\BebasNeue-webfont.ttf" />

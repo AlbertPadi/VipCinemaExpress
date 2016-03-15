@@ -14,6 +14,20 @@ namespace VIPCinemaExpress.adm.Registros
 
         }
 
+        public void Limpiar()
+        {
+            UsuarioIdTextBox.Text = string.Empty;
+            NombresTextBox.Text = string.Empty;
+            ApellidosTextBox.Text = string.Empty;
+            DireccionTextBox.Text = string.Empty;
+            TelefonoTextBox.Text = string.Empty;
+            CelularTextBox.Text = string.Empty;
+            EmailTextBox.Text = string.Empty;
+            UsuarioTextBox.Text = string.Empty;
+            PassWordTextBox.Text = string.Empty;
+            PassWord1TextBox.Text = string.Empty;
+        }
+
         protected void NombresTextBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -33,10 +47,31 @@ namespace VIPCinemaExpress.adm.Registros
                 usuario.Email = EmailTextBox.Text;
                 usuario.Usuario = UsuarioTextBox.Text;
                 usuario.Contrasena = PassWordTextBox.Text;
+
+                if (PassWord1TextBox.Text != PassWordTextBox.Text)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se guardaron los datos')", true);
+                }
+                else if (usuario.Insertar())
+                {
+
+                {
+                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
+                    Limpiar();
+                }
+                }
                 
+                else
+                {
+                    Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
+                    Limpiar();
+                }
             }
             else
             {
+                int id;
+                id = Convert.ToInt32(UsuarioIdTextBox.Text);
+                usuario.UsuarioId = id;
                 usuario.Nombres = NombresTextBox.Text;
                 usuario.Apellidos = ApellidosTextBox.Text;
                 usuario.Direccion = DireccionTextBox.Text;
@@ -45,30 +80,32 @@ namespace VIPCinemaExpress.adm.Registros
                 usuario.Email = EmailTextBox.Text;
                 usuario.Usuario = UsuarioTextBox.Text;
                 usuario.Contrasena = PassWordTextBox.Text;
-
-                if (usuario.Editar())
+                if (PassWord1TextBox.Text != PassWordTextBox.Text)
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han guardado los datos')</SCRIPT>");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se actualizaron los datos')", true);
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>alert('No se han actualizado los datos')</SCRIPT>");
+                    if (usuario.Editar())
+                    {
+                        Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Correcto", "Actualizado");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Utilitarios.ShowToastr(this.Page, "Error al actualizar los datos", "Error", "Error");
+                        Limpiar();
+                    }
+
                 }
+
+
             }
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-            UsuarioIdTextBox.Text = string.Empty;
-            NombresTextBox.Text = string.Empty;
-            ApellidosTextBox.Text = string.Empty;
-            DireccionTextBox.Text = string.Empty;
-            TelefonoTextBox.Text = string.Empty;
-            CelularTextBox.Text = string.Empty;
-            EmailTextBox.Text = string.Empty;
-            UsuarioTextBox.Text = string.Empty;
-            PassWordTextBox.Text= string.Empty;
-            PassWord1TextBox.Text = string.Empty;
+            Limpiar();
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
@@ -81,16 +118,19 @@ namespace VIPCinemaExpress.adm.Registros
                 usuario.UsuarioId = id;
                 if (usuario.Eliminar())
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>alert('Se han eliminado los datos')</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Correcto", "Eliminado");
+                    Limpiar();
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>alert('Error al eliminar')</SCRIPT>");
+                    Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
+
                 }
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
+
             }
         }
 
@@ -102,19 +142,22 @@ namespace VIPCinemaExpress.adm.Registros
             if (UsuarioIdTextBox.Text.Length > 0)
             {
                 usuario.UsuarioId = id;
+                if (usuario.Buscar(id))
+                {
+                    NombresTextBox.Text = usuario.Nombres;
+                    ApellidosTextBox.Text = usuario.Apellidos;
+                    DireccionTextBox.Text = usuario.Direccion;
+                    TelefonoTextBox.Text = usuario.Telefono;
+                    CelularTextBox.Text = usuario.Celular;
+                    EmailTextBox.Text = usuario.Email;
+                    UsuarioTextBox.Text = usuario.Usuario;
+                    PassWordTextBox.Text = usuario.Contrasena;
+                }
 
-                NombresTextBox.Text = usuario.Nombres;
-                ApellidosTextBox.Text = usuario.Apellidos;
-                DireccionTextBox.Text = usuario.Direccion;
-                TelefonoTextBox.Text = usuario.Telefono;
-                CelularTextBox.Text = usuario.Celular;
-                EmailTextBox.Text = usuario.Email;
-                UsuarioTextBox.Text = usuario.Usuario;
-                PassWordTextBox.Text = usuario.Contrasena;
             }
             else
             {
-                HttpContext.Current.Response.Write("<SCRIPT>alert('Ingrese un Id')</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
             }
         }
 

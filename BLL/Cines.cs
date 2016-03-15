@@ -7,11 +7,11 @@ using DAL;
 namespace BLL
 {
     public class Cines : ClaseMaestra
-        {
+    {
         object identity;
         int valor = 0;
         public int CineId { get; set; }
-        
+
         public string Nombres { get; set; }
         public string Ciudad { get; set; }
         public string Direccion { get; set; }
@@ -33,17 +33,10 @@ namespace BLL
 
         public void AgregarSalas(string NombreSala, int NoAsiento, int esActiva)
         {
-             Sala.Add(new CinesSalasDetalle(NombreSala, NoAsiento, esActiva));
+            Sala.Add(new CinesSalasDetalle(NombreSala, NoAsiento, esActiva));
         }
 
-         public DataTable getSalas(string select)
-        {
-            ConexionDb conexion = new ConexionDb();
-            DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(select);
-            return dt;
-            
-        }
+
 
         public override bool Insertar()
         {
@@ -57,13 +50,13 @@ namespace BLL
             this.CineId = retorno;
 
             foreach (CinesSalasDetalle item in this.Sala)
-                {
-                    conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(CineId, NombreSala, NoAsiento, EsActiva) Values({0}, '{1}', {2}, {3})", retorno, (string)item.NombreSala, (int)item.NoAsiento, (int)item.EsActiva));
-                }
+            {
+                conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(CineId, NombreSala, NoAsiento, EsActiva) Values({0}, '{1}', {2}, {3})", retorno, (string)item.NombreSala, (int)item.NoAsiento, (int)item.EsActiva));
+            }
 
             return retorno > 0;
-            
-            
+
+
         }
 
         public override bool Editar()
@@ -84,7 +77,7 @@ namespace BLL
                     conexion.Ejecutar(String.Format("Insert into CinesSalasDetalle(CineId, NombreSala, NoAsiento, EsActiva) Values({0}, '{1}', {2}, {3})", valor, (string)item.NombreSala, (int)item.NoAsiento, (int)item.EsActiva));
                 }
             }
-                return retorno;
+            return retorno;
         }
 
         public override bool Eliminar()
@@ -97,7 +90,7 @@ namespace BLL
                 conexion.Ejecutar(string.Format("Delete from Cines where CineId = {0}", this.CineId));
 
             }
-            
+
             return retorno;
         }
         public override bool Buscar(int IdBuscado)

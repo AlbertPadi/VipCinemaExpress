@@ -7,14 +7,11 @@ namespace BLL
 {
     public class ReservacionesDetalle
     {
-        public int ReservacionDetalleId { get; set; }
-        public int ReservacionId { get; set; }
         public int PeliculaId { get; set; }
 
         public ReservacionesDetalle(int PeliculaId)
         {
             
-            this.ReservacionDetalleId = 0;
             this.PeliculaId = PeliculaId;
         }
     }

@@ -18,6 +18,14 @@ namespace VIPCinemaExpress.adm.Registros
             {
                 
             }
+            if (EsActivaCheckBox.Checked == true)
+            {
+                esActiva = 1;
+            }
+            else
+            {
+                esActiva = 0;
+            }
         }
 
         public void Limpiar()
@@ -30,20 +38,14 @@ namespace VIPCinemaExpress.adm.Registros
             EmailTextBox.Text = string.Empty;
             SalasGridView.DataSource = null;
             SalasGridView.DataBind();
+            EsActivaCheckBox.Checked = false;
 
         }
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
             
             Cines cine;
-            if (EsActivaCheckBox.Checked == true)
-            {
-                esActiva = 1;
-            }
-            else
-            {
-                esActiva = 0;
-            }
+            
             if (Session["Cine"] == null)
                 Session["Cine"] = new Cines(); 
 
@@ -52,7 +54,7 @@ namespace VIPCinemaExpress.adm.Registros
 
 
             cine.AgregarSalas((string)NombreSalaTextBox.Text, Convert.ToInt32(NoAsientosTextBox.Text), esActiva);
-            //cont=+1;
+            
             Session["Cine"] = cine;
 
             SalasGridView.DataSource = cine.Sala;
@@ -60,8 +62,9 @@ namespace VIPCinemaExpress.adm.Registros
 
             NombreSalaTextBox.Text = "";
             NoAsientosTextBox.Text = "";
-            EsActivaCheckBox.Checked = false;
-           // CanSalasTextBox.Text = cont.ToString();
+            
+           
+           //CanSalasTextBox.Text = cont.ToString();
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
@@ -140,10 +143,12 @@ namespace VIPCinemaExpress.adm.Registros
             if (cines.Eliminar())
             {
                 Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Eliminado");
+                Limpiar();
             }
             else
             {
                 Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
+                
             }
         }
 

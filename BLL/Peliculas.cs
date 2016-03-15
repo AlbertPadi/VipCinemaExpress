@@ -17,12 +17,11 @@ namespace BLL
         public string Director { get; set; }
         public string Actores { get; set; }
         public int Activa { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+        public string FechaInicio { get; set; }
+        public string FechaFin { get; set; }
         public double Precio { get; set; }
         public string Imagen { get; set; }
         public string Video { get; set; }
-
         public Peliculas()
         {
             this.PeliculaId = 0;
@@ -33,10 +32,10 @@ namespace BLL
             this.Director = "";
             this.Actores = "";
             this.Activa = 0;
-            this.FechaInicio = DateTime.Now;
-            this.FechaFin = DateTime.Now;
+            this.FechaInicio = "";
+            this.FechaFin = "";
             this.Precio = 0;
-            this.Imagen = "";
+            this.Imagen = string.Empty;
             this.Video = "";
         }
 
@@ -44,7 +43,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', {10}, '{11}', {12})", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Imagen, this.Video));
+            retorno = conexion.Ejecutar(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', {10}, '{11}', '{12}')", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Precio, this.Imagen, this.Video));
             return retorno;
             
         }
@@ -81,8 +80,8 @@ namespace BLL
                 this.Director = dt.Rows[0]["Director"].ToString();
                 this.Actores = dt.Rows[0]["Actores"].ToString();
                 this.Activa = (int)dt.Rows[0]["Activa"];
-                this.FechaInicio = (DateTime)dt.Rows[0]["FechaInicio"];
-                this.FechaFin = (DateTime)dt.Rows[0]["FechaFin"];
+                this.FechaInicio = dt.Rows[0]["FechaInicio"].ToString();
+                this.FechaFin = dt.Rows[0]["FechaFin"].ToString();
                 this.Precio = (double)dt.Rows[0]["Precio"];
                 this.Imagen = dt.Rows[0]["Imagen"].ToString();
                 this.Video = dt.Rows[0]["Video"].ToString();

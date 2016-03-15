@@ -34,6 +34,7 @@ select *from CinesSalasDetalle
 go
 create table Usuarios(
 			UsuarioId int primary key identity,
+			Tipo int,
 			Nombres varchar(40),
 			Apellidos varchar(40),
 			Direccion varchar(40),
@@ -59,9 +60,10 @@ create table Peliculas(
 			FechaInicio datetime,
 			FechaFin datetime,
 			Precio float,
-			Imagen nvarchar(350),
+			Imagen image(350),
 			Video nvarchar(350)
 )
+Select * from Peliculas
 drop table Peliculas
 go
 create table Carteleras(
@@ -74,12 +76,14 @@ create table Reservaciones(
 			ReservacionId int primary key identity,
 			CineId int References Cines(CineId),
 			UsuarioId int References Usuarios(UsuarioId),
-			SalaId int References CinesSalasDetalle(CineSalaId),
+			SalaId int References CinesSalasDetalle(CinesSalasId),
+			Fecha datetime,
 			Cantidad int,
 			Monto float
 )
-drop table Reservaciones
+
 go
+select *from ReservacionesDetalle
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,
 			ReservacionId int References Reservaciones(ReservacionId),

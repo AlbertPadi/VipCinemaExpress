@@ -2,8 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--Copiar este Pedazo de Codigo para todos los registros y consultas.-->
+
     <form runat="server">
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -19,7 +21,7 @@
                         <label class="control-label col-xs-2">PeliculaId ID:</label>
                         <div class="col-xs-3">
                             <asp:TextBox ID="PeliculaIdTextBox" class="form-control" runat="server" placeholder="Pelicula Id"></asp:TextBox>
-                            
+
                         </div>
 
                         <div class="row col-xs-6">
@@ -64,12 +66,15 @@
                         </div>
                         <asp:Button ID="AddIdiomaButton" class="btn btn-info" runat="server" Text="Add" Width="84px" OnClick="AddIdiomaButton_Click"></asp:Button>
                     </div>
-                    
+
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Subtitulo:</label>
                         <div class="col-xs-9">
-                            Si <asp:RadioButton ID="SubtiSiRadioButton" runat="server" />    No <asp:RadioButton ID="SubtiNoRadioButton" runat="server" />
+                            Si
+                            <asp:RadioButton ID="SubtiSiRadioButton" runat="server" />
+                            No
+                            <asp:RadioButton ID="SubtiNoRadioButton" runat="server" />
                         </div>
                     </div>
 
@@ -90,44 +95,51 @@
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Activa:</label>
                         <div class="col-xs-9">
-                            
-                           Si <asp:RadioButton ID="ActivaRadioButton" runat="server" />    No <asp:RadioButton ID="NoActivaRadioButton" runat="server" />
+                            Si
+                            <asp:RadioButton ID="ActivaRadioButton" runat="server" />
+                            No
+                            <asp:RadioButton ID="NoActivaRadioButton" runat="server" />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Fecha inicio:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="FechaInicioTextBox" class="form-control" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="FechaInicioTextBox" class="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#FechaInicioTextBox').datepicker();
+                        });
+                    </script>
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Fecha fin:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="FechaFinTextBox"  class="form-control" runat="server" TextMode="DateTime" ></asp:TextBox>
+                            <asp:TextBox id="FechaFinTextBox" class="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
 
-                        <div class="form-group row">
+                    <div class="form-group row">
                         <label class="control-label col-xs-2">Precio:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="PrecioTextBox"  class="form-control" placeholder="Precio" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="PrecioTextBox" class="form-control" placeholder="Precio" runat="server"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Imagen:</label>
-                        <div class="col-xs-9">
-                            <asp:TextBox ID="imagenTextBox" runat="server"></asp:TextBox>
+                        <div class="col-xs-6">
+                            <asp:FileUpload ID="ImagenFileUpload" class="btn btn-facebook" runat="server" />
                         </div>
                     </div>
-                    
+
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Vidoe:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox ID="VideoTextBox" runat="server"></asp:TextBox>
                         </div>
                     </div>
 

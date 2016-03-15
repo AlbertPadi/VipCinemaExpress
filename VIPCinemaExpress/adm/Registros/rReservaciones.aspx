@@ -13,106 +13,114 @@
                         <div class="col-lg-12">
                             <h1 class="page-header">Vip Cinema Express <small>Reservaciones</small>
                             </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="fa fa-dashboard"></i>Cambiar este Texto
-                            </li>
-                            </ol>
-                        </div>
 
-                        <div class="form-group ">
-                            <label for="ReservacionIdTextBox" class="control-label col-xs-3">Reservacion ID:</label>
-                            <div class="col-xs-8">
-                                <asp:TextBox ID="ReservacionIdTextBox" class="form-control" runat="server" placeholder="Reservacion Id"></asp:TextBox>
+                        </div>
+                        <div class="form-group"><div class="col-xs-2">Fecha</div>
+                            <div class="col-xs-3">
+                                <asp:TextBox ID="FechaTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-                            <asp:Button ID="BuscarButton" Class="btn btn-sm btn-info" runat="server" Text="Buscar" />
-
                         </div>
-
 
                         <div class="form-group">
-                            <label class="control-label col-xs-3">CineId:</label>
-                            <div class="col-xs-8">
-                                <div class="dropdown">
-                                    <asp:DropDownList ID="CinesDropDownList" class="form-control" runat="server" OnSelectedIndexChanged="CinesDropDownList_SelectedIndexChanged"></asp:DropDownList>
-                                </div>
-                                <asp:TextBox ID="CineIdTextBox" class="form-control" runat="server" placeholder="Cine Id" OnTextChanged="CineIdTextBox_TextChanged" ReadOnly="True"></asp:TextBox>
+                            <div class="col-md-2"></div>
+
+                            <label class="control-label col-xs-2">CineId:</label>
+
+                            <label class="control-label col-xs-2">Cantidad:</label>
+                        </div>
+
+
+                        <div class="form-group ">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-3">
+                                <asp:DropDownList ID="CinesDropDownList" class="form-control" runat="server" OnSelectedIndexChanged="CinesDropDownList_SelectedIndexChanged"></asp:DropDownList>
                             </div>
+
+                            <div class="col-xs-4">
+
+                                <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
+                            </div>
+
                             <asp:Button ID="BuscarCineButton" runat="server" class="btn btn-info" Text="Agregar" OnClick="BuscarCineButton_Click1" />
                         </div>
 
+                        <asp:GridView ID="CineGridView" class="table" runat="server"></asp:GridView>
+
+                        <div class="form-group row">
+                            <div class=" col-xs-12">
+                                <asp:GridView ID="PeliculaGridView" Class="table" runat="server"></asp:GridView>
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <label class="control-label col-xs-3">UsuarioId:</label>
+                            <label class="control-label col-md-2">Monto:</label>
                             <div class="col-xs-8">
-                                <asp:TextBox ID="UsuarioIdTextBox" class="form-control" runat="server" placeholder="Usuario Id"></asp:TextBox>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Sala Id:</label>
-                            <div class="col-xs-8">
-                                <div class="dropdown">
-                                    <asp:DropDownList ID="SalaIdDropDownList" class="form-control" runat="server"></asp:DropDownList>
-                                </div>
-                                <asp:TextBox ID="SalaIdTextBox" class="form-control" runat="server" placeholder="SalaId Id"></asp:TextBox>
-
-                            </div>
-                            <asp:Button ID="AddSalaButton" runat="server" class="btn btn-info" TextMode="MultiLine" Text="Agregar" OnClick="AddSalaButton_Click" />
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-9">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Pelicula Id:</label>
-                            <div class="col-xs-8">
-                                <div class="dropdown">
-                                    <asp:DropDownList ID="PeliculaIdDropDownList" class="form-control dropdown-toggle" runat="server"></asp:DropDownList>
-                                </div>
-                                <textarea id="PeliculaTextArea" class="form-control" cols="20" rows="2"></textarea>
-
-                            </div>
-                            <asp:Button ID="AddPeliculaButton" runat="server" class="btn btn-info" Text="Agregar" />
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Cantidad:</label>
-                            <div class="col-xs-8">
-                                <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Monto:</label>
-                            <div class="col-xs-9">
                                 <asp:TextBox ID="MontoTextBox" class="form-control" runat="server" placeholder="Monto" ReadOnly="True"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-xs-3">Realizar pago:</label>
-                            <div class="col-xs-9">
-                                <asp:Button ID="PagoButton" class="btn btn-link" runat="server" Text="CLIK AQUI para hacer su pago" />
-                            </div>
+                            <div class="col-xs-2"></div>
+                            <h2 class="col-xs-3"><small>Pago</small>
+                            </h2>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-xs-offset-3 col-xs-9">
+                            <div class="col-xs-2"></div>
+
+                            <label class="control-label col-xs-4">Tipo tarjeta:</label>
+
+                            <label class="control-label col-xs-3">Numero tarjeta:</label>
+                        </div>
+
+                        <div class="form-group ">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <asp:DropDownList ID="TarjetaDropDownList" CssClass="form-control" runat="server">
+                                    <asp:ListItem Value="1">Visa</asp:ListItem>
+                                    <asp:ListItem Value="2">Master Card</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+
+                            <div class="col-xs-4">
+
+                                <asp:TextBox ID="NumeroTarjetaTextBox" CssClass="form-control" runat="server" placeholder="Numero tarjeta"></asp:TextBox>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-2"></div>
+
+                            <label class="control-label col-xs-4">Mes Exp:</label>
+
+                            <label class="control-label col-xs-3">Año Exp:</label>
+                        </div>
+
+                        <div class="form-group ">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-4">
+                                <asp:TextBox ID="MesExpTextBox" CssClass="form-control" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
+                            </div>
+
+                            <div class="col-xs-4">
+
+                                <asp:TextBox ID="AnoExpTextBox" CssClass="form-control" runat="server" placeholder="Año Expide"></asp:TextBox>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-9">
                                 <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" />
-                                <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
-                                <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" />
+                                <asp:Button ID="ReservarButton" class="btn btn-primary" runat="server" Text="Reservar" OnClick="GuardarButton_Click" />
                             </div>
                         </div>
 
                     </div>
                 </div>
-        </div>
-     
+            </div>
+
         </div>
     </form>
     <!--Hasta aqui, Copiar este Pedazo de Codigo para todos los registros y consultas.-->

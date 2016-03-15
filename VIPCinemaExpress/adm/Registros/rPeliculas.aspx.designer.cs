@@ -166,22 +166,13 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
         
         /// <summary>
-        /// imagenTextBox control.
+        /// ImagenFileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox imagenTextBox;
-        
-        /// <summary>
-        /// VideoTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox VideoTextBox;
+        protected global::System.Web.UI.WebControls.FileUpload ImagenFileUpload;
         
         /// <summary>
         /// NuevoButton control.

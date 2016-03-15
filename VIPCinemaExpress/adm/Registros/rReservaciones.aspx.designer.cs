@@ -13,22 +13,13 @@ namespace VIPCinemaExpress.adm.Registros {
     public partial class rReservaciones {
         
         /// <summary>
-        /// ReservacionIdTextBox control.
+        /// FechaTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReservacionIdTextBox;
-        
-        /// <summary>
-        /// BuscarButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarButton;
+        protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
         
         /// <summary>
         /// CinesDropDownList control.
@@ -40,13 +31,13 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.DropDownList CinesDropDownList;
         
         /// <summary>
-        /// CineIdTextBox control.
+        /// CantidadTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CineIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CantidadTextBox;
         
         /// <summary>
         /// BuscarCineButton control.
@@ -58,67 +49,22 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarCineButton;
         
         /// <summary>
-        /// UsuarioIdTextBox control.
+        /// CineGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsuarioIdTextBox;
+        protected global::System.Web.UI.WebControls.GridView CineGridView;
         
         /// <summary>
-        /// SalaIdDropDownList control.
+        /// PeliculaGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SalaIdDropDownList;
-        
-        /// <summary>
-        /// SalaIdTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SalaIdTextBox;
-        
-        /// <summary>
-        /// AddSalaButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddSalaButton;
-        
-        /// <summary>
-        /// PeliculaIdDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PeliculaIdDropDownList;
-        
-        /// <summary>
-        /// AddPeliculaButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddPeliculaButton;
-        
-        /// <summary>
-        /// CantidadTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CantidadTextBox;
+        protected global::System.Web.UI.WebControls.GridView PeliculaGridView;
         
         /// <summary>
         /// MontoTextBox control.
@@ -130,13 +76,40 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.TextBox MontoTextBox;
         
         /// <summary>
-        /// PagoButton control.
+        /// TarjetaDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PagoButton;
+        protected global::System.Web.UI.WebControls.DropDownList TarjetaDropDownList;
+        
+        /// <summary>
+        /// NumeroTarjetaTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NumeroTarjetaTextBox;
+        
+        /// <summary>
+        /// MesExpTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox MesExpTextBox;
+        
+        /// <summary>
+        /// AnoExpTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AnoExpTextBox;
         
         /// <summary>
         /// NuevoButton control.
@@ -148,21 +121,12 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button NuevoButton;
         
         /// <summary>
-        /// GuardarButton control.
+        /// ReservarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GuardarButton;
-        
-        /// <summary>
-        /// EliminarButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EliminarButton;
+        protected global::System.Web.UI.WebControls.Button ReservarButton;
     }
 }

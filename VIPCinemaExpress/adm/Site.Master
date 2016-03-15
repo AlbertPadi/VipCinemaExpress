@@ -17,14 +17,15 @@
     <link href="/adm/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/adm/assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="/adm/assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">
+    <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">  
+    <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
 
     <!-- Custom styles for this template -->
     <link href="/adm/assets/css/style.css" rel="stylesheet">
     <link href="/adm/assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="/adm/assets/js/chart-master/Chart.js"></script>
-
+     <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -33,6 +34,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
+    
 </head>
 
 <body>
@@ -261,11 +263,13 @@
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-th"></i>
-                            <span>Data Tables</span>
+                            <span>Consultas</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="basic_table.html">Basic Table</a></li>
-                            <li><a href="responsive_table.html">Responsive Table</a></li>
+                            <li><a href="/adm/Consultas/cCines.aspx">Cines</a></li>
+                            <li><a href="/adm/Consultas/cPeliculas.aspx">Peliculas</a></li>
+                            <li><a href="/adm/Consultas/cReservaciones.aspx">Reservaciones</a></li>
+                            <li><a href="/adm/Consultas/cUsuarios.aspx">Usuarios</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -294,7 +298,7 @@
         <!--footer start-->
         <footer class="site-footer">
             <div class="text-center">
-                2014 - Alvarez.is
+                2016 - Padilla Solution's.TM
               <a href="default.aspx#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
