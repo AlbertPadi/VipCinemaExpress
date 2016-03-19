@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Email:</label>
                             <div class="col-xs-6">
-                                <asp:TextBox ID="EmailTextBox" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                                <asp:TextBox ID="EmailTextBox" class="form-control" runat="server" placeholder="example@hotmail.com"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group row">

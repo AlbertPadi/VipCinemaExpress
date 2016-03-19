@@ -58,6 +58,7 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void AddSalaButton_Click(object sender, EventArgs e)
         {
+
         }
 
         protected void CinesDropDownList_SelectedIndexChanged(object sender, EventArgs e)

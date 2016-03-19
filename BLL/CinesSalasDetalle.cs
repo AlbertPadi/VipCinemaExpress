@@ -20,6 +20,13 @@ namespace BLL
             this.EsActiva = esActiva;
         }
 
+        public CinesSalasDetalle()
+        {
+            this.NombreSala = "";
+            this.NoAsiento = 0;
+            this.EsActiva = 0;
+        }
+
         public override bool Insertar()
         {
             throw new NotImplementedException();
@@ -48,7 +55,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + "from CinesSalasDetalle where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from CinesSalasDetalle where " + Condicion + " " + OrdenFinal);
         }
     }
 

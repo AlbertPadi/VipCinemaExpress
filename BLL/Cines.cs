@@ -65,7 +65,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
 
             retorno = conexion.Ejecutar(String.Format("Update Cines set Nombre = '{0}', Ciudad = '{1}', Direccion = '{2}', Telefono = '{3}', Email = '{4}', CantidadSalas = {5} where CineId = {6}", this.Nombres, this.Ciudad, this.Direccion, this.Telefono, this.Email, this.CantidadSalas, this.CineId));
-            identity = conexion.ObtenerValor(String.Format("select CineId from Cines where CineId = {0}", this.CineId));
+            
             int.TryParse(identity.ToString(), out valor);
             if (retorno)
             {
@@ -84,10 +84,10 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete from CinesSalasDetalle where CineId = {0}", this.CineId));
+            retorno = conexion.Ejecutar(String.Format("Delete from Cines where CineId = {0}", this.CineId));
             if (retorno)
             {
-                conexion.Ejecutar(string.Format("Delete from Cines where CineId = {0}", this.CineId));
+                conexion.Ejecutar(string.Format("Delete from CinesSalasDetalle where CineId = {0}", this.CineId));
 
             }
 

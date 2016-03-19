@@ -14,10 +14,42 @@ namespace VIPCinemaExpress.adm.Registros
         string img;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //FechaInicioTextBox.Text = DateTime.Now.ToString("yyyy-MM-dddd hh:mm:ss");
+            //FechaFinTextBox.Text = DateTime.Now.ToString("yyyy-MM-dddd hh:mm:ss");
+            if (!IsPostBack)
+            {
+                Cines cines = new Cines();
+                CineDropDownList.DataSource = cines.Listado(" * ", "1=1", "");
+                CineDropDownList.DataTextField = "Nombre";
+                CineDropDownList.DataValueField = "CineId";
+                CineDropDownList.DataBind();
 
+                CinesSalasDetalle CinesSalas = new CinesSalasDetalle();
+                SalaDropDownList.DataSource = CinesSalas.Listado("CinesSalasId, NombreSala", "CineId = " + CineDropDownList.SelectedValue, "");
+                SalaDropDownList.DataTextField = "NombreSala";
+                SalaDropDownList.DataValueField = "CinesSalasId";
+                SalaDropDownList.DataBind();
+
+            }
+        }
+        protected void AgregarCSButton_Click(object sender, EventArgs e)
+        {
+            Peliculas pelicula;
+            if (Session["Pelicula"] == null)
+                Session["Pelicula"] = new Peliculas();
+
+
+            pelicula = (Peliculas)Session["Pelicula"];
+
+
+            pelicula.AddCinesSalas(Convert.ToInt32(CineDropDownList.SelectedValue), Convert.ToInt32(SalaDropDownList.SelectedValue));
+            Session["Pelicula"] = pelicula;
+            CinesSalasGridView.DataSource = pelicula.Detalle;
+            CinesSalasGridView.DataBind();
         }
         public void Limpiar()
         {
+
             NombreTextBox.Text = string.Empty; ;
             PeliculaIdTextBox.Text = string.Empty;
             ClasificaiconTextBox.Text = string.Empty;
@@ -32,6 +64,7 @@ namespace VIPCinemaExpress.adm.Registros
             FechaFinTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
             GeneroTextBox.Text = string.Empty;
+
         }
         protected void AddIdiomaButton_Click(object sender, EventArgs e)
         {
@@ -78,7 +111,8 @@ namespace VIPCinemaExpress.adm.Registros
                         Response.Write("<script>alert('Formato de imagen inválido.');</script>");
                     else
                         GuardarArchivo(ImagenFileUpload.PostedFile);
-                    pelicula.Imagen = ext;
+                    pelicula.Imagen =ImagenFileUpload.FileName;
+                    Response.Write("<script>alert('Hola "+ pelicula.Imagen+"');</script>");
                 }
                 else
                     Response.Write("<script>alert('Seleccione un archivo del disco duro.');</script>");
@@ -208,6 +242,7 @@ namespace VIPCinemaExpress.adm.Registros
                 GeneroTextBox.Text = pelicula.Genero;
                 ClasificaiconTextBox.Text = pelicula.Clasificacion;
                 IdiomaTextBox.Text = pelicula.Idioma;
+                //ImagenFileUpload = pelicula.Imagen;
                 if (pelicula.Subtitulo == 1)
                 {
                     SubtiSiRadioButton.Checked = true;
@@ -229,10 +264,19 @@ namespace VIPCinemaExpress.adm.Registros
                 }
 
 
-                //FechaInicioTextBox.Text = pelicula.FechaInicio;
-                //FechaFinTextBox.Text = string.Empty;
+                FechaInicioTextBox.Text = pelicula.FechaInicio;
+                FechaFinTextBox.Text = string.Empty;
             }
 
+        }
+
+        protected void CineDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CinesSalasDetalle CinesSalas = new CinesSalasDetalle();
+            SalaDropDownList.DataSource = CinesSalas.Listado("CinesSalasId, NombreSala", "CineId = " + CineDropDownList.SelectedValue, "");
+            SalaDropDownList.DataTextField = "NombreSala";
+            SalaDropDownList.DataValueField = "CinesSalasId";
+            SalaDropDownList.DataBind();
         }
 
 

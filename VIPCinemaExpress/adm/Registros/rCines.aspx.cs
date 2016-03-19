@@ -16,16 +16,10 @@ namespace VIPCinemaExpress.adm.Registros
         {
             if (!IsPostBack)
             {
-                
+                SalasGridView.DataBind();
+                EsActivaCheckBox.Checked = false;
             }
-            if (EsActivaCheckBox.Checked == true)
-            {
-                esActiva = 1;
-            }
-            else
-            {
-                esActiva = 0;
-            }
+            
         }
 
         public void Limpiar()
@@ -43,7 +37,15 @@ namespace VIPCinemaExpress.adm.Registros
         }
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
-            
+            if (EsActivaCheckBox.Checked == true)
+            {
+                esActiva = 1;
+            }
+            else
+            {
+                esActiva = 0;
+            }
+
             Cines cine;
             
             if (Session["Cine"] == null)
@@ -70,8 +72,6 @@ namespace VIPCinemaExpress.adm.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             int id;
-        
-           
 
             Cines cines = new Cines();
 

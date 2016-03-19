@@ -35,7 +35,8 @@
 			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 			    	    	</label>
 			    	    </div>
-			    		<asp:Button ID="Button1" runat="server" Text="Button" class="btn btn-lg btn-success btn-block" OnClick="Button1_Click"/>
+
+			    		<asp:Button ID="Button1" runat="server" Text="Ingresar" class="btn btn-success" OnClick="Button1_Click"/>
 			    	</fieldset>
 			      	</form>
 			    </div>

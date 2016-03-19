@@ -11,9 +11,6 @@ create table Cines(
 			Email varchar(40),
 			CantidadSalas int
 )
-select * from Cines
-go
-insert into CinesSalasDetalle (CineId, NombreSala, NoAsiento, EsActiva) Values(5, 'hgvh', 200, 1)
 
 go
 create table CinesSalasDetalle(
@@ -24,13 +21,7 @@ create table CinesSalasDetalle(
 			EsActiva int
 			
 )
-select *from CinesSalasDetalle
 
-
-drop table CinesSalasDetalle
-Select SalaId from CinesSalasDetalle
-drop table CinesSalasDetalle
-select *from CinesSalasDetalle
 go
 create table Usuarios(
 			UsuarioId int primary key identity,
@@ -44,9 +35,8 @@ create table Usuarios(
 			Usuario varchar(40),
 			Contrasena varchar(30)
 )
-select *from Usuarios
 go
-Select S.SalaId, S.Descripcion from CinesSalasDetalle CSD inner join Salas S on S.SalaId = CSD.SalaId where CSD.CineId = 6
+
 create table Peliculas(
 			PeliculaId int primary key identity,
 			Nombre varchar(40),
@@ -59,18 +49,24 @@ create table Peliculas(
 			Activa bit,
 			FechaInicio datetime,
 			FechaFin datetime,
+			Duracion time,
 			Precio float,
-			Imagen image(350),
+			Imagen nvarchar(100),
 			Video nvarchar(350)
 )
-Select * from Peliculas
-drop table Peliculas
+
+create table PeliculaDetalle(
+			PeliculaDetalleId int primary key identity,
+			PeliculaId int References Peliculas(PeliculaId),
+			CineId int References Cines(CineId),
+			CinesSalasId int References CinesSalasDetalle(CinesSalasId)
+)
 go
 create table Carteleras(
 			CarteleraId int primary key identity,
 			PeliculaId int References Peliculas(PeliculaId)
 )
-drop table Carteleras
+
 go
 create table Reservaciones(
 			ReservacionId int primary key identity,
@@ -83,10 +79,9 @@ create table Reservaciones(
 )
 
 go
-select *from ReservacionesDetalle
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,
 			ReservacionId int References Reservaciones(ReservacionId),
 			PeliculaId int References Peliculas(PeliculaId)
 )
-drop table ReservacionesDetalle
+select *from Peliculas

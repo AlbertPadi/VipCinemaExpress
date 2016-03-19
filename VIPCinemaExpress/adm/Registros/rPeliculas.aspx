@@ -109,51 +109,75 @@
                         </div>
                     </div>
 
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#FechaInicioTextBox').datepicker();
-                        });
-                    </script>
-
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Fecha fin:</label>
                         <div class="col-xs-9">
-                            <asp:TextBox id="FechaFinTextBox" class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="FechaFinTextBox"  class="form-control" runat="server" ></asp:TextBox>
                         </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label class="control-label col-xs-2">Precio:</label>
-                        <div class="col-xs-9">
-                            <asp:TextBox ID="PrecioTextBox" class="form-control" placeholder="Precio" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="control-label col-xs-2">Imagen:</label>
-                        <div class="col-xs-6">
-                            <asp:FileUpload ID="ImagenFileUpload" class="btn btn-facebook" runat="server" />
-                        </div>
-                    </div>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="form-group row">
+                                <div class="col-xs-2">
+                                    <asp:Label ID="CineLabel" runat="server" Text="Cine"></asp:Label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <asp:DropDownList ID="CineDropDownList" CssClass="form-control" runat="server" OnSelectedIndexChanged="CineDropDownList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                </div>
+                            </div>
 
 
-                    <div class="form-group row">
-                        <label class="control-label col-xs-2">Vidoe:</label>
-                        <div class="col-xs-9">
-                        </div>
-                    </div>
+                            <div class="form-group row">
+                                <div class="col-xs-2">
+                                    <asp:Label ID="SalasLabel" runat="server" Text="Sala"></asp:Label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <asp:DropDownList ID="SalaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                                </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <asp:Button ID="AgregarCSButton" class="btn btn-facebook" runat="server" Text="Agregar" OnClick="AgregarCSButton_Click" />
+              
 
-                    <div class="form-group row">
-                        <div class="col-xs-offset-2 col-xs-9">
-                            <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
-                            <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
-                            <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
-                        </div>
+                <div class="form-group row">
+                    <label class="control-label col-xs-2">Precio:</label>
+                    <div class="col-xs-6">
+                        <asp:TextBox ID="PrecioTextBox" class="form-control" placeholder="Precio" runat="server"></asp:TextBox>
                     </div>
 
                 </div>
+
+                <asp:GridView ID="CinesSalasGridView" CssClass="table" runat="server"></asp:GridView>
+
+                <div class="form-group row">
+                    <label class="control-label col-xs-2">Imagen:</label>
+                    <div class="col-xs-6">
+                        <asp:FileUpload ID="ImagenFileUpload" class="btn btn-facebook" runat="server" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="control-label col-xs-2">Vidoe:</label>
+                    <div class="col-xs-9">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-xs-offset-2 col-xs-9">
+                        <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
+                        <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
+                        <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
+                    </div>
+                </div>
+
             </div>
         </div>
+        </div>
+
+     
     </form>
     <!--Hasta aqui, Copiar este Pedazo de Codigo para todos los registros y consultas.-->
 </asp:Content>

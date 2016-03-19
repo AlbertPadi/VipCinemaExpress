@@ -482,6 +482,8 @@
     <Content Include="pricing.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\jquery-2.2.1.js" />
+    <Content Include="scripts\jquery-2.2.1.min.js" />
     <Content Include="services.html" />
     <Content Include="VistaUsuario\ReservacionesUsuario.aspx" />
     <Content Include="Web.config" />
@@ -662,6 +664,7 @@
     <Content Include="adm\assets\lineicons\fonts\_DS_Store" />
     <Content Include="adm\assets\lineicons\_DS_Store" />
     <None Include="Properties\PublishProfiles\vipcinemaexpress - Web Deploy.pubxml" />
+    <Content Include="scripts\jquery-2.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
