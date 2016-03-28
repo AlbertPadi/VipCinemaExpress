@@ -28,7 +28,12 @@
                             </div>
                             <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="BuscarButton_Click" />
                         </div>
-                        <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
+                        <div class="col-xs-12">
+                            <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
+                        </div>
+                        <div class="col-xs-12">
+                            <asp:Button ID="ImprimirButton" CssClass="btn btn-info" runat="server" Text="Imprimir" />
+                        </div>
                     </div>
                 </div>
             </div>

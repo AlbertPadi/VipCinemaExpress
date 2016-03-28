@@ -15,7 +15,7 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dddd hh:mm:ss");
+            //FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dddd hh:mm:ss");
 
             if (!IsPostBack)
             {

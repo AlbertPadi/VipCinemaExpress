@@ -4,9 +4,6 @@
     
 <HTML>
     <HEAD>
-        <TITTLE>
-
-        </TITTLE>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.js"></script>
@@ -26,17 +23,14 @@
                               <asp:textbox id="Usuariotextbox" runat="server" cssclass="form-control" placeholder="Usuario"></asp:textbox>
 			    		</div>
 			    		<div class="form-group">
-			    			<asp:textbox ID="Passwordtextbox" runat="server" CssClass="form-control" placeholder="Password"></asp:textbox>
+			    			<asp:textbox ID="Passwordtextbox" runat="server" CssClass="form-control" textmode="Password" placeholder="Password"></asp:textbox>
                             
 			    		</div>
-			    		<div class="checkbox">
-			    	    	<label>
-                                
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-			    	    	</label>
-			    	    </div>
+			    		<div class="form-control row">
+                            <asp:CheckBox ID="RememberCheckBox" runat="server" />
+			    		</div>
 
-			    		<asp:Button ID="Button1" runat="server" Text="Ingresar" class="btn btn-success" OnClick="Button1_Click"/>
+			    		<asp:Button ID="EntrarButton" runat="server" Text="Ingresar" class="btn btn-success" OnClick="Button1_Click"/>
 			    	</fieldset>
 			      	</form>
 			    </div>

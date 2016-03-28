@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adm/Site.Master" AutoEventWireup="true" CodeBehind="cPeliculas.aspx.cs" Inherits="VIPCinemaExpress.adm.Consultas.cPeliculas" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -27,7 +28,12 @@
                             </div>
                             <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="Button1_Click" />
                         </div>
-                        <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
+                        <div class="col-xs-12">
+                            <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
+                        </div>
+                        <div class="col-xs-12">
+                            <asp:Button ID="ImprimirButton" CssClass="btn btn-info" runat="server" Text="Imprimir" />
+                        </div>
                     </div>
                 </div>
             </div>

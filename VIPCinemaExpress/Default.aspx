@@ -12,30 +12,33 @@
                 <p>Es una pelicula de accion pura, el protagonista Jason busca la venganza de quien coloca un dispositivo para eliminarlo</p>
 
                 <!--<asp:Button ID="ReservarButton" href="/adm/Registros/rReservaciones.aspx" class="btn btn-primary" runat="server" Text="Reservar" />-->
-                <a href="/adm/Registros/rReservaciones.aspx" class="da-link">Reservar</a>
+
                 <div class="da-img">
-                    <img src="img/parallax-slider/Transporter3.png" alt="image01" /></div>
+                    <img src="img/parallax-slider/Transporter3.png" alt="image01" />
+                </div>
             </div>
             <div class="da-slide">
                 <h2>Legion</h2>
                 <p>Una pelicula de drama, accion y suspenso</p>
-                <a href="#" class="da-link">Reservar</a>
                 <div class="da-img">
-                    <img src="img/parallax-slider/legion.jpg" alt="image02" /></div>
+                    <img src="img/parallax-slider/legion.jpg" alt="image02" />
+                </div>
             </div>
             <div class="da-slide">
                 <h2>No Se Aceptan Devoluaciones</h2>
                 <p>Una pelicula totalmente comedia, un padre y madre ala vez</p>
-                <a href="#" class="da-link">Reservar</a>
+
                 <div class="da-img">
-                    <img src="img/parallax-slider/Noseaceptandevoluaciones.jpg" alt="image03" /></div>
+                    <img src="img/parallax-slider/Noseaceptandevoluaciones.jpg" alt="image03" />
+                </div>
             </div>
             <div class="da-slide">
                 <h2>Rio-2</h2>
                 <p>Una pelicula de caricaturas animadas, comedia y drama</p>
-                <a href="#" class="da-link">Reservar</a>
+
                 <div class="da-img">
-                    <img src="img/parallax-slider/Rio-2.png" alt="image04" /></div>
+                    <img src="img/parallax-slider/Rio-2.png" alt="image04" />
+                </div>
             </div>
             <nav class="da-arrows">
                 <span class="da-arrows-prev"></span>
@@ -44,9 +47,27 @@
         </div>
 
     </div>
-    <!-- end: Slider -->
 
+    <asp:Repeater ID="Repeater1" runat="server">
+<ItemTemplate>
+    <asp:Image ID="Image3" runat="server" ImageUrl='<%# "/temp/"+ Eval("ImageID") %>' Height="150px" Width="150px"/>
+</ItemTemplate>
+        </asp:Repeater>
+    <!-- end: Slider -->
+    <!----------------------------------------------------------------------------------------------------------->
+    <%--<asp:Repeater ID="CarteleraRepeater" runat="server" OnItemDataBound="CarteleraRepeater_ItemDataBound">
+        <ItemTemplate>
+            <asp:Image ID="PeliculaImage" runat="server" />
+            <asp:Label ID="PeliculaLabel" runat="server" Text="Label"></asp:Label>
+        </ItemTemplate>
+    </asp:Repeater>--%>
+
+
+    
+
+    <!----------------------------------------------------------------------------------------------------------->
     <!--start: Wrapper-->
+
     <div id="wrapper">
 
         <!--start: Container -->
@@ -63,8 +84,8 @@
             <!-- end: Hero Unit -->
 
             <!-- start: Row -->
-            
 
+            <img src="/partners+@(item.AdPath)" alt="" id="adimg" title="@item.AdName"  width:"50px" height="50px"/>
 
             <!-- end: Row -->
 
@@ -171,5 +192,4 @@
 
     </div>
     <!-- end: Wrapper  -->
-
 </asp:Content>

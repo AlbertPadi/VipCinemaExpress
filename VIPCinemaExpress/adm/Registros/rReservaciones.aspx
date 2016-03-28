@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group"><div class="col-xs-2">Fecha</div>
                             <div class="col-xs-3">
-                                <asp:TextBox ID="FechaTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="FechaTextBox" CssClass="form-control" runat="server" TextMode="DateTime" ></asp:TextBox>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@
                         <div class="form-group ">
                             <div class="col-xs-2"></div>
                             <div class="col-xs-4">
-                                <asp:TextBox ID="MesExpTextBox" CssClass="form-control" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
+                                <asp:TextBox ID="MesExpTextBox" CssClass="form-control" runat="server" ></asp:TextBox>
                             </div>
 
                             <div class="col-xs-4">

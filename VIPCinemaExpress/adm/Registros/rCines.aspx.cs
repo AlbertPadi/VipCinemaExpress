@@ -33,8 +33,10 @@ namespace VIPCinemaExpress.adm.Registros
             SalasGridView.DataSource = null;
             SalasGridView.DataBind();
             EsActivaCheckBox.Checked = false;
+            CanSalasTextBox.Text = string.Empty;
 
         }
+
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
             if (EsActivaCheckBox.Checked == true)
@@ -64,9 +66,12 @@ namespace VIPCinemaExpress.adm.Registros
 
             NombreSalaTextBox.Text = "";
             NoAsientosTextBox.Text = "";
-            
-           
-           //CanSalasTextBox.Text = cont.ToString();
+
+            int count = SalasGridView.Rows.Count;
+            foreach (GridViewRow row in SalasGridView.Rows)
+            {
+                CanSalasTextBox.Text += count;
+            }
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
@@ -86,7 +91,7 @@ namespace VIPCinemaExpress.adm.Registros
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-                //cines.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
+                cines.CantidadSalas = cont;
 
                 if (cines.Insertar())
                 {

@@ -12,6 +12,8 @@ namespace VIPCinemaExpress.adm.Registros
     public partial class rPeliculas : System.Web.UI.Page
     {
         string img;
+        DateTime Variable1 = new DateTime();
+        DateTime Variable2 = new DateTime();
         protected void Page_Load(object sender, EventArgs e)
         {
             //FechaInicioTextBox.Text = DateTime.Now.ToString("yyyy-MM-dddd hh:mm:ss");
@@ -34,18 +36,7 @@ namespace VIPCinemaExpress.adm.Registros
         }
         protected void AgregarCSButton_Click(object sender, EventArgs e)
         {
-            Peliculas pelicula;
-            if (Session["Pelicula"] == null)
-                Session["Pelicula"] = new Peliculas();
 
-
-            pelicula = (Peliculas)Session["Pelicula"];
-
-
-            pelicula.AddCinesSalas(Convert.ToInt32(CineDropDownList.SelectedValue), Convert.ToInt32(SalaDropDownList.SelectedValue));
-            Session["Pelicula"] = pelicula;
-            CinesSalasGridView.DataSource = pelicula.Detalle;
-            CinesSalasGridView.DataBind();
         }
         public void Limpiar()
         {
@@ -54,12 +45,10 @@ namespace VIPCinemaExpress.adm.Registros
             PeliculaIdTextBox.Text = string.Empty;
             ClasificaiconTextBox.Text = string.Empty;
             IdiomaTextBox.Text = string.Empty;
-            SubtiSiRadioButton.Checked = false;
-            SubtiNoRadioButton.Checked = false;
+            SubtituloCheckBox.Checked = false;
             DirectorTextBox.Text = string.Empty;
             ActoresTextBox.Text = string.Empty;
-            ActivaRadioButton.Checked = false;
-            NoActivaRadioButton.Checked = false;
+            ActivaCheckBox.Checked = false;
             FechaInicioTextBox.Text = string.Empty;
             FechaFinTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
@@ -97,6 +86,7 @@ namespace VIPCinemaExpress.adm.Registros
 
             if (PeliculaIdTextBox.Text.Length == 0)
             {
+
                 pelicula.Nombre = NombreTextBox.Text;
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
@@ -111,34 +101,38 @@ namespace VIPCinemaExpress.adm.Registros
                         Response.Write("<script>alert('Formato de imagen inválido.');</script>");
                     else
                         GuardarArchivo(ImagenFileUpload.PostedFile);
-                    pelicula.Imagen =ImagenFileUpload.FileName;
-                    Response.Write("<script>alert('Hola "+ pelicula.Imagen+"');</script>");
+                    pelicula.Imagen = ImagenFileUpload.FileName;
+                    Response.Write("<script>alert('Hola " + pelicula.Imagen + "');</script>");
                 }
                 else
                     Response.Write("<script>alert('Seleccione un archivo del disco duro.');</script>");
 
 
-                if (SubtiSiRadioButton.Checked == true)
+                if (SubtituloCheckBox.Checked == true)
                 {
                     pelicula.Subtitulo = 1;
                 }
-                else if (SubtiNoRadioButton.Checked == true)
+                else if (SubtituloCheckBox.Checked == false)
                 {
                     pelicula.Subtitulo = 0;
                 }
                 pelicula.Director = DirectorTextBox.Text;
                 pelicula.Actores = ActoresTextBox.Text;
-                if (ActivaRadioButton.Checked == true)
+                if (ActivaCheckBox.Checked == true)
                 {
                     pelicula.Activa = 1;
                 }
-                else if (NoActivaRadioButton.Checked == true)
+                else if (ActivaCheckBox.Checked == false)
                 {
                     pelicula.Activa = 0;
                 }
 
-                pelicula.FechaInicio = FechaInicioTextBox.Text;
-                pelicula.FechaFin = FechaFinTextBox.Text;
+                Variable1.ToString("yyyy-MM-dd hh:mm:ss tt");
+                Variable2.ToString("yyyy-MM-dd hh:mm:ss tt");
+                Variable1 = Convert.ToDateTime(FechaInicioTextBox.Text);
+                Variable2 = Convert.ToDateTime(FechaFinTextBox.Text);
+                pelicula.FechaFin = Variable2;
+                pelicula.FechaInicio = Variable1;
                 precio = Convert.ToDouble(PrecioTextBox.Text);
                 pelicula.Precio = precio;
 
@@ -160,29 +154,32 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
 
+                Variable1 = Convert.ToDateTime(FechaInicioTextBox.Text);
+                Variable2 = Convert.ToDateTime(FechaFinTextBox.Text);
+                pelicula.FechaFin = Variable2;
+                pelicula.FechaInicio = Variable1;
+
                 IdiomaTextBox.Text = IdiomaDropDownList.SelectedItem.ToString();
                 pelicula.Idioma = IdiomaTextBox.Text;
-                if (SubtiSiRadioButton.Checked == true)
+                if (SubtituloCheckBox.Checked == true)
                 {
                     pelicula.Subtitulo = 1;
                 }
-                else if (SubtiNoRadioButton.Checked == true)
+                else if (SubtituloCheckBox.Checked == false)
                 {
                     pelicula.Subtitulo = 0;
                 }
                 pelicula.Director = DirectorTextBox.Text;
                 pelicula.Actores = ActoresTextBox.Text;
-                if (ActivaRadioButton.Checked == true)
+                if (ActivaCheckBox.Checked == true)
                 {
                     pelicula.Activa = 1;
                 }
-                else if (NoActivaRadioButton.Checked == true)
+                else if (ActivaCheckBox.Checked == false)
                 {
                     pelicula.Activa = 0;
                 }
 
-                pelicula.FechaInicio = FechaInicioTextBox.Text;
-                pelicula.FechaFin = FechaFinTextBox.Text;
                 precio = Convert.ToDouble(PrecioTextBox.Text);
                 pelicula.Precio = precio;
 
@@ -245,27 +242,28 @@ namespace VIPCinemaExpress.adm.Registros
                 //ImagenFileUpload = pelicula.Imagen;
                 if (pelicula.Subtitulo == 1)
                 {
-                    SubtiSiRadioButton.Checked = true;
+                    SubtituloCheckBox.Checked = true;
                 }
                 else if (pelicula.Subtitulo == 0)
                 {
-                    SubtiNoRadioButton.Checked = true;
+                    SubtituloCheckBox.Checked = false;
                 }
                 DirectorTextBox.Text = pelicula.Director;
                 ActoresTextBox.Text = pelicula.Actores;
 
                 if (pelicula.Activa == 1)
                 {
-                    ActivaRadioButton.Checked = true;
+                    ActivaCheckBox.Checked = true;
                 }
                 else if (pelicula.Activa == 0)
                 {
-                    NoActivaRadioButton.Checked = true;
+                    ActivaCheckBox.Checked = false;
                 }
 
 
-                FechaInicioTextBox.Text = pelicula.FechaInicio;
-                FechaFinTextBox.Text = string.Empty;
+                FechaInicioTextBox.Text = pelicula.FechaInicio.ToString();
+                FechaFinTextBox.Text = pelicula.FechaFin.ToString();
+
             }
 
         }
@@ -279,6 +277,20 @@ namespace VIPCinemaExpress.adm.Registros
             SalaDropDownList.DataBind();
         }
 
+        protected void AddSCButton_Click(object sender, EventArgs e)
+        {
+            Peliculas pelicula;
+            if (Session["Pelicula"] == null)
+                Session["Pelicula"] = new Peliculas();
 
+
+            pelicula = (Peliculas)Session["Pelicula"];
+
+
+            pelicula.AddCinesSalas(Convert.ToInt32(CineDropDownList.SelectedValue), Convert.ToInt32(SalaDropDownList.SelectedValue));
+            Session["Pelicula"] = pelicula;
+            CinesSalasGridView.DataSource = pelicula.Detalle;
+            CinesSalasGridView.DataBind();
+        }
     }
 }

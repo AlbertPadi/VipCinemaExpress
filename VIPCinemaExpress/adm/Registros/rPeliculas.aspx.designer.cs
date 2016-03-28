@@ -85,22 +85,13 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.Button AddIdiomaButton;
         
         /// <summary>
-        /// SubtiSiRadioButton control.
+        /// SubtituloCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SubtiSiRadioButton;
-        
-        /// <summary>
-        /// SubtiNoRadioButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SubtiNoRadioButton;
+        protected global::System.Web.UI.WebControls.CheckBox SubtituloCheckBox;
         
         /// <summary>
         /// DirectorTextBox control.
@@ -121,22 +112,22 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.TextBox ActoresTextBox;
         
         /// <summary>
-        /// ActivaRadioButton control.
+        /// ActivaCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton ActivaRadioButton;
+        protected global::System.Web.UI.WebControls.CheckBox ActivaCheckBox;
         
         /// <summary>
-        /// NoActivaRadioButton control.
+        /// TiempoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton NoActivaRadioButton;
+        protected global::System.Web.UI.WebControls.TextBox TiempoTextBox;
         
         /// <summary>
         /// FechaInicioTextBox control.
@@ -211,22 +202,13 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.DropDownList SalaDropDownList;
         
         /// <summary>
-        /// AgregarCSButton control.
+        /// AddSCButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AgregarCSButton;
-        
-        /// <summary>
-        /// PrecioTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
+        protected global::System.Web.UI.WebControls.Button AddSCButton;
         
         /// <summary>
         /// CinesSalasGridView control.
@@ -236,6 +218,15 @@ namespace VIPCinemaExpress.adm.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView CinesSalasGridView;
+        
+        /// <summary>
+        /// PrecioTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
         
         /// <summary>
         /// ImagenFileUpload control.

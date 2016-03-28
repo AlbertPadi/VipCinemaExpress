@@ -9,7 +9,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+    <title>Vip Cinema Express</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/adm/assets/css/bootstrap.css" rel="stylesheet">
@@ -17,15 +17,30 @@
     <link href="/adm/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/adm/assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="/adm/assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">  
+    <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">
     <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
+
+    <link href="../css/style.css" rel="stylesheet" />
+    <!--JS-->
+    <script src="js/jquery.gmap.min.js"></script>
+    <script src="js/widget.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/daterangepicker.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/scripts/jquery.date-dropdowns.js"></script>
+
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/js/jquery.daterangepicker.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="/adm/assets/css/style.css" rel="stylesheet">
     <link href="/adm/assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="/adm/assets/js/chart-master/Chart.js"></script>
-     <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -34,10 +49,15 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    
+
 </head>
 
 <body>
+
+
+            
+
+
 
     <section id="container">
         <!-- **********************************************************************************************************************************************************
@@ -49,7 +69,7 @@
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>DASHGUM FREE</b></a>
+            <a href="/adm/Default.aspx" class="logo"><b>Vip Cinema Express</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -193,7 +213,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="/Default.aspx">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -208,14 +228,18 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="profile.html">
-                        <img src="/adm/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    <h5 class="centered">Marcel Newman</h5>
+                    <p class="centered">
+                        <a href="/adm/Perfil.aspx">
+                            <img src="/adm/assets/img/ui-zac.jpg" class="img-circle" width="60">
 
+                        </a>
+                    </p>
+                    <h5 class="centered">Padilla</h5>
+                    
                     <li class="mt">
-                        <a class="active" href="index.html">
+                        <a class="active" href="/adm/Default.aspx">
                             <i class="fa fa-dashboard"></i>
-                            <span>Dashboard</span>
+                            <span>Inicio</span>
                         </a>
                     </li>
 
@@ -226,6 +250,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="/adm/Registros/rCines.aspx">Agregar cines</a></li>
+
                         </ul>
                     </li>
 
@@ -236,8 +261,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="/adm/Registros/rPeliculas.aspx">Registrar pelicula</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="todo_list.html">Todo List</a></li>
+                            
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -247,8 +271,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="/adm/Registros/rReservaciones.aspx">Reservar</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="lock_screen.html">Lock Screen</a></li>
+                   
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -297,8 +320,9 @@
         </section>
         <!--footer start-->
         <footer class="site-footer">
+            <div class="icon-prev" />
             <div class="text-center">
-                2016 - Padilla Solution's.TM
+                2016 - Padilla Solution ®
               <a href="default.aspx#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -306,6 +330,7 @@
         </footer>
         <!--footer end-->
     </section>
+
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/adm/assets/js/jquery.js"></script>

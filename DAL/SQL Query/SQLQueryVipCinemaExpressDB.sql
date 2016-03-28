@@ -1,7 +1,7 @@
 create database VipCinemaExpressDB
 
 use VipCinemaExpressDB
-
+select * from Cines
 create table Cines(
 			CineId int primary key identity,
 			Nombre varchar(40),
@@ -13,6 +13,7 @@ create table Cines(
 )
 
 go
+select *from CinesSalasDetalle
 create table CinesSalasDetalle(
 			CinesSalasId int primary key identity,
 			CineId int References Cines(CineId),
@@ -21,7 +22,7 @@ create table CinesSalasDetalle(
 			EsActiva int
 			
 )
-
+drop table CinesSalasDetalle
 go
 create table Usuarios(
 			UsuarioId int primary key identity,
@@ -35,6 +36,7 @@ create table Usuarios(
 			Usuario varchar(40),
 			Contrasena varchar(30)
 )
+
 go
 
 create table Peliculas(
@@ -55,12 +57,14 @@ create table Peliculas(
 			Video nvarchar(350)
 )
 
+go
 create table PeliculaDetalle(
 			PeliculaDetalleId int primary key identity,
 			PeliculaId int References Peliculas(PeliculaId),
 			CineId int References Cines(CineId),
 			CinesSalasId int References CinesSalasDetalle(CinesSalasId)
 )
+drop table PeliculaDetalle
 go
 create table Carteleras(
 			CarteleraId int primary key identity,
@@ -84,4 +88,3 @@ create table ReservacionesDetalle(
 			ReservacionId int References Reservaciones(ReservacionId),
 			PeliculaId int References Peliculas(PeliculaId)
 )
-select *from Peliculas

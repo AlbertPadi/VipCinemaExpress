@@ -17,6 +17,7 @@ namespace BLL
         public string Email { get; set; }
         public string Usuario { get; set; }
         public string Contrasena { get; set; }
+        public int Tipo { get; set; }
 
         public Usuarios()
         {
@@ -29,6 +30,26 @@ namespace BLL
             this.Email = "";
             this.Usuario = "";
             this.Contrasena = "";
+            this.Tipo = 1;
+        }
+
+
+        public bool ValidarUsuario(string Usuario, string contra)
+        {
+            bool Encontro = false;
+            DataTable dt = new DataTable();
+
+            dt = this.Listado("UsuarioId, Usuario, Contrasena", "Usuario = '" + Usuario + "' and Contrasena = '" + contra + "'", "UsuarioId ASC");
+
+            if (dt.Rows.Count > 0)
+            {
+                Encontro = true;
+
+                this.Usuario = (string)dt.Rows[0]["Usuario"];
+                this.Contrasena = (string)dt.Rows[0]["Contrasena"];
+            }
+
+            return Encontro;
         }
 
         public override bool Insertar()
@@ -75,7 +96,7 @@ namespace BLL
 
             return dt.Rows.Count > 0;
         }
-        
+
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
@@ -84,7 +105,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + "from Usuarios where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from Usuarios where " + Condicion + " " + OrdenFinal);
         }
     }
 }

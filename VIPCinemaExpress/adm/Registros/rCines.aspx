@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+
+    <form id="form" runat="server">
         <div id="page-wrapper">
             <div class="panel-body">
                 <div class="form-horizontal col-md-12" role="form">
@@ -14,6 +15,8 @@
                             </h1>
 
                         </div>
+
+                            
 
                         <!-- Componentes -->
                         <div class="form-group row">
@@ -27,35 +30,35 @@
                         <div class="form-group row">
 
                             <label class="control-label col-xs-2">Nombre:</label>
-                            <div class="col-xs-6">
-                                <asp:TextBox ID="NombreTextBox" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>
+                            <div class="col-xs-5">
+                                <asp:TextBox ID="NombreTextBox" runat="server" placeholder="Nombre" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Ciudad:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <asp:TextBox ID="CiudadTextBox" class="form-control" runat="server" placeholder="Ciudad"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Direccion:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <asp:TextBox ID="DireccionTextBox" class="form-control" runat="server" placeholder="Direccion"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Telefono:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <asp:TextBox ID="TelefonoTextBox" class="form-control" runat="server" placeholder="Telefono"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Email:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <asp:TextBox ID="EmailTextBox" class="form-control" runat="server" placeholder="example@hotmail.com"></asp:TextBox>
                             </div>
                         </div>
@@ -65,17 +68,17 @@
 
                         <div class="form-group row">
                             <label for="NombreSalaTextBox" class="control-label col-xs-2">Nombre sala:</label>
-                            <div class="col-xs-6">
-                                <asp:TextBox ID="NombreSalaTextBox" CssClass="form-control" placeholder="Nombre sala" runat="server"></asp:TextBox>
+                            <div class="col-xs-5">
+                                <asp:TextBox ID="NombreSalaTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="NoAsientosTextBox" class="control-label col-xs-2">No. Asientos:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <asp:TextBox ID="NoAsientosTextBox" CssClass="form-control" placeholder="No Asientos" runat="server"></asp:TextBox>
                             </div>
-                            <asp:Button ID="AddSalasButton" class="btn btn-info" runat="server" Text="Add" OnClick="AddSalasButton_Click" />
+                            <asp:Button ID="AddSalasButton" class="btn btn-info" runat="server" Width="84px" Text="Add" OnClick="AddSalasButton_Click" />
                         </div>
 
                         <div class="form-group row">
@@ -95,7 +98,7 @@
 
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Cantidad Salas:</label>
-                            <div class="col-xs-6">
+                            <div class="col-xs-5">
                                 <asp:TextBox ID="CanSalasTextBox" class="form-control" runat="server" placeholder="Cantidad Salas" ReadOnly="True"></asp:TextBox>
                             </div>
                         </div>

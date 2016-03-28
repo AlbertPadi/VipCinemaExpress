@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1010, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +76,7 @@
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.24\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -208,8 +213,73 @@
     <Content Include="adm\Consultas\cReservaciones.aspx" />
     <Content Include="adm\Consultas\cUsuarios.aspx" />
     <Content Include="adm\Default.aspx" />
+    <Content Include="adm\Perfil.aspx" />
     <Content Include="adm\Registros\rArchivo.aspx" />
     <Content Include="contact.html" />
+    <Content Include="content\themes\base\images\animated-overlay.gif" />
+    <Content Include="content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="content\themes\base\jquery-ui.css" />
+    <Content Include="content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="content\themes\base\jquery.ui.all.css" />
+    <Content Include="content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="content\themes\base\jquery.ui.base.css" />
+    <Content Include="content\themes\base\jquery.ui.button.css" />
+    <Content Include="content\themes\base\jquery.ui.core.css" />
+    <Content Include="content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="content\themes\base\jquery.ui.menu.css" />
+    <Content Include="content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="content\themes\base\jquery.ui.slider.css" />
+    <Content Include="content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="content\themes\base\jquery.ui.theme.css" />
+    <Content Include="content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="content\toastr.css" />
+    <Content Include="content\toastr.min.css" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -470,7 +540,11 @@
     <Content Include="js\jquery-1.8.2.js" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="js\jquery.cslider.js" />
+    <Content Include="js\jquery.daterangepicker.js" />
     <Content Include="js\jquery.gmap.min.js" />
+    <Content Include="js\moment.js" />
+    <Content Include="js\moment.min.js" />
+    <Content Include="js\package.js" />
     <Content Include="js\slider.js" />
     <Content Include="js\widget.js" />
     <Content Include="Login.aspx" />
@@ -480,13 +554,289 @@
     <Content Include="adm\Registros\rReservaciones.aspx" />
     <Content Include="adm\Registros\rUsuarios.aspx" />
     <Content Include="pricing.html" />
+    <Content Include="ReportViewers\ListadoCines.aspx" />
+    <Content Include="rReservaciones.aspx" />
+    <Content Include="rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="js\daterangepicker.js" />
+    <Content Include="scripts\angular-animate.js" />
+    <Content Include="scripts\angular-animate.min.js" />
+    <Content Include="scripts\angular-cookies.js" />
+    <Content Include="scripts\angular-cookies.min.js" />
+    <Content Include="scripts\angular-csp.css" />
+    <Content Include="scripts\angular-loader.js" />
+    <Content Include="scripts\angular-loader.min.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-resource.js" />
+    <Content Include="scripts\angular-resource.min.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular-sanitize.js" />
+    <Content Include="scripts\angular-sanitize.min.js" />
+    <Content Include="scripts\angular-scenario.js" />
+    <Content Include="scripts\angular-touch.js" />
+    <Content Include="scripts\angular-touch.min.js" />
+    <Content Include="scripts\angular-ui-date.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\i18n\angular-locale_af-na.js" />
+    <Content Include="scripts\i18n\angular-locale_af-za.js" />
+    <Content Include="scripts\i18n\angular-locale_af.js" />
+    <Content Include="scripts\i18n\angular-locale_am-et.js" />
+    <Content Include="scripts\i18n\angular-locale_am.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-001.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-ae.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-bh.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-dz.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-eg.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-iq.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-jo.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-kw.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-lb.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-ly.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-ma.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-om.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-qa.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-sa.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-sd.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-sy.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-tn.js" />
+    <Content Include="scripts\i18n\angular-locale_ar-ye.js" />
+    <Content Include="scripts\i18n\angular-locale_ar.js" />
+    <Content Include="scripts\i18n\angular-locale_bg-bg.js" />
+    <Content Include="scripts\i18n\angular-locale_bg.js" />
+    <Content Include="scripts\i18n\angular-locale_bn-bd.js" />
+    <Content Include="scripts\i18n\angular-locale_bn-in.js" />
+    <Content Include="scripts\i18n\angular-locale_bn.js" />
+    <Content Include="scripts\i18n\angular-locale_ca-ad.js" />
+    <Content Include="scripts\i18n\angular-locale_ca-es.js" />
+    <Content Include="scripts\i18n\angular-locale_ca.js" />
+    <Content Include="scripts\i18n\angular-locale_cs-cz.js" />
+    <Content Include="scripts\i18n\angular-locale_cs.js" />
+    <Content Include="scripts\i18n\angular-locale_da-dk.js" />
+    <Content Include="scripts\i18n\angular-locale_da.js" />
+    <Content Include="scripts\i18n\angular-locale_de-at.js" />
+    <Content Include="scripts\i18n\angular-locale_de-be.js" />
+    <Content Include="scripts\i18n\angular-locale_de-ch.js" />
+    <Content Include="scripts\i18n\angular-locale_de-de.js" />
+    <Content Include="scripts\i18n\angular-locale_de-li.js" />
+    <Content Include="scripts\i18n\angular-locale_de-lu.js" />
+    <Content Include="scripts\i18n\angular-locale_de.js" />
+    <Content Include="scripts\i18n\angular-locale_el-cy.js" />
+    <Content Include="scripts\i18n\angular-locale_el-gr.js" />
+    <Content Include="scripts\i18n\angular-locale_el.js" />
+    <Content Include="scripts\i18n\angular-locale_en-as.js" />
+    <Content Include="scripts\i18n\angular-locale_en-au.js" />
+    <Content Include="scripts\i18n\angular-locale_en-bb.js" />
+    <Content Include="scripts\i18n\angular-locale_en-be.js" />
+    <Content Include="scripts\i18n\angular-locale_en-bm.js" />
+    <Content Include="scripts\i18n\angular-locale_en-bw.js" />
+    <Content Include="scripts\i18n\angular-locale_en-bz.js" />
+    <Content Include="scripts\i18n\angular-locale_en-ca.js" />
+    <Content Include="scripts\i18n\angular-locale_en-dsrt-us.js" />
+    <Content Include="scripts\i18n\angular-locale_en-dsrt.js" />
+    <Content Include="scripts\i18n\angular-locale_en-fm.js" />
+    <Content Include="scripts\i18n\angular-locale_en-gb.js" />
+    <Content Include="scripts\i18n\angular-locale_en-gu.js" />
+    <Content Include="scripts\i18n\angular-locale_en-gy.js" />
+    <Content Include="scripts\i18n\angular-locale_en-hk.js" />
+    <Content Include="scripts\i18n\angular-locale_en-ie.js" />
+    <Content Include="scripts\i18n\angular-locale_en-in.js" />
+    <Content Include="scripts\i18n\angular-locale_en-iso.js" />
+    <Content Include="scripts\i18n\angular-locale_en-jm.js" />
+    <Content Include="scripts\i18n\angular-locale_en-mh.js" />
+    <Content Include="scripts\i18n\angular-locale_en-mp.js" />
+    <Content Include="scripts\i18n\angular-locale_en-mt.js" />
+    <Content Include="scripts\i18n\angular-locale_en-mu.js" />
+    <Content Include="scripts\i18n\angular-locale_en-na.js" />
+    <Content Include="scripts\i18n\angular-locale_en-nz.js" />
+    <Content Include="scripts\i18n\angular-locale_en-ph.js" />
+    <Content Include="scripts\i18n\angular-locale_en-pk.js" />
+    <Content Include="scripts\i18n\angular-locale_en-pr.js" />
+    <Content Include="scripts\i18n\angular-locale_en-pw.js" />
+    <Content Include="scripts\i18n\angular-locale_en-sg.js" />
+    <Content Include="scripts\i18n\angular-locale_en-tc.js" />
+    <Content Include="scripts\i18n\angular-locale_en-tt.js" />
+    <Content Include="scripts\i18n\angular-locale_en-um.js" />
+    <Content Include="scripts\i18n\angular-locale_en-us.js" />
+    <Content Include="scripts\i18n\angular-locale_en-vg.js" />
+    <Content Include="scripts\i18n\angular-locale_en-vi.js" />
+    <Content Include="scripts\i18n\angular-locale_en-za.js" />
+    <Content Include="scripts\i18n\angular-locale_en-zw.js" />
+    <Content Include="scripts\i18n\angular-locale_en.js" />
+    <Content Include="scripts\i18n\angular-locale_es-419.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ar.js" />
+    <Content Include="scripts\i18n\angular-locale_es-bo.js" />
+    <Content Include="scripts\i18n\angular-locale_es-cl.js" />
+    <Content Include="scripts\i18n\angular-locale_es-co.js" />
+    <Content Include="scripts\i18n\angular-locale_es-cr.js" />
+    <Content Include="scripts\i18n\angular-locale_es-do.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ea.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ec.js" />
+    <Content Include="scripts\i18n\angular-locale_es-es.js" />
+    <Content Include="scripts\i18n\angular-locale_es-gq.js" />
+    <Content Include="scripts\i18n\angular-locale_es-gt.js" />
+    <Content Include="scripts\i18n\angular-locale_es-hn.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ic.js" />
+    <Content Include="scripts\i18n\angular-locale_es-mx.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ni.js" />
+    <Content Include="scripts\i18n\angular-locale_es-pa.js" />
+    <Content Include="scripts\i18n\angular-locale_es-pe.js" />
+    <Content Include="scripts\i18n\angular-locale_es-pr.js" />
+    <Content Include="scripts\i18n\angular-locale_es-py.js" />
+    <Content Include="scripts\i18n\angular-locale_es-sv.js" />
+    <Content Include="scripts\i18n\angular-locale_es-us.js" />
+    <Content Include="scripts\i18n\angular-locale_es-uy.js" />
+    <Content Include="scripts\i18n\angular-locale_es-ve.js" />
+    <Content Include="scripts\i18n\angular-locale_es.js" />
+    <Content Include="scripts\i18n\angular-locale_et-ee.js" />
+    <Content Include="scripts\i18n\angular-locale_et.js" />
+    <Content Include="scripts\i18n\angular-locale_eu-es.js" />
+    <Content Include="scripts\i18n\angular-locale_eu.js" />
+    <Content Include="scripts\i18n\angular-locale_fa-af.js" />
+    <Content Include="scripts\i18n\angular-locale_fa-ir.js" />
+    <Content Include="scripts\i18n\angular-locale_fa.js" />
+    <Content Include="scripts\i18n\angular-locale_fi-fi.js" />
+    <Content Include="scripts\i18n\angular-locale_fi.js" />
+    <Content Include="scripts\i18n\angular-locale_fil-ph.js" />
+    <Content Include="scripts\i18n\angular-locale_fil.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-be.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-bf.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-bi.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-bj.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-bl.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ca.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-cd.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-cf.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-cg.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ch.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ci.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-cm.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-dj.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-fr.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ga.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-gf.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-gn.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-gp.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-gq.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-km.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-lu.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-mc.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-mf.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-mg.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ml.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-mq.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-ne.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-re.js" />
+    <Content Include="scripts\i18n\angular-locale_fr-yt.js" />
+    <Content Include="scripts\i18n\angular-locale_fr.js" />
+    <Content Include="scripts\i18n\angular-locale_gl-es.js" />
+    <Content Include="scripts\i18n\angular-locale_gl.js" />
+    <Content Include="scripts\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="scripts\i18n\angular-locale_gsw.js" />
+    <Content Include="scripts\i18n\angular-locale_gu-in.js" />
+    <Content Include="scripts\i18n\angular-locale_gu.js" />
+    <Content Include="scripts\i18n\angular-locale_he-il.js" />
+    <Content Include="scripts\i18n\angular-locale_he.js" />
+    <Content Include="scripts\i18n\angular-locale_hi-in.js" />
+    <Content Include="scripts\i18n\angular-locale_hi.js" />
+    <Content Include="scripts\i18n\angular-locale_hr-hr.js" />
+    <Content Include="scripts\i18n\angular-locale_hr.js" />
+    <Content Include="scripts\i18n\angular-locale_hu-hu.js" />
+    <Content Include="scripts\i18n\angular-locale_hu.js" />
+    <Content Include="scripts\i18n\angular-locale_id-id.js" />
+    <Content Include="scripts\i18n\angular-locale_id.js" />
+    <Content Include="scripts\i18n\angular-locale_in.js" />
+    <Content Include="scripts\i18n\angular-locale_is-is.js" />
+    <Content Include="scripts\i18n\angular-locale_is.js" />
+    <Content Include="scripts\i18n\angular-locale_it-it.js" />
+    <Content Include="scripts\i18n\angular-locale_it-sm.js" />
+    <Content Include="scripts\i18n\angular-locale_it.js" />
+    <Content Include="scripts\i18n\angular-locale_iw.js" />
+    <Content Include="scripts\i18n\angular-locale_ja-jp.js" />
+    <Content Include="scripts\i18n\angular-locale_ja.js" />
+    <Content Include="scripts\i18n\angular-locale_kn-in.js" />
+    <Content Include="scripts\i18n\angular-locale_kn.js" />
+    <Content Include="scripts\i18n\angular-locale_ko-kr.js" />
+    <Content Include="scripts\i18n\angular-locale_ko.js" />
+    <Content Include="scripts\i18n\angular-locale_ln-cd.js" />
+    <Content Include="scripts\i18n\angular-locale_ln.js" />
+    <Content Include="scripts\i18n\angular-locale_lt-lt.js" />
+    <Content Include="scripts\i18n\angular-locale_lt.js" />
+    <Content Include="scripts\i18n\angular-locale_lv-lv.js" />
+    <Content Include="scripts\i18n\angular-locale_lv.js" />
+    <Content Include="scripts\i18n\angular-locale_ml-in.js" />
+    <Content Include="scripts\i18n\angular-locale_ml.js" />
+    <Content Include="scripts\i18n\angular-locale_mr-in.js" />
+    <Content Include="scripts\i18n\angular-locale_mr.js" />
+    <Content Include="scripts\i18n\angular-locale_ms-my.js" />
+    <Content Include="scripts\i18n\angular-locale_ms.js" />
+    <Content Include="scripts\i18n\angular-locale_mt-mt.js" />
+    <Content Include="scripts\i18n\angular-locale_mt.js" />
+    <Content Include="scripts\i18n\angular-locale_nl-cw.js" />
+    <Content Include="scripts\i18n\angular-locale_nl-nl.js" />
+    <Content Include="scripts\i18n\angular-locale_nl-sx.js" />
+    <Content Include="scripts\i18n\angular-locale_nl.js" />
+    <Content Include="scripts\i18n\angular-locale_no.js" />
+    <Content Include="scripts\i18n\angular-locale_or-in.js" />
+    <Content Include="scripts\i18n\angular-locale_or.js" />
+    <Content Include="scripts\i18n\angular-locale_pl-pl.js" />
+    <Content Include="scripts\i18n\angular-locale_pl.js" />
+    <Content Include="scripts\i18n\angular-locale_pt-br.js" />
+    <Content Include="scripts\i18n\angular-locale_pt-pt.js" />
+    <Content Include="scripts\i18n\angular-locale_pt.js" />
+    <Content Include="scripts\i18n\angular-locale_ro-ro.js" />
+    <Content Include="scripts\i18n\angular-locale_ro.js" />
+    <Content Include="scripts\i18n\angular-locale_ru-ru.js" />
+    <Content Include="scripts\i18n\angular-locale_ru.js" />
+    <Content Include="scripts\i18n\angular-locale_sk-sk.js" />
+    <Content Include="scripts\i18n\angular-locale_sk.js" />
+    <Content Include="scripts\i18n\angular-locale_sl-si.js" />
+    <Content Include="scripts\i18n\angular-locale_sl.js" />
+    <Content Include="scripts\i18n\angular-locale_sq-al.js" />
+    <Content Include="scripts\i18n\angular-locale_sq.js" />
+    <Content Include="scripts\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="scripts\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="scripts\i18n\angular-locale_sr.js" />
+    <Content Include="scripts\i18n\angular-locale_sv-se.js" />
+    <Content Include="scripts\i18n\angular-locale_sv.js" />
+    <Content Include="scripts\i18n\angular-locale_sw-tz.js" />
+    <Content Include="scripts\i18n\angular-locale_sw.js" />
+    <Content Include="scripts\i18n\angular-locale_ta-in.js" />
+    <Content Include="scripts\i18n\angular-locale_ta.js" />
+    <Content Include="scripts\i18n\angular-locale_te-in.js" />
+    <Content Include="scripts\i18n\angular-locale_te.js" />
+    <Content Include="scripts\i18n\angular-locale_th-th.js" />
+    <Content Include="scripts\i18n\angular-locale_th.js" />
+    <Content Include="scripts\i18n\angular-locale_tl.js" />
+    <Content Include="scripts\i18n\angular-locale_tr-tr.js" />
+    <Content Include="scripts\i18n\angular-locale_tr.js" />
+    <Content Include="scripts\i18n\angular-locale_uk-ua.js" />
+    <Content Include="scripts\i18n\angular-locale_uk.js" />
+    <Content Include="scripts\i18n\angular-locale_ur-pk.js" />
+    <Content Include="scripts\i18n\angular-locale_ur.js" />
+    <Content Include="scripts\i18n\angular-locale_vi-vn.js" />
+    <Content Include="scripts\i18n\angular-locale_vi.js" />
+    <Content Include="scripts\i18n\angular-locale_zh-cn.js" />
+    <Content Include="scripts\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="scripts\i18n\angular-locale_zh-hk.js" />
+    <Content Include="scripts\i18n\angular-locale_zh-tw.js" />
+    <Content Include="scripts\i18n\angular-locale_zh.js" />
+    <Content Include="scripts\i18n\angular-locale_zu-za.js" />
+    <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\jquery-2.2.1.js" />
     <Content Include="scripts\jquery-2.2.1.min.js" />
+    <Content Include="scripts\jquery-ui-1.10.0.js" />
+    <Content Include="scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="scripts\jquery.date-dropdowns.js" />
+    <Content Include="scripts\toastr.js" />
+    <Content Include="scripts\toastr.min.js" />
     <Content Include="services.html" />
     <Content Include="VistaUsuario\ReservacionesUsuario.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -534,6 +884,13 @@
     </Compile>
     <Compile Include="adm\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="adm\Registros\rArchivo.aspx.cs">
       <DependentUpon>rArchivo.aspx</DependentUpon>
@@ -599,12 +956,40 @@
     <Compile Include="adm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewers\ListadoCines.aspx.cs">
+      <DependentUpon>ListadoCines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewers\ListadoCines.aspx.designer.cs">
+      <DependentUpon>ListadoCines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rReservaciones.aspx.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rReservaciones.aspx.designer.cs">
+      <DependentUpon>rReservaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rUsuarios.aspx.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rUsuarios.aspx.designer.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SiteUser.Master.cs">
       <DependentUpon>SiteUser.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SiteUser.Master.designer.cs">
       <DependentUpon>SiteUser.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteUserM.Master.cs">
+      <DependentUpon>SiteUserM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteUserM.Master.designer.cs">
+      <DependentUpon>SiteUserM.Master</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios.cs" />
     <Compile Include="VistaUsuario\ReservacionesUsuario.aspx.cs">
@@ -663,8 +1048,22 @@
     <Content Include="adm\assets\lineicons\fonts\linecons.woff" />
     <Content Include="adm\assets\lineicons\fonts\_DS_Store" />
     <Content Include="adm\assets\lineicons\_DS_Store" />
+    <Content Include="css\daterangepicker.scss" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <None Include="Properties\PublishProfiles\vipcinemaexpress - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\vipcinemaexpress - Web Deploy.pubxml" />
     <Content Include="scripts\jquery-2.2.1.min.map" />
+    <Content Include="scripts\errors.json" />
+    <Content Include="scripts\angular.min.js.map" />
+    <Content Include="scripts\angular-touch.min.js.map" />
+    <Content Include="scripts\angular-sanitize.min.js.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
+    <Content Include="scripts\angular-resource.min.js.map" />
+    <Content Include="scripts\angular-loader.min.js.map" />
+    <Content Include="scripts\angular-cookies.min.js.map" />
+    <Content Include="scripts\angular-animate.min.js.map" />
+    <Content Include="SiteUserM.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -679,6 +1078,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Rpts\CinesReport.rdlc" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

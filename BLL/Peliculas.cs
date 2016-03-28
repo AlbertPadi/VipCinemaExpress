@@ -17,8 +17,8 @@ namespace BLL
         public string Director { get; set; }
         public string Actores { get; set; }
         public int Activa { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public TimeSpan Duracion { get; set; }
         public double Precio { get; set; }
         public string Imagen { get; set; }
@@ -35,8 +35,8 @@ namespace BLL
             this.Director = "";
             this.Actores = "";
             this.Activa = 0;
-            this.FechaInicio = "";
-            this.FechaFin = "";
+            this.FechaInicio = DateTime.Now;
+            this.FechaFin = DateTime.Now;
             this.Duracion = TimeSpan.Zero;
             this.Precio = 0;
             this.Imagen = string.Empty;
@@ -54,7 +54,7 @@ namespace BLL
             object identity;
 
             ConexionDb conexion = new ConexionDb();
-            identity = conexion.ObtenerDatos(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Duracion, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', '{9}', {11}, '{12}', '{13}') select @@Identity", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio, this.FechaFin, this.Duracion, this.Precio, this.Imagen, this.Video));
+            identity = conexion.ObtenerDatos(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Duracion, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', '{9}', {11}, '{12}', '{13}') select @@Identity", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio.ToString("yyyy-MM-dd"), this.FechaFin.ToString("yyyy-MM-dd"), this.Duracion, this.Precio, this.Imagen, this.Video));
 
             int.TryParse(identity.ToString(), out retorno);
             this.PeliculaId = retorno;
@@ -104,8 +104,8 @@ namespace BLL
                 this.Director = dt.Rows[0]["Director"].ToString();
                 this.Actores = dt.Rows[0]["Actores"].ToString();
                 this.Activa = Convert.ToInt32(dt.Rows[0]["Activa"]);
-                this.FechaInicio = dt.Rows[0]["FechaInicio"].ToString();
-                this.FechaFin = dt.Rows[0]["FechaFin"].ToString();
+                this.FechaInicio = (DateTime)dt.Rows[0]["FechaInicio"];
+                this.FechaFin = (DateTime)dt.Rows[0]["FechaFin"];
                 this.Duracion = (TimeSpan)dt.Rows[0]["Duracion"];
                 this.Precio = (double)dt.Rows[0]["Precio"];
                 this.Imagen = dt.Rows[0]["Imagen"].ToString();
@@ -122,6 +122,33 @@ namespace BLL
             return dt.Rows.Count > 0;
         }
 
+        public bool BuscarPeliculas(int IdBuscado)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            dt = conexion.ObtenerDatos(String.Format("Select * from Peliculas Where PeliculaId = {0}", IdBuscado));
+
+            if (dt.Rows.Count > 0)
+            {
+                this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                this.Genero = dt.Rows[0]["Genero"].ToString();
+                this.Clasificacion = dt.Rows[0]["Clasificacion"].ToString();
+                this.Idioma = dt.Rows[0]["Idioma"].ToString();
+                this.Subtitulo = Convert.ToInt32(dt.Rows[0]["Subtitulo"]);
+                this.Director = dt.Rows[0]["Director"].ToString();
+                this.Actores = dt.Rows[0]["Actores"].ToString();
+                this.Activa = Convert.ToInt32(dt.Rows[0]["Activa"]);
+                this.FechaInicio = (DateTime)dt.Rows[0]["FechaInicio"];
+                this.FechaFin = (DateTime)dt.Rows[0]["FechaFin"];
+                this.Duracion = (TimeSpan)dt.Rows[0]["Duracion"];
+                this.Precio = (double)dt.Rows[0]["Precio"];
+                this.Imagen = dt.Rows[0]["Imagen"].ToString();
+                this.Video = dt.Rows[0]["Video"].ToString();
+            }
+            return dt.Rows.Count > 0;
+        }
+
+
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
@@ -130,7 +157,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + "from Peliculas where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from Peliculas where " + Condicion + " " + OrdenFinal);
         }
     }
 }
