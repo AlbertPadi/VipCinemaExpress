@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Security;
 using System.Web.UI.WebControls;
 using BLL;
+using System.Text.RegularExpressions;
+
 namespace VIPCinemaExpress.adm.Registros
 {
     public partial class rCines : System.Web.UI.Page
     {
-        
+
         int esActiva;
         int cont = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -19,8 +22,10 @@ namespace VIPCinemaExpress.adm.Registros
                 SalasGridView.DataBind();
                 EsActivaCheckBox.Checked = false;
             }
-            
+
         }
+
+
 
         public void Limpiar()
         {
@@ -39,26 +44,17 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
-            if (EsActivaCheckBox.Checked == true)
-            {
-                esActiva = 1;
-            }
-            else
-            {
-                esActiva = 0;
-            }
-
             Cines cine;
-            
+
             if (Session["Cine"] == null)
-                Session["Cine"] = new Cines(); 
+                Session["Cine"] = new Cines();
 
 
             cine = (Cines)Session["Cine"];
 
 
             cine.AgregarSalas((string)NombreSalaTextBox.Text, Convert.ToInt32(NoAsientosTextBox.Text), esActiva);
-            
+
             Session["Cine"] = cine;
 
             SalasGridView.DataSource = cine.Sala;
@@ -67,15 +63,25 @@ namespace VIPCinemaExpress.adm.Registros
             NombreSalaTextBox.Text = "";
             NoAsientosTextBox.Text = "";
 
-            int count = SalasGridView.Rows.Count;
+            int co = 0;
             foreach (GridViewRow row in SalasGridView.Rows)
             {
-                CanSalasTextBox.Text += count;
+                co++;
+                CanSalasTextBox.Text = co.ToString();
             }
+            cine.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
+            if (EsActivaCheckBox.Checked == true)
+            {
+                esActiva = 1;
+            }
+            else
+            {
+                esActiva = 0;
+            }
             int id;
 
             Cines cines = new Cines();
@@ -86,12 +92,20 @@ namespace VIPCinemaExpress.adm.Registros
                 {
                     cines.AgregarSalas(Convert.ToString(dr.Cells[0].Text), Convert.ToInt32(dr.Cells[1].Text), esActiva);
                 }
-                cines.Nombres = NombreTextBox.Text;
+
                 cines.Ciudad = CiudadTextBox.Text;
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-                cines.CantidadSalas = cont;
+
+                if (Utilitarios.ValidarNombre(NombreTextBox.Text))
+                {
+                    cines.Nombres = NombreTextBox.Text;
+                }
+                else
+                {
+                    Utilitarios.ShowToastr(this.Page, "Datos incorrectos en nombres", "error", "Error");
+                }
 
                 if (cines.Insertar())
                 {
@@ -153,7 +167,7 @@ namespace VIPCinemaExpress.adm.Registros
             else
             {
                 Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
-                
+
             }
         }
 
@@ -200,5 +214,5 @@ namespace VIPCinemaExpress.adm.Registros
         }
     }
 
-    
-    }
+
+}

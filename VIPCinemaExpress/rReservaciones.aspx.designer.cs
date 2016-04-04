@@ -13,6 +13,15 @@ namespace VIPCinemaExpress {
     public partial class rReservaciones {
         
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
         /// FechaTextBox control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace VIPCinemaExpress {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// CinesDropDownList control.
@@ -31,22 +49,31 @@ namespace VIPCinemaExpress {
         protected global::System.Web.UI.WebControls.DropDownList CinesDropDownList;
         
         /// <summary>
-        /// CantidadTextBox control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CantidadTextBox;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// BuscarButton control.
+        /// SalaDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarButton;
+        protected global::System.Web.UI.WebControls.DropDownList SalaDropDownList;
+        
+        /// <summary>
+        /// AgregarCSButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AgregarCSButton;
         
         /// <summary>
         /// CineGridView control.
@@ -58,6 +85,24 @@ namespace VIPCinemaExpress {
         protected global::System.Web.UI.WebControls.GridView CineGridView;
         
         /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// CantidadTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CantidadTextBox;
+        
+        /// <summary>
         /// PeliculaGridView control.
         /// </summary>
         /// <remarks>
@@ -65,6 +110,15 @@ namespace VIPCinemaExpress {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PeliculaGridView;
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
         /// MontoTextBox control.
@@ -76,6 +130,15 @@ namespace VIPCinemaExpress {
         protected global::System.Web.UI.WebControls.TextBox MontoTextBox;
         
         /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
         /// TarjetaDropDownList control.
         /// </summary>
         /// <remarks>
@@ -83,33 +146,6 @@ namespace VIPCinemaExpress {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TarjetaDropDownList;
-        
-        /// <summary>
-        /// NumeroTarjetaTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumeroTarjetaTextBox;
-        
-        /// <summary>
-        /// MesExpTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MesExpTextBox;
-        
-        /// <summary>
-        /// AnoExpTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AnoExpTextBox;
         
         /// <summary>
         /// NuevoButton control.

@@ -4,11 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using DAL;
+
 namespace BLL
 {
     public class CinesSalasDetalle: ClaseMaestra
     {
-       
+        public readonly int CineId;
         public string NombreSala { get; set; }
         public int NoAsiento { get; set; }
         public int EsActiva { get; set; }
@@ -22,6 +23,7 @@ namespace BLL
 
         public CinesSalasDetalle()
         {
+            this.CineId = 0;
             this.NombreSala = "";
             this.NoAsiento = 0;
             this.EsActiva = 0;
@@ -44,7 +46,17 @@ namespace BLL
 
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            dt = conexion.ObtenerDatos(String.Format("Select * from CinesSalasDetalle where CinesSalasId = {0}", IdBuscado));
+            if (dt.Rows.Count > 0)
+            {
+                this.NombreSala = dt.Rows[0]["NombreSala"].ToString();
+                this.NoAsiento = (int)dt.Rows[0]["NoAsiento"];
+                this.EsActiva = (int)dt.Rows[0]["EsActiva"];
+            }
+
+            return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)

@@ -9,7 +9,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Vip Cinema Express</title>
+    <title>Vip Cinema Express®</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/adm/assets/css/bootstrap.css" rel="stylesheet">
@@ -19,8 +19,9 @@
     <link rel="stylesheet" type="text/css" href="/adm/assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">
     <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
-
-    <link href="../css/style.css" rel="stylesheet" />
+    <link href="assets/css/toastr.css" rel="stylesheet" />
+    <link href="/adm/css/style.css" rel="stylesheet" />
+    <link href="/adm/assets/css/toastr.min.css" rel="stylesheet" />
     <!--JS-->
     <script src="js/jquery.gmap.min.js"></script>
     <script src="js/widget.js"></script>
@@ -28,17 +29,18 @@
     <script src="js/daterangepicker.js"></script>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="/scripts/jquery.date-dropdowns.js"></script>
-
-    <script src="js/daterangepicker.js"></script>
-    <script src="js/js/jquery.daterangepicker.js"></script>
-
+    <script src="/adm/assets/js/toastr.js"></script>
+    <script src="/admjs/daterangepicker.js"></script>
+    <script src="/adm/js/js/jquery.daterangepicker.js"></script>
+    <script src="/adm/assets/js/toast.min.js"></script>
+    <script src="/adm/assets/js/jquery-1.9.1.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="/adm/assets/css/style.css" rel="stylesheet">
     <link href="/adm/assets/css/style-responsive.css" rel="stylesheet">
-
+    <script src="http://handlingquotas.azurewebsites.net/js/toastr.min.js"> </script>
     <script src="/adm/assets/js/chart-master/Chart.js"></script>
     <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -55,7 +57,7 @@
 <body>
 
 
-            
+
 
 
 
@@ -213,7 +215,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/Default.aspx">Logout</a></li>
+                    <li><a class="logout" href="/adm/Default.aspx">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -231,11 +233,10 @@
                     <p class="centered">
                         <a href="/adm/Perfil.aspx">
                             <img src="/adm/assets/img/ui-zac.jpg" class="img-circle" width="60">
-
                         </a>
                     </p>
                     <h5 class="centered">Padilla</h5>
-                    
+
                     <li class="mt">
                         <a class="active" href="/adm/Default.aspx">
                             <i class="fa fa-dashboard"></i>
@@ -260,8 +261,8 @@
                             <span>Peliculas</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="/adm/Registros/rPeliculas.aspx">Registrar pelicula</a></li>
-                            
+                            <li><a href="/adm/Registros/rPeliculas.aspx">Agregar pelicula</a></li>
+
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -271,7 +272,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="/adm/Registros/rReservaciones.aspx">Reservar</a></li>
-                   
+
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -295,16 +296,7 @@
                             <li><a href="/adm/Consultas/cUsuarios.aspx">Usuarios</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="morris.html">Morris</a></li>
-                            <li><a href="chartjs.html">Chartjs</a></li>
-                        </ul>
-                    </li>
+
 
                 </ul>
                 <!-- sidebar menu end-->

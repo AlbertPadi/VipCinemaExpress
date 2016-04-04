@@ -22,12 +22,21 @@ namespace VIPCinemaExpress {
         protected global::System.Web.UI.WebControls.Button ReservarButton;
         
         /// <summary>
-        /// Repeater1 control.
+        /// CarteleraRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Repeater CarteleraRepeater;
+        
+        /// <summary>
+        /// yourRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater yourRepeater;
     }
 }

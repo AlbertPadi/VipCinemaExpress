@@ -130,7 +130,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + "from Cines where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from Cines where " + Condicion + " " + OrdenFinal);
         }
     }
 }

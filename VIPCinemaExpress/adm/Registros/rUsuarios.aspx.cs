@@ -50,7 +50,7 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (PassWord1TextBox.Text != PassWordTextBox.Text)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se guardaron los datos')", true);
+                    Utilitarios.ShowToastr(this.Page, "Error", "Error al guardar los datos", "Error");
                 }
                 else if (usuario.Insertar())
                 {
@@ -80,9 +80,10 @@ namespace VIPCinemaExpress.adm.Registros
                 usuario.Email = EmailTextBox.Text;
                 usuario.Usuario = UsuarioTextBox.Text;
                 usuario.Contrasena = PassWordTextBox.Text;
+                usuario.Tipo = 1;
                 if (PassWord1TextBox.Text != PassWordTextBox.Text)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se actualizaron los datos')", true);
+                    Utilitarios.ShowToastr(this.Page, "Error al actualizar", "Error", "Error");
                 }
                 else
                 {
@@ -166,7 +167,7 @@ namespace VIPCinemaExpress.adm.Registros
             Usuarios usuario = new Usuarios();
             if (PassWord1TextBox.Text != PassWordTextBox.Text)
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se registraron los datos')", true);
+                Utilitarios.ShowToastr(this, "Error", "Las contrasenas no son idanticas", "Error");
             }
         }
     }

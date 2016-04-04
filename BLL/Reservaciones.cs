@@ -9,20 +9,16 @@ namespace BLL
     public class Reservaciones : ClaseMaestra
     {
         public int ReservacionId { get; set; }
-        public int CineId { get; set; }
-        public int UsuarioId { get; set; }
-        public int SalaId { get; set; }
         public DateTime Fecha { get; set; }
         public int Cantidad { get; set; }
         public double Monto { get; set; }
+        public int UsuarioId { get; set; }
         public List<ReservacionesDetalle> Peliculas;
 
         public Reservaciones()
         {
             this.ReservacionId = 0;
-            this.CineId = 0;
             this.UsuarioId = 0;
-            this.SalaId = 0;
             this.Fecha = DateTime.Now;
             this.Cantidad = 0;
             this.Monto = 0;
@@ -51,7 +47,7 @@ namespace BLL
             object identity;
             int retorno = 0;
             ConexionDb conexion = new ConexionDb();
-            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(CineId, UsuarioId, SalaId, Fecha, Cantidad, Monto)Values({0}, {1}, {2}, '{3}', {4}, {5}) Select @@Identity", this.CineId, this.UsuarioId, this.SalaId, this.Fecha, this.Cantidad, this.Monto));
+            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(UsuarioId, Fecha, Cantidad, Monto)Values({0}, '{1}', {2}, {3}) Select @@Identity", this.UsuarioId, this.Fecha, this.Cantidad, this.Monto));
 
 
             int.TryParse(identity.ToString(), out retorno);
@@ -70,7 +66,7 @@ namespace BLL
             bool retorno = false;
             StringBuilder Comando = new StringBuilder();
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set CineId = {0}, UsuarioId = {1}, SalaId = {2}, Fecha = '{3}', Cantidad = {4}, Monto = {5} where ReservacionId = {6}", this.CineId, this.UsuarioId, this.SalaId, this.Cantidad, this.Monto, this.ReservacionId));
+            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set UsuarioId = {0}, Fecha = '{1}', Cantidad = {2}, Monto = {3} where ReservacionId = {6}", this.UsuarioId, this.Cantidad, this.Monto, this.ReservacionId));
 
             if (retorno)
             {
@@ -102,9 +98,8 @@ namespace BLL
 
             if (dt.Rows.Count > 0)
             {
-                this.CineId = (int)dt.Rows[0]["CineId"];
+                this.ReservacionId = IdBuscado;
                 this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
-                this.SalaId = (int)dt.Rows[0]["SalaId"];
                 this.Fecha = (DateTime)dt.Rows[0]["Fecha"];
                 this.Cantidad = (int)dt.Rows[0]["Cantidad"];
                 this.Monto = (double)dt.Rows[0]["Monto"];

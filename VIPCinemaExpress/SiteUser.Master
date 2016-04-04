@@ -36,6 +36,50 @@
     <meta property="og:image" content="" />
     <!-- end: Facebook Open Graph -->
 
+
+
+        <!-- Bootstrap core CSS -->
+    <link href="/adm/assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/adm/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/adm/assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="/adm/assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="/adm/assets/lineicons/style.css">
+    <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
+    <link href="assets/css/toastr.css" rel="stylesheet" />
+    <link href="/adm/css/style.css" rel="stylesheet" />
+    <link href="/adm/assets/css/toastr.min.css" rel="stylesheet" />
+    <!--JS-->
+    <script src="js/jquery.gmap.min.js"></script>
+    <script src="js/widget.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/daterangepicker.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="/code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/scripts/jquery.date-dropdowns.js"></script>
+    <script src="/adm/assets/js/toastr.js"></script>
+    <script src="/admjs/daterangepicker.js"></script>
+    <script src="/adm/js/js/jquery.daterangepicker.js"></script>
+    <script src="/adm/assets/js/toast.min.js"></script>
+    <script src="/adm/assets/js/jquery-1.9.1.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="/adm/assets/css/style.css" rel="stylesheet">
+    <link href="/adm/assets/css/style-responsive.css" rel="stylesheet">
+    <script src="http://handlingquotas.azurewebsites.net/js/toastr.min.js"> </script>
+    <script src="/adm/assets/js/chart-master/Chart.js"></script>
+    <link type="text/css" rel="stylesheet" href="/adm/css/jquery-ui.css" />
+
+
+    <script src="/adm/assets/js/toast.min.js"></script>
+    <script src="/adm/assets/js/jquery-1.9.1.min.js"></script>
+    <script src="/adm/assets/js/toastr.js"></script>
+    <link href="assets/css/toastr.css" rel="stylesheet" />
+    <link href="/adm/css/style.css" rel="stylesheet" />
+    <link href="/adm/assets/css/toastr.min.css" rel="stylesheet" />
+
+
     <!-- start: CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -83,24 +127,61 @@
                             <li class="active"><a href="/Default.aspx">Inicio</a></li>
                             <li><a href="#">Cines</a></li>
                             <li><a href="#">Acerca de</a></li>
-                            
+
                             <asp:LoginView runat="server" ID="LoginView2">
                                 <AnonymousTemplate>
-                                    <li><a href="/Login.aspx"><span class="glyphicon glyphicon-log-in"></span> Conectar</a></li>
-                                    <li><a href="/rUsuarios.aspx"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
+                                    <li>
+                                        <asp:LinkButton ID="LoginLinkButton" runat="server" data-toggle="modal" data-target="#myModal">Login</asp:LinkButton>
+                                    </li>
                                 </AnonymousTemplate>
                                 <LoggedInTemplate>
                                     <li role="button">
-                                        <asp:LoginStatus runat="server" ID="LoginStatus1" />
+                                        <asp:LoginStatus runat="server" ID="LoginStatus1" LogoutText="Desconectar" />
                                     </li>
                                 </LoggedInTemplate>
                             </asp:LoginView>
+                            <li>
+                                <asp:LinkButton ID="RegistrarLinkButton" data-toggle="modal" runat="server">Registrar</asp:LinkButton>
+                            </li>
                         </ul>
                     </div>
                 </nav>
 
 
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="login-page">
+                                    <div class="form">
+                                        <link href="css/style.css" rel="stylesheet" />
+                                        <script src="js/index.js"></script>
+
+                                        <asp:TextBox ID="UsuarioTextBox" CssClass="from-control" placeholder="Usuario" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="ContrasenaTextBox" CssClass="from-control" TextMode="Password" placeholder="Password" runat="server"></asp:TextBox>
+                                        <asp:CheckBox ID="RememberCheckBox" runat="server" />
+
+                                        <asp:Button ID="IngresarButton" class="btn btn-embossed btn-success" runat="server" Text="Ingresar" OnClick="IngresarButton_Click" />
+                                        <p class="message">Not registered? <a href="#">Create an account</a></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Button ID="CancelarButton" class="btn btn-default" data-dismiss="modal" runat="server" Text="Cancelar" />
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                 <!--end: Navigation -->
                 <!--end: Row -->

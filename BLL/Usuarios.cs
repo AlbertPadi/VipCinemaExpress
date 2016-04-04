@@ -52,6 +52,26 @@ namespace BLL
             return Encontro;
         }
 
+        //public bool ValidarUsuario(string Usuario, string contra, int tipo)
+        //{
+        //    bool Encontro = false;
+        //    DataTable dt = new DataTable();
+
+        //    dt = this.Listado("UsuarioId, Usuario, Contrasena, Tipo", "Usuario ='" + Usuario + " Contrasena = " + contra + "' and Tipo = '" + tipo +"'", "");
+
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        Encontro = true;
+
+        //        this.Usuario = (string)dt.Rows[0]["Usuario"];
+        //        this.Contrasena = (string)dt.Rows[0]["Contrasena"];
+        //        this.Tipo = (int)dt.Rows[0]["Tipo"];
+        //    }
+
+        //    return Encontro;
+        //}
+
+
         public override bool Insertar()
         {
             bool retorno = false;
@@ -84,6 +104,7 @@ namespace BLL
 
             if (dt.Rows.Count > 0)
             {
+                this.UsuarioId = IdBuscado;
                 this.Nombres = dt.Rows[0]["Nombres"].ToString();
                 this.Apellidos = dt.Rows[0]["Apellidos"].ToString();
                 this.Direccion = dt.Rows[0]["Direccion"].ToString();

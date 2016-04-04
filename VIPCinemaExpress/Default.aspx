@@ -48,19 +48,12 @@
 
     </div>
 
-    <asp:Repeater ID="Repeater1" runat="server">
-<ItemTemplate>
-    <asp:Image ID="Image3" runat="server" ImageUrl='<%# "/temp/"+ Eval("ImageID") %>' Height="150px" Width="150px"/>
-</ItemTemplate>
-        </asp:Repeater>
+
     <!-- end: Slider -->
-    <!----------------------------------------------------------------------------------------------------------->
-    <%--<asp:Repeater ID="CarteleraRepeater" runat="server" OnItemDataBound="CarteleraRepeater_ItemDataBound">
-        <ItemTemplate>
-            <asp:Image ID="PeliculaImage" runat="server" />
-            <asp:Label ID="PeliculaLabel" runat="server" Text="Label"></asp:Label>
-        </ItemTemplate>
-    </asp:Repeater>--%>
+    
+
+    <asp:Repeater ID="CarteleraRepeater" runat="server">
+    </asp:Repeater>
 
 
     
@@ -72,6 +65,13 @@
 
         <!--start: Container -->
         <div class="container">
+
+            <asp:Repeater ID="yourRepeater" runat="server" OnItemCommand="yourRepeater_ItemCommand">
+                <ItemTemplate>
+                   <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>"><img id="imgImagen" runat="server" alt="" src='<%# Eval("Imagen")%>' CommandName="Redirect" CommandArgument='<%# Eval("PeliculaId") %>' height= "210" width="150"/></a>
+                    <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>"></a>   
+                </ItemTemplate>
+            </asp:Repeater> 
 
             <!-- start: Hero Unit - Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit">
@@ -119,6 +119,9 @@
 
             </div>
             <!-- end Clients List -->
+
+            
+
 
             <hr>
 

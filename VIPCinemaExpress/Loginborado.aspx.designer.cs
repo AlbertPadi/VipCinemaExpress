@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VIPCinemaExpress.adm.Consultas {
+namespace VIPCinemaExpress {
     
     
-    public partial class cCarteleras {
+    public partial class Login {
         
         /// <summary>
-        /// DatosDropDownList control.
+        /// Usuariotextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DatosDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox Usuariotextbox;
         
         /// <summary>
-        /// DatosTextBox control.
+        /// Passwordtextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DatosTextBox;
+        protected global::System.Web.UI.WebControls.TextBox Passwordtextbox;
         
         /// <summary>
-        /// BuscarButton control.
+        /// RememberCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuscarButton;
+        protected global::System.Web.UI.WebControls.CheckBox RememberCheckBox;
         
         /// <summary>
-        /// DatosGridView control.
+        /// EntrarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DatosGridView;
+        protected global::System.Web.UI.WebControls.Button EntrarButton;
     }
 }

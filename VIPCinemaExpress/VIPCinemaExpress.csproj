@@ -76,7 +76,6 @@
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.24\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -126,6 +125,8 @@
     <Content Include="adm\assets\css\style.css" />
     <Content Include="adm\assets\css\table-responsive.css" />
     <Content Include="adm\assets\css\to-do.css" />
+    <Content Include="adm\assets\css\toastr.css" />
+    <Content Include="adm\assets\css\toastr.min.css" />
     <Content Include="adm\assets\css\zabuto_calendar.css" />
     <Content Include="adm\assets\font-awesome\css\font-awesome.css" />
     <Content Include="adm\assets\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -187,6 +188,7 @@
     <Content Include="adm\assets\js\gritter\images\gritter.png" />
     <Content Include="adm\assets\js\gritter\images\ie-spacer.gif" />
     <Content Include="adm\assets\js\gritter\js\jquery.gritter.js" />
+    <Content Include="adm\assets\js\index.js" />
     <Content Include="adm\assets\js\jquery-1.8.3.min.js" />
     <Content Include="adm\assets\js\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
     <Content Include="adm\assets\js\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
@@ -202,19 +204,19 @@
     <Content Include="adm\assets\js\morris-conf.js" />
     <Content Include="adm\assets\js\sparkline-chart.js" />
     <Content Include="adm\assets\js\tasks.js" />
+    <Content Include="adm\assets\js\toast.min.js" />
+    <Content Include="adm\assets\js\toastr.js" />
     <Content Include="adm\assets\js\zabuto_calendar.js" />
     <Content Include="adm\assets\lineicons\fonts\linecons.svg" />
     <Content Include="adm\assets\lineicons\index.html" />
     <Content Include="adm\assets\lineicons\lte-ie7.js" />
     <Content Include="adm\assets\lineicons\style.css" />
-    <Content Include="adm\Consultas\cCarteleras.aspx" />
     <Content Include="adm\Consultas\cCines.aspx" />
     <Content Include="adm\Consultas\cPeliculas.aspx" />
     <Content Include="adm\Consultas\cReservaciones.aspx" />
     <Content Include="adm\Consultas\cUsuarios.aspx" />
     <Content Include="adm\Default.aspx" />
     <Content Include="adm\Perfil.aspx" />
-    <Content Include="adm\Registros\rArchivo.aspx" />
     <Content Include="contact.html" />
     <Content Include="content\themes\base\images\animated-overlay.gif" />
     <Content Include="content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -537,24 +539,26 @@
     <Content Include="js\carousel.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\flexslider.js" />
+    <Content Include="js\index.js" />
     <Content Include="js\jquery-1.8.2.js" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="js\jquery.cslider.js" />
     <Content Include="js\jquery.daterangepicker.js" />
     <Content Include="js\jquery.gmap.min.js" />
+    <Content Include="js\modernizr-custom.js" />
     <Content Include="js\moment.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="js\package.js" />
+    <Content Include="js\polyfiller.js" />
     <Content Include="js\slider.js" />
     <Content Include="js\widget.js" />
     <Content Include="Login.aspx" />
-    <Content Include="adm\Registros\rCarteleras.aspx" />
+    <Content Include="Loginborado.aspx" />
     <Content Include="adm\Registros\rCines.aspx" />
     <Content Include="adm\Registros\rPeliculas.aspx" />
     <Content Include="adm\Registros\rReservaciones.aspx" />
     <Content Include="adm\Registros\rUsuarios.aspx" />
     <Content Include="pricing.html" />
-    <Content Include="ReportViewers\ListadoCines.aspx" />
     <Content Include="rReservaciones.aspx" />
     <Content Include="rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -840,13 +844,6 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adm\Consultas\cCarteleras.aspx.cs">
-      <DependentUpon>cCarteleras.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adm\Consultas\cCarteleras.aspx.designer.cs">
-      <DependentUpon>cCarteleras.aspx</DependentUpon>
-    </Compile>
     <Compile Include="adm\Consultas\cCines.aspx.cs">
       <DependentUpon>cCines.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -892,13 +889,6 @@
     <Compile Include="adm\Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adm\Registros\rArchivo.aspx.cs">
-      <DependentUpon>rArchivo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adm\Registros\rArchivo.aspx.designer.cs">
-      <DependentUpon>rArchivo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -913,14 +903,14 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="adm\Registros\rCarteleras.aspx.cs">
-      <DependentUpon>rCarteleras.aspx</DependentUpon>
+    <Compile Include="Loginborado.aspx.cs">
+      <DependentUpon>Loginborado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="adm\Registros\rCarteleras.aspx.designer.cs">
-      <DependentUpon>rCarteleras.aspx</DependentUpon>
+    <Compile Include="Loginborado.aspx.designer.cs">
+      <DependentUpon>Loginborado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="adm\Registros\rCines.aspx.cs">
       <DependentUpon>rCines.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -956,13 +946,6 @@
     <Compile Include="adm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="ReportViewers\ListadoCines.aspx.cs">
-      <DependentUpon>ListadoCines.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReportViewers\ListadoCines.aspx.designer.cs">
-      <DependentUpon>ListadoCines.aspx</DependentUpon>
-    </Compile>
     <Compile Include="rReservaciones.aspx.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -983,13 +966,6 @@
     </Compile>
     <Compile Include="SiteUser.Master.designer.cs">
       <DependentUpon>SiteUser.Master</DependentUpon>
-    </Compile>
-    <Compile Include="SiteUserM.Master.cs">
-      <DependentUpon>SiteUserM.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SiteUserM.Master.designer.cs">
-      <DependentUpon>SiteUserM.Master</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios.cs" />
     <Compile Include="VistaUsuario\ReservacionesUsuario.aspx.cs">
@@ -1051,6 +1027,10 @@
     <Content Include="css\daterangepicker.scss" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
+    <Content Include="adm\assets\js\jquery-1.9.1.min.js" />
+    <Content Include="adm\assets\css\toastr.less" />
+    <Content Include="adm\assets\css\toastr.scss" />
+    <Content Include="adm\assets\css\StyleSheet.login.scss" />
     <None Include="Properties\PublishProfiles\vipcinemaexpress - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\vipcinemaexpress - Web Deploy.pubxml" />
     <Content Include="scripts\jquery-2.2.1.min.map" />
@@ -1063,7 +1043,6 @@
     <Content Include="scripts\angular-loader.min.js.map" />
     <Content Include="scripts\angular-cookies.min.js.map" />
     <Content Include="scripts\angular-animate.min.js.map" />
-    <Content Include="SiteUserM.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1078,9 +1057,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Rpts\CinesReport.rdlc" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

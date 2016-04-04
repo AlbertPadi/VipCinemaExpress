@@ -34,10 +34,7 @@ namespace VIPCinemaExpress.adm.Registros
 
             }
         }
-        protected void AgregarCSButton_Click(object sender, EventArgs e)
-        {
 
-        }
         public void Limpiar()
         {
 
@@ -53,6 +50,8 @@ namespace VIPCinemaExpress.adm.Registros
             FechaFinTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
             GeneroTextBox.Text = string.Empty;
+            CinesSalasGridView.DataSource = "";
+            CinesSalasGridView.DataBind();
 
         }
         protected void AddIdiomaButton_Click(object sender, EventArgs e)
@@ -71,13 +70,8 @@ namespace VIPCinemaExpress.adm.Registros
 
             string archivo = String.Format("{0}\\{1}", ruta, file.FileName);
 
-            // Verificar que el archivo no exista
-            if (File.Exists(archivo))
-                Response.Write("<script>alert('Archivo ya Existe');</script>");
-            else
-            {
-                file.SaveAs(archivo);
-            }
+            file.SaveAs(archivo);
+
         }
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
@@ -86,7 +80,11 @@ namespace VIPCinemaExpress.adm.Registros
 
             if (PeliculaIdTextBox.Text.Length == 0)
             {
-
+                foreach (GridViewRow item in CinesSalasGridView.Rows)
+                {
+                    pelicula.AddCinesSalas(Convert.ToInt32(item.Cells[1].Text), Convert.ToInt32(item.Cells[2].Text));
+                }
+               
                 pelicula.Nombre = NombreTextBox.Text;
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
@@ -101,7 +99,7 @@ namespace VIPCinemaExpress.adm.Registros
                         Response.Write("<script>alert('Formato de imagen inválido.');</script>");
                     else
                         GuardarArchivo(ImagenFileUpload.PostedFile);
-                    pelicula.Imagen = ImagenFileUpload.FileName;
+                    pelicula.Imagen = "/temp/" + ImagenFileUpload.FileName;
                     Response.Write("<script>alert('Hola " + pelicula.Imagen + "');</script>");
                 }
                 else
@@ -221,7 +219,7 @@ namespace VIPCinemaExpress.adm.Registros
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -230,7 +228,7 @@ namespace VIPCinemaExpress.adm.Registros
             Peliculas pelicula = new Peliculas();
             if (PeliculaIdTextBox.Text.Length < 0)
             {
-                HttpContext.Current.Response.Write("<SCRIPT>'Ingrese un Id'</SCRIPT>");
+                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
             }
             else
             {
@@ -277,7 +275,7 @@ namespace VIPCinemaExpress.adm.Registros
             SalaDropDownList.DataBind();
         }
 
-        protected void AddSCButton_Click(object sender, EventArgs e)
+        protected void AgregarButton_Click(object sender, EventArgs e)
         {
             Peliculas pelicula;
             if (Session["Pelicula"] == null)

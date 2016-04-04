@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adm/Site.Master" AutoEventWireup="true" CodeBehind="rPeliculas.aspx.cs" Inherits="VIPCinemaExpress.adm.Registros.rPeliculas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+    <%--    <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>--%>
+    <script src="../../js/modernizr-custom.js"></script>
     <!-- polyfiller file to detect and load polyfills -->
+    <script src="../../js/polyfiller.js"></script>
     <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
     <script>
         webshims.setOptions('waitReady', false);
@@ -144,11 +146,11 @@
                                 <div class="col-xs-4">
                                     <asp:DropDownList ID="SalaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
-                                <asp:Button ID="AddSCButton" runat="server" CssClass="btn btn-info" Text="Agregar" OnClick="AddSCButton_Click" />
+
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-
+                    <asp:Button ID="AgregarButton" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="AgregarButton_Click" />
                     <asp:GridView ID="CinesSalasGridView" CssClass="table" runat="server"></asp:GridView>
 
                     <div class="form-group row">

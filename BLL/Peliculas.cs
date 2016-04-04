@@ -8,6 +8,7 @@ namespace BLL
 {
     public class Peliculas : ClaseMaestra
     {
+        ConexionDb conexion = new ConexionDb();
         public int PeliculaId { get; set; }
         public string Nombre { get; set; }
         public string Genero { get; set; }
@@ -51,17 +52,27 @@ namespace BLL
         public override bool Insertar()
         {
             int retorno = 0;
+            int valor = 0;
             object identity;
-
-            ConexionDb conexion = new ConexionDb();
-            identity = conexion.ObtenerDatos(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Duracion, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', '{9}', {11}, '{12}', '{13}') select @@Identity", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio.ToString("yyyy-MM-dd"), this.FechaFin.ToString("yyyy-MM-dd"), this.Duracion, this.Precio, this.Imagen, this.Video));
-
-            int.TryParse(identity.ToString(), out retorno);
-            this.PeliculaId = retorno;
-            foreach (PeliculasDetalle item in this.Detalle)
+            try
             {
-                conexion.Ejecutar(String.Format("Insert into PeliculasDetalle(PeliculaId, CineId, CineSalaId) Values({0}, {1}, {2})", this.PeliculaId, (int)item.CineId, (int)item.CinesSalasId));
+                
+                identity = conexion.ObtenerValor(String.Format("Insert into Peliculas(Nombre, Genero, Clasificacion, Idioma, Subtitulo, Director, Actores, Activa, FechaInicio, FechaFin, Duracion, Precio, Imagen, Video) Values('{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', {7}, '{8}', '{9}', '{9}', {11}, '{12}', '{13}') select @@Identity", this.Nombre, this.Genero, this.Clasificacion, this.Idioma, this.Subtitulo, this.Director, this.Actores, this.Activa, this.FechaInicio.ToString("yyyy-MM-dd"), this.FechaFin.ToString("yyyy-MM-dd"), this.Duracion, this.Precio, this.Imagen, this.Video));
+
+                int.TryParse(identity.ToString(), out valor);
+                this.PeliculaId = valor;
+
+                foreach (PeliculasDetalle item in this.Detalle)
+                {
+                    conexion.Ejecutar(String.Format("Insert into PeliculasDetalle(PeliculaId, CineId, CinesSalasId) Values({0}, {1}, {2})", valor, (int)item.CineId, (int)item.CinesSalasId));
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
 
             return retorno > 0;
 
@@ -96,6 +107,7 @@ namespace BLL
 
             if (dt.Rows.Count > 0)
             {
+                this.PeliculaId = IdBuscado;
                 this.Nombre = dt.Rows[0]["Nombre"].ToString();
                 this.Genero = dt.Rows[0]["Genero"].ToString();
                 this.Clasificacion = dt.Rows[0]["Clasificacion"].ToString();
