@@ -69,6 +69,11 @@ namespace VIPCinemaExpress.adm.Consultas
             DatosGridView.DataBind();
 
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Rpt/");
+        }
     }
 
 }

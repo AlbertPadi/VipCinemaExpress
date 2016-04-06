@@ -15,7 +15,6 @@ namespace VIPCinemaExpress
         }
         public void Limpiar()
         {
-            UsuarioIdTextBox.Text = string.Empty;
             NombresTextBox.Text = string.Empty;
             ApellidosTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
@@ -35,123 +34,46 @@ namespace VIPCinemaExpress
         {
             Usuarios usuario = new Usuarios();
 
-            if (UsuarioIdTextBox.Text.Length == 0)
+
+            usuario.Nombres = NombresTextBox.Text;
+            usuario.Apellidos = ApellidosTextBox.Text;
+            usuario.Direccion = DireccionTextBox.Text;
+            usuario.Telefono = TelefonoTextBox.Text;
+            usuario.Celular = CelularTextBox.Text;
+            usuario.Email = EmailTextBox.Text;
+            usuario.Usuario = UsuarioTextBox.Text;
+            usuario.Contrasena = PassWordTextBox.Text;
+            usuario.Tipo = 1;
+
+            if (PassWord1TextBox.Text != PassWordTextBox.Text)
             {
-                usuario.Nombres = NombresTextBox.Text;
-                usuario.Apellidos = ApellidosTextBox.Text;
-                usuario.Direccion = DireccionTextBox.Text;
-                usuario.Telefono = TelefonoTextBox.Text;
-                usuario.Celular = CelularTextBox.Text;
-                usuario.Email = EmailTextBox.Text;
-                usuario.Usuario = UsuarioTextBox.Text;
-                usuario.Contrasena = PassWordTextBox.Text;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se guardaron los datos')", true);
+            }
+            else if (usuario.Insertar())
+            {
 
-                if (PassWord1TextBox.Text != PassWordTextBox.Text)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se guardaron los datos')", true);
-                }
-                else if (usuario.Insertar())
-                {
-
-                    {
-                        Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
-                        Limpiar();
-                    }
-                }
-
-                else
-                {
-                    Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
+                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
                     Limpiar();
                 }
             }
+
             else
             {
-                int id;
-                id = Convert.ToInt32(UsuarioIdTextBox.Text);
-                usuario.UsuarioId = id;
-                usuario.Nombres = NombresTextBox.Text;
-                usuario.Apellidos = ApellidosTextBox.Text;
-                usuario.Direccion = DireccionTextBox.Text;
-                usuario.Telefono = TelefonoTextBox.Text;
-                usuario.Celular = CelularTextBox.Text;
-                usuario.Email = EmailTextBox.Text;
-                usuario.Usuario = UsuarioTextBox.Text;
-                usuario.Contrasena = PassWordTextBox.Text;
-                if (PassWord1TextBox.Text != PassWordTextBox.Text)
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('No se actualizaron los datos')", true);
-                }
-                else
-                {
-                    if (usuario.Editar())
-                    {
-                        Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Correcto", "Actualizado");
-                        Limpiar();
-                    }
-                    else
-                    {
-                        Utilitarios.ShowToastr(this.Page, "Error al actualizar los datos", "Error", "Error");
-                        Limpiar();
-                    }
-
-                }
-
-
+                Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
+                Limpiar();
             }
         }
 
+
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            int id;
-            Usuarios usuario = new Usuarios();
-            id = Convert.ToInt32(UsuarioIdTextBox.Text);
-            if (UsuarioIdTextBox.Text.Length > 0)
-            {
-                usuario.UsuarioId = id;
-                if (usuario.Eliminar())
-                {
-                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Correcto", "Eliminado");
-                    Limpiar();
-                }
-                else
-                {
-                    Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
 
-                }
-            }
-            else
-            {
-                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
-
-            }
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            int id;
-            Usuarios usuario = new Usuarios();
-            id = Convert.ToInt32(UsuarioIdTextBox.Text);
-            if (UsuarioIdTextBox.Text.Length > 0)
-            {
-                usuario.UsuarioId = id;
-                if (usuario.Buscar(id))
-                {
-                    NombresTextBox.Text = usuario.Nombres;
-                    ApellidosTextBox.Text = usuario.Apellidos;
-                    DireccionTextBox.Text = usuario.Direccion;
-                    TelefonoTextBox.Text = usuario.Telefono;
-                    CelularTextBox.Text = usuario.Celular;
-                    EmailTextBox.Text = usuario.Email;
-                    UsuarioTextBox.Text = usuario.Usuario;
-                    PassWordTextBox.Text = usuario.Contrasena;
-                }
 
-            }
-            else
-            {
-                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
-            }
         }
 
         protected void PassWord1TextBox_TextChanged(object sender, EventArgs e)

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+
         <div id="page-wrapper">
             <div class="panel-body">
                 <div class="form-horizontal col-md-12" role="form">
@@ -38,5 +38,5 @@
             </div>
         </div>
         </div>
-    </form>
+
 </asp:Content>

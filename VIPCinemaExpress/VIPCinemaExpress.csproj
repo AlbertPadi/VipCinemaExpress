@@ -40,8 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1010, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -75,6 +75,15 @@
     <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.24\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -558,9 +567,9 @@
     <Content Include="Loginborado.aspx" />
     <Content Include="adm\Registros\rCines.aspx" />
     <Content Include="adm\Registros\rPeliculas.aspx" />
-    <Content Include="adm\Registros\rReservaciones.aspx" />
     <Content Include="adm\Registros\rUsuarios.aspx" />
     <Content Include="pricing.html" />
+    <Content Include="Rpts\CinesReporte.aspx" />
     <Content Include="rReservaciones.aspx" />
     <Content Include="rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -927,13 +936,6 @@
     <Compile Include="adm\Registros\rPeliculas.aspx.designer.cs">
       <DependentUpon>rPeliculas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="adm\Registros\rReservaciones.aspx.cs">
-      <DependentUpon>rReservaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adm\Registros\rReservaciones.aspx.designer.cs">
-      <DependentUpon>rReservaciones.aspx</DependentUpon>
-    </Compile>
     <Compile Include="adm\Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -947,6 +949,13 @@
     </Compile>
     <Compile Include="adm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Rpts\CinesReporte.aspx.cs">
+      <DependentUpon>CinesReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rpts\CinesReporte.aspx.designer.cs">
+      <DependentUpon>CinesReporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="rReservaciones.aspx.cs">
       <DependentUpon>rReservaciones.aspx</DependentUpon>
@@ -970,6 +979,11 @@
       <DependentUpon>SiteUser.Master</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios.cs" />
+    <Compile Include="VipCinemaExpressDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VipCinemaExpressDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VistaUsuario\ReservacionesUsuario.aspx.cs">
       <DependentUpon>ReservacionesUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1045,6 +1059,17 @@
     <Content Include="scripts\angular-loader.min.js.map" />
     <Content Include="scripts\angular-cookies.min.js.map" />
     <Content Include="scripts\angular-animate.min.js.map" />
+    <Content Include="VipCinemaExpressDBDataSet.xsc">
+      <DependentUpon>VipCinemaExpressDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="VipCinemaExpressDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VipCinemaExpressDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="VipCinemaExpressDBDataSet.xss">
+      <DependentUpon>VipCinemaExpressDBDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1057,6 +1082,9 @@
       <Project>{dac47168-b42f-49e0-b127-3b58ade7e679}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\CinesReport.rdlc" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

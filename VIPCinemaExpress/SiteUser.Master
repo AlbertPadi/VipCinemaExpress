@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head runat="server">
 
     <!-- start: Meta -->
     <meta charset="utf-8">
@@ -38,7 +38,7 @@
 
 
 
-        <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="/adm/assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="/adm/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -120,19 +120,25 @@
 
                 <!--start: Navigation -->
 
-                <nav class="navbar navbar-inverse">
+                <nav class="navbar navbar-right nav-collapse">
                     <div class="container-fluid">
 
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="/Default.aspx">Inicio</a></li>
                             <li><a href="#">Cines</a></li>
                             <li><a href="#">Acerca de</a></li>
-
                             <asp:LoginView runat="server" ID="LoginView2">
                                 <AnonymousTemplate>
                                     <li>
                                         <asp:LinkButton ID="LoginLinkButton" runat="server" data-toggle="modal" data-target="#myModal">Login</asp:LinkButton>
                                     </li>
+                                    <li role="button">
+                                        <a href="rUsuarios.aspx">Registrar</a>
+                                    </li>
+                                    <li role="button">
+                                        <a href="adm/Default.aspx">Admin</a>
+                                    </li>
+
                                 </AnonymousTemplate>
                                 <LoggedInTemplate>
                                     <li role="button">
@@ -140,9 +146,7 @@
                                     </li>
                                 </LoggedInTemplate>
                             </asp:LoginView>
-                            <li>
-                                <asp:LinkButton ID="RegistrarLinkButton" data-toggle="modal" runat="server">Registrar</asp:LinkButton>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -175,11 +179,11 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
+
                                 <asp:Button ID="CancelarButton" class="btn btn-default" data-dismiss="modal" runat="server" Text="Cancelar" />
 
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -190,18 +194,16 @@
         <!--end: Header-->
 
 
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="1" />
+                    <asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Menu2" Value="2" />
+                    <asp:MenuItem NavigateUrl="~/Menu3.aspx" Text="Menu3" Value="3" />
+                </Items>
+            </asp:Menu>
+        </asp:ContentPlaceHolder>
 
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="1" />
-                        <asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Menu2" Value="2" />
-                        <asp:MenuItem NavigateUrl="~/Menu3.aspx" Text="Menu3" Value="3" />
-                    </Items>
-                </asp:Menu>
-            </asp:ContentPlaceHolder>
-        </div>
     </form>
     <!-- start: Footer -->
     <div id="footer">
@@ -217,7 +219,7 @@
 
                     <h3>About Us</h3>
                     <p>
-                           Vip Cinema Express es un sitio web de tipo prueba, se esta implementando nuevas mejoras y pronto vendran nuevos cambios - By Padilla Solutions®.				
+                        Vip Cinema Express es un sitio web de tipo prueba, se esta implementando nuevas mejoras y pronto vendran nuevos cambios - By Padilla Solutions®.				
                     </p>
 
                 </div>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+
         <div id="page-wrapper">
             <div class="panel-body">
                 <div class="form-horizontal col-md-12" role="form">
@@ -30,11 +30,11 @@
                         <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
                             </div>
                         <div class="col-xs-12">
-                            <asp:Button ID="ImprimirButton" CssClass="btn btn-info" runat="server" Text="Imprimir" />
+                            <asp:Button ID="ImprimirButton" CssClass="btn btn-info" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+ 
 </asp:Content>

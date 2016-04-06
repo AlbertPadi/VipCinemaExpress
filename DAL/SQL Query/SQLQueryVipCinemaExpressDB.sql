@@ -91,21 +91,25 @@ create table Carteleras(
 			CarteleraId int primary key identity,
 			PeliculaId int References Peliculas(PeliculaId)
 )
-
+select *from Peliculas
 go
 create table Reservaciones(
 			ReservacionId int primary key identity,
-			CineId int References Cines(CineId),
 			UsuarioId int References Usuarios(UsuarioId),
-			SalaId int References CinesSalasDetalle(CinesSalasId),
-			Fecha datetime,
-			Cantidad int,
-			Monto float
+			MontoTot float
 )
+drop table Reservaciones
 
+drop table ReservacionesDetalle
 go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,
 			ReservacionId int References Reservaciones(ReservacionId),
-			PeliculaId int References Peliculas(PeliculaId)
+			PeliculaId int References Peliculas(PeliculaId),
+			Cantidad int,
+			Nombre varchar(40),
+			SalaId int References CinesSalasDetalle(CinesSalasId),
+			CineId int References Cines(CineId),
+			Fecha datetime,
+			Monto float
 )

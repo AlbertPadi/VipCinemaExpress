@@ -2,7 +2,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head runat="server">
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -48,6 +49,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -215,7 +218,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/adm/Default.aspx">Logout</a></li>
+                    <li><a class="logout" href="Default.aspx">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -265,13 +268,7 @@
 
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Reservaciones</span>
-                        </a>
-                       
-                    </li>
+                 
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-tasks"></i>
@@ -300,9 +297,10 @@
         </aside>
         <section id="main-content">
             <section class="wrapper">
-
+                <form runat="server">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
+                    </form>
             </section>
 
         </section>
