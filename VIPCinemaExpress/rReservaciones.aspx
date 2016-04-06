@@ -11,6 +11,7 @@
         webshims.setOptions('forms-ext', { types: 'date' });
         webshims.polyfill('forms forms-ext');
 </script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="wrapper">
         <div class="container">
             <div class="panel-body">
@@ -20,80 +21,103 @@
                         <div class="col-lg-12">
                             <h1 class="page-header">Vip Cinema Express <small>Reservaciones</small>
                             </h1>
+
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <asp:Image ID="PeliculaImage" runat="server" />
+                                </div>
+
+                            </div>
+
                             <div class="form-group row">
                                 <div class="col-xs-2">
                                     <asp:Label ID="Label4" runat="server" Text="Fecha"></asp:Label>
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-md-3">
                                     <asp:TextBox ID="FechaTextBox" type="date" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-xs-2">
-                                    <asp:Label ID="Label2" runat="server" Text="Cine"></asp:Label>
-                                </div>
-                                <div class="col-xs-3">
-                                    <asp:DropDownList ID="CinesDropDownList" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="CinesDropDownList_SelectedIndexChanged" runat="server"></asp:DropDownList>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <div class="form-group row">
+                                        <div class="col-xs-2">
+                                            <asp:Label ID="Label2" runat="server" Text="Cine"></asp:Label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <asp:DropDownList ID="CinesDropDownList" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="CinesDropDownList_SelectedIndexChanged" runat="server"></asp:DropDownList>
 
-                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-xs-2">
+                                            <asp:Label ID="Label1" runat="server" Text="Sala"></asp:Label>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <asp:DropDownList ID="SalaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
+
+                                        </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-offset-5">
+                                <asp:Button ID="AgregarButton" runat="server" CssClass="btn btn-primary" Text="Agregar" />
                             </div>
+                        </div>
+                        <asp:GridView ID="CineGridView" class="table" runat="server"></asp:GridView>
 
-                            <div class="form-group row">
-                                <div class="col-xs-2">
-                                    <asp:Label ID="Label1" runat="server" Text="Sala"></asp:Label>
-                                </div>
-                                <div class="col-xs-3">
-                                    <asp:DropDownList ID="SalaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
-
-                                </div>
-                                <asp:Button ID="AgregarCSButton" CssClass="btn btn-primary" runat="server" Text="Agregar" />
+                        <div class="form-group row">
+                            <div class="col-xs-2">
+                                <asp:Label ID="Label3" runat="server" Text="Cantidad"></asp:Label>
                             </div>
-
-                            <asp:GridView ID="CineGridView" class="table" runat="server"></asp:GridView>
-
-                            <div class="form-group row">
-                                <div class="col-xs-2">
-                                    <asp:Label ID="Label3" runat="server" Text="Cantidad"></asp:Label>
-                                </div>
-                                <div class="col-xs-3">
-                                    <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
-                                </div>
+                            <div class="col-xs-3">
+                                <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
                             </div>
-
-                            <asp:GridView ID="PeliculaGridView" Class="table" runat="server"></asp:GridView>
-                            <div class="form-group">
-                                <div class="col-xs-2">
-                                    <asp:Label ID="Label6" runat="server" Text="Monto"></asp:Label>
-                                </div>
-                                <div class="col-xs-3">
-                                    <asp:TextBox ID="MontoTextBox" class="form-control" runat="server" placeholder="Monto" ReadOnly="True"></asp:TextBox>
-                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-2">
+                                <asp:Label ID="Label6" runat="server" Text="Precio"></asp:Label>
                             </div>
-                            <div class="form-group">
-                                <div class="col-xs-2">
-                                    <asp:Label ID="Label5" runat="server" Text="Tarjeta"></asp:Label>
-                                </div>
-                                <div class="col-xs-3">
-                                    <asp:DropDownList ID="TarjetaDropDownList" CssClass="form-control" runat="server">
-                                        <asp:ListItem Value="1">Visa</asp:ListItem>
-                                        <asp:ListItem Value="2">Master Card</asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
+                            <div class="col-xs-3">
+                                <asp:TextBox ID="MontoTextBox" class="form-control" runat="server" placeholder="Precio" ReadOnly="True"></asp:TextBox>
+                                
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-offset-2">
-                                    <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" Width="137px" />
-                                    <asp:Button ID="ReservarButton" CssClass="btn btn-info" runat="server" Text="Reservar" Width="137px"/>
-                                </div>
-
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-2">
+                                <asp:Label ID="Label7" runat="server" Text="Total"></asp:Label>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:TextBox ID="TotalTextBox" placeholder="Total" ReadOnly="true" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-2">
+                                <asp:Label ID="Label5" runat="server" Text="Tarjeta"></asp:Label>
+                            </div>
+                            <div class="col-xs-3">
+                                <asp:DropDownList ID="TarjetaDropDownList" CssClass="form-control" runat="server">
+                                    <asp:ListItem Value="1">Visa</asp:ListItem>
+                                    <asp:ListItem Value="2">Master Card</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2">
+                                <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" Width="130px" />
+                                <asp:Button ID="ReservarButton" CssClass="btn btn-info" runat="server" Text="Reservar" Width="130px" OnClick="ReservarButton_Click" />
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 

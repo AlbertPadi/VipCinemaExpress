@@ -48,7 +48,7 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(String.Format("Select * from CinesSalasDetalle where CinesSalasId = {0}", IdBuscado));
+            dt = conexion.ObtenerDatos(String.Format("Select * from CinesSalasDetalle where CineId = {0}", IdBuscado));
             if (dt.Rows.Count > 0)
             {
                 this.NombreSala = dt.Rows[0]["NombreSala"].ToString();

@@ -70,7 +70,7 @@ namespace BLL
 
             if (retorno)
             {
-                conexion.Ejecutar("Delete from ReservacionesDetalle where ReservacionId=" + this.ReservacionId);
+                conexion.Ejecutar("Delete from ReservacionesDetalle where ReservacionId= {0}" + this.ReservacionId);
 
                 foreach (ReservacionesDetalle ResDetalle in Peliculas)
                 {
@@ -126,7 +126,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + "from Reservasiones where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from Reservasiones where " + Condicion + " " + OrdenFinal);
         }
     }
 }

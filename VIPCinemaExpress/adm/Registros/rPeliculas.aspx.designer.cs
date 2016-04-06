@@ -67,24 +67,6 @@ namespace VIPCinemaExpress.adm.Registros {
         protected global::System.Web.UI.WebControls.DropDownList IdiomaDropDownList;
         
         /// <summary>
-        /// IdiomaTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdiomaTextBox;
-        
-        /// <summary>
-        /// AddIdiomaButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddIdiomaButton;
-        
-        /// <summary>
         /// SubtituloCheckBox control.
         /// </summary>
         /// <remarks>

@@ -41,5 +41,16 @@ namespace BLL
 
             return dt.Rows.Count > 0;
         }
+
+        public DataTable ListadoCines(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string OrdenFinal = string.Empty;
+            if (!Orden.Equals(""))
+            {
+                OrdenFinal = " Order by " + Orden;
+            }
+            return conexion.ObtenerDatos("Select " + Campos + " from View_PeliculasDetalle where " + Condicion + " " + OrdenFinal);
+        }
     }
 }

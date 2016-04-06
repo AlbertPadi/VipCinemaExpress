@@ -508,6 +508,7 @@
     <Content Include="img\parallax-slider\legion.jpg" />
     <Content Include="img\parallax-slider\LosMiserables.jpg" />
     <Content Include="img\parallax-slider\Noseaceptandevoluaciones.jpg" />
+    <Content Include="img\parallax-slider\Que Paso Ayer 2 Review.png" />
     <Content Include="img\parallax-slider\Recoil.jpg" />
     <Content Include="img\parallax-slider\responsive.png" />
     <Content Include="img\parallax-slider\Rio-2.png" />
@@ -525,6 +526,7 @@
     <Content Include="img\slider.jpg" />
     <Content Include="img\slider\desert.jpg" />
     <Content Include="img\slider\mobile_app1.jpg" />
+    <Content Include="img\Resacon.jpg" />
     <Content Include="img\slider\slider1.jpg" />
     <Content Include="img\slider\slider2.jpg" />
     <Content Include="img\slider\slider3.jpg" />

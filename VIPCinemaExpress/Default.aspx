@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="da-slide">
-                <h2>No Se Aceptan Devoluaciones</h2>
+                <h2>No Devoluaciones</h2>
                 <p>Una pelicula totalmente comedia, un padre y madre ala vez</p>
 
                 <div class="da-img">
@@ -33,11 +33,20 @@
                 </div>
             </div>
             <div class="da-slide">
-                <h2>Rio-2</h2>
+                <h2>Resacón</h2>
                 <p>Una pelicula de caricaturas animadas, comedia y drama</p>
 
                 <div class="da-img">
                     <img src="img/parallax-slider/Rio-2.png" alt="image04" />
+                </div>
+               
+            </div>
+            <div class="da-slide">
+                <h2>Rio-2</h2>
+                <p>La saga Resacón es una franquicia de tres películas estadounidenses producidas por Legendary Pictures y distribuidas por Warner Bros. Pictures. </p>
+
+                <div class="da-img">
+                    <img src="img/Resacon.jpg" />
                 </div>
             </div>
             <nav class="da-arrows">
@@ -50,13 +59,13 @@
 
 
     <!-- end: Slider -->
-    
+
 
     <asp:Repeater ID="CarteleraRepeater" runat="server">
     </asp:Repeater>
 
 
-    
+
 
     <!----------------------------------------------------------------------------------------------------------->
     <!--start: Wrapper-->
@@ -68,131 +77,12 @@
 
             <asp:Repeater ID="yourRepeater" runat="server" OnItemCommand="yourRepeater_ItemCommand">
                 <ItemTemplate>
-                   <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>"><img id="imgImagen" runat="server" alt="" src='<%# Eval("Imagen")%>' CommandName="Redirect" CommandArgument='<%# Eval("PeliculaId") %>' height= "210" width="150"/></a>
-                    <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>"></a>   
+                    <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>">
+                        <img id="imgImagen" runat="server" alt="" src='<%# Eval("Imagen")%>' commandname="Redirect" commandargument='<%# Eval("PeliculaId") %>' height="210" width="150" /></a>
+                    <a href="rReservaciones.aspx?Id=<%# Eval("PeliculaId") %>"></a>
                 </ItemTemplate>
-            </asp:Repeater> 
-
-            <!-- start: Hero Unit - Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <p>
-                    This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-			
-                </p>
-                <p><a class="btn btn-success btn-large">Learn more &raquo;</a></p>
-            </div>
-            <!-- end: Hero Unit -->
-
-            <!-- start: Row -->
-
-            <img src="/partners+@(item.AdPath)" alt="" id="adimg" title="@item.AdName"  width:"50px" height="50px"/>
-
-            <!-- end: Row -->
-
-            <hr>
-
-            <!-- start Clients List -->
-            <div class="clients-carousel">
-
-                <ul class="slides clients">
-                    <li>
-                        <img src="img/logos/1.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/2.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/3.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/4.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/5.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/6.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/7.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/8.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/9.png" alt="" /></li>
-                    <li>
-                        <img src="img/logos/10.png" alt="" /></li>
-                </ul>
-
-            </div>
-            <!-- end Clients List -->
-
-            
-
-
-            <hr>
-
-            <!-- start: Row -->
-            <div class="row">
-
-                <!-- start: Icon Boxes -->
-                <div class="icons-box-vert-container">
-
-                    <!-- start: Icon Box Start -->
-                    <div class="span6">
-                        <div class="icons-box-vert">
-                            <i class="ico-ok ico-color circle-color big"></i>
-                            <div class="icons-box-vert-info">
-                                <h3>Easy to use</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <!-- end: Icon Box-->
-
-                    <!-- start: Icon Box Start -->
-                    <div class="span6">
-                        <div class="icons-box-vert">
-                            <i class="ico-cup  ico-white circle-color-full big-color"></i>
-                            <div class="icons-box-vert-info">
-                                <h3>Best choice</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <!-- end: Icon Box -->
-
-                    <!-- start: Icon Box Start -->
-                    <div class="span6">
-                        <div class="icons-box-vert">
-                            <i class="ico-ipad ico-color circle-color big"></i>
-                            <div class="icons-box-vert-info">
-                                <h3>Fully Responsive</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <!-- end: Icon Box -->
-
-                    <!-- start: Icon Box Start -->
-                    <div class="span6">
-                        <div class="icons-box-vert">
-                            <i class="ico-thumbs-up  ico-white circle-color-full big-color"></i>
-                            <div class="icons-box-vert-info">
-                                <h3>Social Network</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <!-- end: Icon Box -->
-
-                </div>
-                <!-- end: Icon Boxes -->
-                <div class="clear"></div>
-            </div>
-            <!-- end: Row -->
-
-            <hr>
+            </asp:Repeater>
         </div>
-        <!--end: Container-->
-
     </div>
-    <!-- end: Wrapper  -->
+
 </asp:Content>

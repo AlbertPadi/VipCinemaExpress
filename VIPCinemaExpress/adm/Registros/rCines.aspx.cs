@@ -27,6 +27,7 @@ namespace VIPCinemaExpress.adm.Registros
 
 
 
+
         public void Limpiar()
         {
             CineIdTextBox.Text = string.Empty;
@@ -39,11 +40,25 @@ namespace VIPCinemaExpress.adm.Registros
             SalasGridView.DataBind();
             EsActivaCheckBox.Checked = false;
             CanSalasTextBox.Text = string.Empty;
+            Session.Clear();
+            Session.Abandon();
 
         }
 
+
         protected void AddSalasButton_Click(object sender, EventArgs e)
         {
+            if (CineIdTextBox.Text == "")
+            {
+                if (EsActivaCheckBox.Checked == true)
+                {
+                    esActiva = 1;
+                }
+                else
+                {
+                    esActiva = 0;
+                }
+            }
             Cines cine;
 
             if (Session["Cine"] == null)
@@ -72,40 +87,28 @@ namespace VIPCinemaExpress.adm.Registros
             cine.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
         }
 
+
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
-            if (EsActivaCheckBox.Checked == true)
-            {
-                esActiva = 1;
-            }
-            else
-            {
-                esActiva = 0;
-            }
-            int id;
+
+
 
             Cines cines = new Cines();
-
-            if (CineIdTextBox.Text.Length <= 0)
+            if (CineIdTextBox.Text.Length == 0)
             {
                 foreach (GridViewRow dr in SalasGridView.Rows)
                 {
                     cines.AgregarSalas(Convert.ToString(dr.Cells[0].Text), Convert.ToInt32(dr.Cells[1].Text), esActiva);
                 }
+                cines.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
 
+                cines.Nombres = NombreTextBox.Text;
                 cines.Ciudad = CiudadTextBox.Text;
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-
-                if (Utilitarios.ValidarNombre(NombreTextBox.Text))
-                {
-                    cines.Nombres = NombreTextBox.Text;
-                }
-                else
-                {
-                    Utilitarios.ShowToastr(this.Page, "Datos incorrectos en nombres", "error", "Error");
-                }
+                SalasGridView.DataSource = null;
+                SalasGridView.DataBind();
 
                 if (cines.Insertar())
                 {
@@ -117,24 +120,27 @@ namespace VIPCinemaExpress.adm.Registros
                     Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
                 }
             }
-            else if (CineIdTextBox.Text.Length > 0)
+            else
             {
+                int id;
                 id = Convert.ToInt32(CineIdTextBox.Text);
                 cines.CineId = id;
-                foreach (GridViewRow dr in SalasGridView.Rows)
-                {
-                    cines.AgregarSalas(Convert.ToString(dr.Cells[0].Text), Convert.ToInt32(dr.Cells[1].Text), esActiva);
-                }
+
                 cines.Nombres = NombreTextBox.Text;
                 cines.Ciudad = CiudadTextBox.Text;
                 cines.Telefono = TelefonoTextBox.Text;
                 cines.Direccion = DireccionTextBox.Text;
                 cines.Email = EmailTextBox.Text;
-                //cines.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
-
+                SalasGridView.DataSource = null;
+                SalasGridView.DataBind();
+                foreach (GridViewRow dr in SalasGridView.Rows)
+                {
+                    cines.AgregarSalas(Convert.ToString(dr.Cells[0].Text), Convert.ToInt32(dr.Cells[1].Text), esActiva);
+                }
+                cines.CantidadSalas = Convert.ToInt32(CanSalasTextBox.Text);
                 if (cines.Editar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Guardado", "Success");
+                    Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Actualizado", "Success");
                     Limpiar();
                 }
                 else
@@ -142,6 +148,10 @@ namespace VIPCinemaExpress.adm.Registros
                     Utilitarios.ShowToastr(this.Page, "Error al actualizar los datos", "Error", "Error");
                 }
             }
+
+
+
+
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)

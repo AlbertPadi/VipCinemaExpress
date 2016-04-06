@@ -270,10 +270,7 @@
                             <i class="fa fa-book"></i>
                             <span>Reservaciones</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="/adm/Registros/rReservaciones.aspx">Reservar</a></li>
-
-                        </ul>
+                       
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
@@ -292,7 +289,6 @@
                         <ul class="sub">
                             <li><a href="/adm/Consultas/cCines.aspx">Cines</a></li>
                             <li><a href="/adm/Consultas/cPeliculas.aspx">Peliculas</a></li>
-                            <li><a href="/adm/Consultas/cReservaciones.aspx">Reservaciones</a></li>
                             <li><a href="/adm/Consultas/cUsuarios.aspx">Usuarios</a></li>
                         </ul>
                     </li>

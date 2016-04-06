@@ -14,7 +14,7 @@ namespace VIPCinemaExpress
         int tipo;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
@@ -34,17 +34,9 @@ namespace VIPCinemaExpress
 
             if (paso)
             {
-                if (Usuario.Tipo == 0)
-                {
                     FormsAuthentication.RedirectFromLoginPage(Usuario.Usuario, RememberCheckBox.Checked);
-                    Response.Redirect("/adm/Default.aspx");
-                }
-                else
-                {
-                    FormsAuthentication.RedirectFromLoginPage(Usuario.Usuario, RememberCheckBox.Checked);
-                    Response.Redirect("/Default.aspx");
-                }
-
+                    Response.Redirect("Default.aspx");
+               
             }
             else
             {

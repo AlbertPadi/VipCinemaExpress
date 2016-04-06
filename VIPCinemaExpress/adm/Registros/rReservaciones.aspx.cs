@@ -24,6 +24,7 @@ namespace VIPCinemaExpress.adm.Registros
         }
         protected void BuscarCineButton_Click1(object sender, EventArgs e)
         {
+            
         }
         protected void AddPeliculaButton_Click(object sender, EventArgs e)
         {

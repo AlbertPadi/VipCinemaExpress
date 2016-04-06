@@ -73,9 +73,8 @@
                                 <asp:ListItem>Frances</asp:ListItem>
                                 <asp:ListItem>Alemán</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:TextBox ID="IdiomaTextBox" class="form-control" runat="server" placeholder="Idioma"></asp:TextBox>
+
                         </div>
-                        <asp:Button ID="AddIdiomaButton" class="btn btn-info" runat="server" Text="Add" Width="84px" OnClick="AddIdiomaButton_Click"></asp:Button>
                     </div>
 
 
@@ -143,15 +142,21 @@
                                 <div class="col-xs-2">
                                     <asp:Label ID="SalasLabel" runat="server" Text="Sala"></asp:Label>
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-xs-5">
                                     <asp:DropDownList ID="SalaDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
 
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    <asp:Button ID="AgregarButton" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="AgregarButton_Click" />
-                    <asp:GridView ID="CinesSalasGridView" CssClass="table" runat="server"></asp:GridView>
+                    <div class="form-group row">
+                        <div class="col-md-offset-6">
+                            <asp:Button ID="AgregarButton" CssClass="btn btn-primary" runat="server" Text="Agregar" OnClick="AgregarButton_Click" />
+
+                        </div>
+                        <asp:GridView ID="CinesSalasGridView" CssClass="table" runat="server"></asp:GridView>
+                    </div>
+
 
                     <div class="form-group row">
                         <label class="control-label col-xs-2">Precio:</label>

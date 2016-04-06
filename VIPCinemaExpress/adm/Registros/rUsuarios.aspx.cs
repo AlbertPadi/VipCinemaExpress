@@ -54,13 +54,11 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 else if (usuario.Insertar())
                 {
-
-                {
                     Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
                     Limpiar();
+                    
                 }
-                }
-                
+
                 else
                 {
                     Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");

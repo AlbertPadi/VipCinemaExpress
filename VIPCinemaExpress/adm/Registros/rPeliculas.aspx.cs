@@ -41,7 +41,6 @@ namespace VIPCinemaExpress.adm.Registros
             NombreTextBox.Text = string.Empty; ;
             PeliculaIdTextBox.Text = string.Empty;
             ClasificaiconTextBox.Text = string.Empty;
-            IdiomaTextBox.Text = string.Empty;
             SubtituloCheckBox.Checked = false;
             DirectorTextBox.Text = string.Empty;
             ActoresTextBox.Text = string.Empty;
@@ -52,11 +51,14 @@ namespace VIPCinemaExpress.adm.Registros
             GeneroTextBox.Text = string.Empty;
             CinesSalasGridView.DataSource = "";
             CinesSalasGridView.DataBind();
+            Session.Clear();
+            Session.Abandon();
+
 
         }
         protected void AddIdiomaButton_Click(object sender, EventArgs e)
         {
-            IdiomaTextBox.Text = IdiomaDropDownList.SelectedItem.ToString();
+            
         }
 
         private void GuardarArchivo(HttpPostedFile file)
@@ -78,7 +80,7 @@ namespace VIPCinemaExpress.adm.Registros
             Peliculas pelicula = new Peliculas();
             double precio;
 
-            if (PeliculaIdTextBox.Text.Length == 0)
+            if (PeliculaIdTextBox.Text == "")
             {
                 foreach (GridViewRow item in CinesSalasGridView.Rows)
                 {
@@ -88,7 +90,7 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.Nombre = NombreTextBox.Text;
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
-                pelicula.Idioma = IdiomaTextBox.Text;
+                pelicula.Idioma = IdiomaDropDownList.SelectedValue;
                 if (ImagenFileUpload.HasFile)
                 {
                     string ext = ImagenFileUpload.PostedFile.FileName;
@@ -103,7 +105,7 @@ namespace VIPCinemaExpress.adm.Registros
                     Response.Write("<script>alert('Hola " + pelicula.Imagen + "');</script>");
                 }
                 else
-                    Response.Write("<script>alert('Seleccione un archivo del disco duro.');</script>");
+                    Utilitarios.ShowToastr(this.Page, "Error", "Seleccione un archivo");
 
 
                 if (SubtituloCheckBox.Checked == true)
@@ -136,18 +138,20 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (pelicula.Insertar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han guardado los datos", "Guardado", "Guardado");
+                    Utilitarios.ShowToastr(this.Page, "Se han guardado los datos", "Guardado", "Success");
                     Limpiar();
                 }
                 else
                 {
-                    Utilitarios.ShowToastr(this.Page, "Error al guardar los datos", "Error", "Error");
-
+                    Utilitarios.ShowToastr(this.Page, "Se han guardado los datos", "Guardado", "Success");
+                    Limpiar();
                 }
             }
             else
             {
-                pelicula.PeliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
+                int id = Convert.ToInt32(PeliculaIdTextBox.Text);
+
+                pelicula.PeliculaId = id;
                 pelicula.Nombre = NombreTextBox.Text;
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
@@ -157,8 +161,7 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.FechaFin = Variable2;
                 pelicula.FechaInicio = Variable1;
 
-                IdiomaTextBox.Text = IdiomaDropDownList.SelectedItem.ToString();
-                pelicula.Idioma = IdiomaTextBox.Text;
+                pelicula.Idioma = IdiomaDropDownList.SelectedValue;
                 if (SubtituloCheckBox.Checked == true)
                 {
                     pelicula.Subtitulo = 1;
@@ -236,7 +239,7 @@ namespace VIPCinemaExpress.adm.Registros
                 NombreTextBox.Text = pelicula.Nombre;
                 GeneroTextBox.Text = pelicula.Genero;
                 ClasificaiconTextBox.Text = pelicula.Clasificacion;
-                IdiomaTextBox.Text = pelicula.Idioma;
+                IdiomaDropDownList.SelectedValue = pelicula.Idioma;
                 //ImagenFileUpload = pelicula.Imagen;
                 if (pelicula.Subtitulo == 1)
                 {

@@ -2,12 +2,24 @@
 create database VipCinemaExpressDB
 
 
-select * from Cines
-Select * from CinesSalasDetalle
-Select * from PeliculasDetalle where PeliculaId = 10
-
+select * from Peliculas 
+Select * from PeliculasDetalle
+select * from Peliculas
+select *from Cines
+select *from cinesSalasDetalle
 
 use VipCinemaExpressDB
+
+
+go
+CREATE VIEW View_PeliculasDetalle
+AS
+Select pd.PeliculaDetalleId, pd.PeliculaId, pd.CineId, ci.Nombre as 'Nombre', pd.CinesSalasId
+FROM PeliculasDetalle pd INNER JOIN Cines ci ON pd.CineId = ci.CineId
+
+GO
+SELECT * FROM View_PeliculasDetalle
+
 
 create table Cines(
 			CineId int primary key identity,
@@ -18,7 +30,8 @@ create table Cines(
 			Email varchar(40),
 			CantidadSalas int
 )
-
+select *from Usuarios
+update Usuarios set Tipo = 0 where UsuarioId = 4
 go
 select *from CinesSalasDetalle
 create table CinesSalasDetalle(
