@@ -13,7 +13,7 @@
                             </h1>
                         </div>
                         <div class="form-goup row">
-                            <label class="control-label col-xs-2">Listar por:</label>
+                            <label class="control-label col-xs-2"> Listar por:</label>
                             <div class="col-md-4">
                                 <asp:DropDownList ID="DatosDropDownList" CssClass="form-control" runat="server">
                                     <asp:ListItem Value="1">Usuario Id</asp:ListItem>

@@ -9,7 +9,7 @@
                 <div class="form-horizontal col-md-12" role="form">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Vip Cinema Express<small>Consulta reservaciones</small>
+                            <h1 class="page-header">Vip Cinema Express<small> Consulta reservaciones</small>
                             </h1>
                         </div>
                         <div class="form-goup row">
