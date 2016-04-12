@@ -88,6 +88,17 @@
                                 <asp:TextBox ID="TotalTextBox" placeholder="Total" ReadOnly="true" runat="server"></asp:TextBox>
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-2">
+                                <asp:Label ID="Label6" runat="server" Text="Cantidad Reservas"></asp:Label>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:TextBox ID="CantidadTextBoxRes" placeholder="Cantidad Reservada" ReadOnly="true" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-xs-2">
                                 <asp:Label ID="Label5" runat="server" Text="Tarjeta"></asp:Label>

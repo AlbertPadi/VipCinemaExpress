@@ -53,7 +53,7 @@ namespace VIPCinemaExpress
             {
 
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
+                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Success");
                     Limpiar();
                 }
             }

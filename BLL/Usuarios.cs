@@ -30,7 +30,7 @@ namespace BLL
             this.Email = "";
             this.Usuario = "";
             this.Contrasena = "";
-            this.Tipo = 1;
+            this.Tipo = 0;
         }
 
 
@@ -77,7 +77,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direccion, Telefono, Celular, Email, Usuario, Contrasena) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena));
+            retorno = conexion.Ejecutar(String.Format("Insert into Usuarios(Nombres, Apellidos, Direccion, Telefono, Celular, Email, Usuario, Contrasena, Tipo) values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8})", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.Tipo));
             return retorno;
         }
 
@@ -85,7 +85,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Usuario = '{6}', Contrasena = '{7}' where UsuarioId = {8}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.UsuarioId));
+            retorno = conexion.Ejecutar(String.Format("Update Usuarios set Nombres = '{0}', Apellidos = '{1}', Direccion = '{2}', Telefono = '{3}', Celular = '{4}', Email = '{5}', Usuario = '{6}', Contrasena = '{7}', Tipo = {8} where UsuarioId = {9}", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Celular, this.Email, this.Usuario, this.Contrasena, this.Tipo, this.UsuarioId));
             return retorno;
         }
 
@@ -131,6 +131,34 @@ namespace BLL
                 Encontro = true;
 
                 this.Tipo = (int)dt.Rows[0]["Tipo"];
+
+            }
+
+            return Encontro;
+        }
+
+        public bool BuscarId(string UsuarioBuscado)
+        {
+            bool Encontro = false;
+            DataTable dt = new DataTable();
+
+            dt = this.Listado("*", "Usuario = '" + UsuarioBuscado + "'", "Usuario ASC");
+
+            if (dt.Rows.Count > 0)
+            {
+                Encontro = true;
+
+                this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
+                this.Tipo = (int)dt.Rows[0]["Tipo"];
+                this.Nombres = dt.Rows[0]["Nombres"].ToString();
+                this.Apellidos = dt.Rows[0]["Apellidos"].ToString();
+                this.Direccion = dt.Rows[0]["Direccion"].ToString();
+                this.Telefono = dt.Rows[0]["Telefono"].ToString();
+                this.Celular = dt.Rows[0]["Celular"].ToString();
+                this.Email = dt.Rows[0]["Email"].ToString();
+                this.Usuario = UsuarioBuscado;
+                this.Contrasena = dt.Rows[0]["Contrasena"].ToString();
+
             }
 
             return Encontro;

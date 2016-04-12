@@ -173,7 +173,7 @@ namespace VIPCinemaExpress.adm.Registros
                     cines.CineId = cineId;
                     if (cines.Eliminar())
                     {
-                        Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Susses");
+                        Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Success");
                         Limpiar();
                     }
                     else

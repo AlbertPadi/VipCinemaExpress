@@ -9,7 +9,7 @@ select *from Cines
 select *from cinesSalasDetalle
 
 use VipCinemaExpressDB
-update Usuarios set Tipo = 1 where UsuarioId = 13
+update Usuarios set Tipo = 1 where UsuarioId = 15
 
 select *from Usuarios
 go
@@ -99,9 +99,8 @@ create table Reservaciones(
 			UsuarioId int References Usuarios(UsuarioId),
 			MontoTot float
 )
-drop table Reservaciones
-
-drop table ReservacionesDetalle
+select *from Reservaciones
+select *from ReservacionesDetalle
 go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,

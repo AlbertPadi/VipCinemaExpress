@@ -40,7 +40,7 @@
                 <a href="#Quees">Cines</a>
             </li>
             <li>
-                <a href="#" data-toggle="modal" data-target="#myModal">A serca de</a>
+                <a href="#" data-toggle="modal" data-target="#myModal">Acerca de</a>
                 <%--<button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>--%>
             </li>
             <li>
@@ -180,14 +180,14 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog" style="display:table;">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Acerca de</h4>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>

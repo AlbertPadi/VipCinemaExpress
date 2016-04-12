@@ -106,7 +106,7 @@ namespace VIPCinemaExpress.adm.Registros
                     Response.Write("<script>alert('Hola " + pelicula.Imagen + "');</script>");
                 }
                 else
-                    Utilitarios.ShowToastr(this.Page, "Error", "Seleccione un archivo");
+                    Utilitarios.ShowToastr(this.Page, "Error", "Seleccione un archivo", "Error");
 
 
                 if (SubtituloCheckBox.Checked == true)
@@ -144,7 +144,7 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 else
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han guardado los datos", "Guardado", "Success");
+                    Utilitarios.ShowToastr(this.Page, "!Error al guardar", "Error", "Error");
                     Limpiar();
                 }
             }
@@ -187,7 +187,7 @@ namespace VIPCinemaExpress.adm.Registros
 
                 if (pelicula.Insertar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Actalizado", "Actualizado");
+                    Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Actalizado", "Success");
                     Limpiar();
                 }
                 else
@@ -215,7 +215,7 @@ namespace VIPCinemaExpress.adm.Registros
                 pelicula.PeliculaId = id;
                 if (pelicula.Eliminar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Susses");
+                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Success");
                 }
                 else
                 {

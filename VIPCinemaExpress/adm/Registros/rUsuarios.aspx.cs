@@ -54,7 +54,7 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 else if (usuario.Insertar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Insertado");
+                    Utilitarios.ShowToastr(this.Page, "Se han insertado los datos", "Correcto", "Success");
                     Limpiar();
 
                 }
@@ -87,7 +87,7 @@ namespace VIPCinemaExpress.adm.Registros
                 {
                     if (usuario.Editar())
                     {
-                        Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Correcto", "Actualizado");
+                        Utilitarios.ShowToastr(this.Page, "Se han actualizado los datos", "Correcto", "Success");
                         Limpiar();
                     }
                     else
@@ -123,7 +123,7 @@ namespace VIPCinemaExpress.adm.Registros
                     usuario.UsuarioId = id;
                     if (usuario.Eliminar())
                     {
-                        Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Correcto", "Eliminado");
+                        Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Correcto", "Success");
                         Limpiar();
                     }
                     else
