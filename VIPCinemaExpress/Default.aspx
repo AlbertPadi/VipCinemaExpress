@@ -6,6 +6,8 @@
     <!-- start: Slider -->
     <div class="slider-wrapper">
 
+        
+
         <div id="da-slider" class="da-slider">
             <div class="da-slide">
                 <h2>Transporter 3</h2>
@@ -33,7 +35,7 @@
                 </div>
             </div>
             <div class="da-slide">
-                <h2>Resacón</h2>
+                <h2>Rio-2</h2>
                 <p>Una pelicula de caricaturas animadas, comedia y drama</p>
 
                 <div class="da-img">
@@ -42,7 +44,7 @@
                
             </div>
             <div class="da-slide">
-                <h2>Rio-2</h2>
+                <h2>Resacon</h2>
                 <p>La saga Resacón es una franquicia de tres películas estadounidenses producidas por Legendary Pictures y distribuidas por Warner Bros. Pictures. </p>
 
                 <div class="da-img">

@@ -14,7 +14,7 @@ namespace VIPCinemaExpress
         int tipo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+          
         }
 
         protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
@@ -24,26 +24,12 @@ namespace VIPCinemaExpress
 
         protected void IngresarButton_Click(object sender, EventArgs e)
         {
-            Default defaul = new Default();
-
-
-            Usuarios Usuario = new Usuarios();
-            Boolean paso = false;
-
-            paso = Usuario.ValidarUsuario(UsuarioTextBox.Text, ContrasenaTextBox.Text);
-
-            if (paso)
-            {
-                    FormsAuthentication.RedirectFromLoginPage(Usuario.Usuario, RememberCheckBox.Checked);
-                    Response.Redirect("Default.aspx");
-               
-            }
-            else
-            {
-                Utilitarios.ShowToastr(this.Page, "Error", "Revise usuario o contrasena", "Error");
-            }
+            
         }
 
-     
+        protected void EntrarButton_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }

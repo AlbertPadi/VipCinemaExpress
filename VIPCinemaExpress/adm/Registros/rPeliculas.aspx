@@ -34,12 +34,12 @@
                     <div class="col-xs-4">
                         <asp:TextBox ID="PeliculaIdTextBox" class="form-control" runat="server" placeholder="Pelicula Id"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
-                            ControlToValidate="PeliculaIdTextBox"
-                            ValidationExpression="^\d+"
-                            Display="Static"
-                            ErrorMessage="Only Numbers"
-                            EnableClientScript="False"
-                            runat="server"></asp:RegularExpressionValidator>
+                                    ControlToValidate="PeliculaIdTextBox"
+                                    ValidationExpression="^\d+"
+                                    Display="Static"
+                                    ErrorMessage="Only Numbers"
+                                    EnableClientScript="False"
+                                    runat="server"></asp:RegularExpressionValidator>
                     </div>
 
                     <asp:Button ID="BuscarButton" runat="server" class="btn btn-info" Text="Buscar" OnClick="BuscarButton_Click" Width="84px" />

@@ -17,8 +17,6 @@
 
                         </div>
 
-
-
                         <!-- Componentes -->
                         <div class="form-group row">
                             <label class="control-label col-xs-2">Cine Id:</label>
@@ -127,7 +125,7 @@
 
                         <div class="form-group row">
                             <div class="col-xs-offset-2 col-xs-9">
-                                <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
+                                <asp:Button ID="Button1" class="btn btn-default" runat="server" Text="Nuevo" OnClick="Button1_Click" />
                                 <asp:Button ID="GuardarButton" class="btn btn-primary" runat="server" Text="Guardar" OnClick="GuardarButton_Click" />
                                 <asp:Button ID="EliminarButton" class="btn btn-danger" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                             </div>

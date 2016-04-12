@@ -9,8 +9,9 @@ select *from Cines
 select *from cinesSalasDetalle
 
 use VipCinemaExpressDB
+update Usuarios set Tipo = 1 where UsuarioId = 13
 
-
+select *from Usuarios
 go
 CREATE VIEW View_PeliculasDetalle
 AS

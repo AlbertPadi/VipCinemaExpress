@@ -12,6 +12,7 @@ namespace VIPCinemaExpress.adm.Registros
     public partial class rPeliculas : System.Web.UI.Page
     {
         string img;
+        int id;
         DateTime Variable1 = new DateTime();
         DateTime Variable2 = new DateTime();
         protected void Page_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace VIPCinemaExpress.adm.Registros
         }
         protected void AddIdiomaButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void GuardarArchivo(HttpPostedFile file)
@@ -86,7 +87,7 @@ namespace VIPCinemaExpress.adm.Registros
                 {
                     pelicula.AddCinesSalas(Convert.ToInt32(item.Cells[1].Text), Convert.ToInt32(item.Cells[2].Text));
                 }
-               
+
                 pelicula.Nombre = NombreTextBox.Text;
                 pelicula.Genero = GeneroTextBox.Text;
                 pelicula.Clasificacion = ClasificaiconTextBox.Text;
@@ -201,23 +202,28 @@ namespace VIPCinemaExpress.adm.Registros
 
             Peliculas pelicula = new Peliculas();
 
-            if (PeliculaIdTextBox.Text.Length < 0)
+            if (PeliculaIdTextBox.Text == "")
             {
-                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
+                Utilitarios.ShowToastr(this.Page, "!Ingrese un id", "Error", "Error");
             }
             else
             {
-                pelicula.PeliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
-
+                if (PeliculaIdTextBox.Text.Length > 0)
+                {
+                    id = Convert.ToInt32(PeliculaIdTextBox.Text);
+                }
+                pelicula.PeliculaId = id;
                 if (pelicula.Eliminar())
                 {
-                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Eliminado");
+                    Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Susses");
                 }
                 else
                 {
                     Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
                 }
+
             }
+
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -229,43 +235,55 @@ namespace VIPCinemaExpress.adm.Registros
         {
 
             Peliculas pelicula = new Peliculas();
-            if (PeliculaIdTextBox.Text.Length < 0)
+            if (PeliculaIdTextBox.Text == "")
             {
-                Utilitarios.ShowToastr(this.Page, "Ingrese un Id", "Error", "Error");
+                Utilitarios.ShowToastr(this.Page, "!debe ingresar un id", "Error", "Error");
             }
             else
             {
-                pelicula.PeliculaId = Convert.ToInt32(PeliculaIdTextBox.Text);
-                NombreTextBox.Text = pelicula.Nombre;
-                GeneroTextBox.Text = pelicula.Genero;
-                ClasificaiconTextBox.Text = pelicula.Clasificacion;
-                IdiomaDropDownList.SelectedValue = pelicula.Idioma;
-                //ImagenFileUpload = pelicula.Imagen;
-                if (pelicula.Subtitulo == 1)
+                if (PeliculaIdTextBox.Text.Length > 0 || PeliculaIdTextBox.Text != "!@#$%^&*()_+./?><';:[`~,{")
                 {
-                    SubtituloCheckBox.Checked = true;
+                    id = Convert.ToInt32(PeliculaIdTextBox.Text);
                 }
-                else if (pelicula.Subtitulo == 0)
-                {
-                    SubtituloCheckBox.Checked = false;
-                }
-                DirectorTextBox.Text = pelicula.Director;
-                ActoresTextBox.Text = pelicula.Actores;
+                    if (pelicula.Buscar(id))
+                    {
+                        pelicula.PeliculaId = id;
+                        NombreTextBox.Text = pelicula.Nombre;
+                        GeneroTextBox.Text = pelicula.Genero;
+                        ClasificaiconTextBox.Text = pelicula.Clasificacion;
+                        IdiomaDropDownList.SelectedValue = pelicula.Idioma;
+                        if (pelicula.Subtitulo == 1)
+                        {
+                            SubtituloCheckBox.Checked = true;
+                        }
+                        else if (pelicula.Subtitulo == 0)
+                        {
+                            SubtituloCheckBox.Checked = false;
+                        }
+                        DirectorTextBox.Text = pelicula.Director;
+                        ActoresTextBox.Text = pelicula.Actores;
 
-                if (pelicula.Activa == 1)
-                {
-                    ActivaCheckBox.Checked = true;
-                }
-                else if (pelicula.Activa == 0)
-                {
-                    ActivaCheckBox.Checked = false;
-                }
+                        if (pelicula.Activa == 1)
+                        {
+                            ActivaCheckBox.Checked = true;
+                        }
+                        else if (pelicula.Activa == 0)
+                        {
+                            ActivaCheckBox.Checked = false;
+                        }
 
 
-                FechaInicioTextBox.Text = pelicula.FechaInicio.ToString();
-                FechaFinTextBox.Text = pelicula.FechaFin.ToString();
+                        FechaInicioTextBox.Text = pelicula.FechaInicio.ToString();
+                        FechaFinTextBox.Text = pelicula.FechaFin.ToString();
+
+                    }
+                else
+                {
+                    Utilitarios.ShowToastr(this.Page, "!Id no valido", "Error", "Error");
+                }
 
             }
+
 
         }
 

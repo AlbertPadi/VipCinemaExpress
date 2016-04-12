@@ -87,7 +87,7 @@ namespace BLL
             retorno = conexion.Ejecutar(String.Format("Delete from Cines where CineId = {0}", this.CineId));
             if (retorno)
             {
-                conexion.Ejecutar(string.Format("Delete from CinesSalasDetalle where CineId = {0}", this.CineId));
+                conexion.Ejecutar(string.Format("Delete from CinesSalasDetalle where CineId = {0}--", this.CineId));
 
             }
 

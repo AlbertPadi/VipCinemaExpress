@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteUser.master.cs" Inherits="VIPCinemaExpress.SiteUser" %>
-
+<%@ Register Src="~/Include/Menu.ascx" TagPrefix="uc" TagName="Menu" %>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -119,89 +119,23 @@
                 <!--end: Logo -->
 
                 <!--start: Navigation -->
-
-                <nav class="navbar navbar-right nav-collapse">
-                    <div class="container-fluid">
-
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="/Default.aspx">Inicio</a></li>
-                            <li><a href="#">Cines</a></li>
-                            <li><a href="#">Acerca de</a></li>
-                            <asp:LoginView runat="server" ID="LoginView2">
-                                <AnonymousTemplate>
-                                    <li>
-                                        <asp:LinkButton ID="LoginLinkButton" runat="server" data-toggle="modal" data-target="#myModal">Login</asp:LinkButton>
-                                    </li>
-                                    <li role="button">
-                                        <a href="rUsuarios.aspx">Registrar</a>
-                                    </li>
-                                    <li role="button">
-                                        <a href="adm/Default.aspx">Admin</a>
-                                    </li>
-
-                                </AnonymousTemplate>
-                                <LoggedInTemplate>
-                                    <li role="button">
-                                        <asp:LoginStatus runat="server" ID="LoginStatus1" LogoutText="Desconectar" />
-                                    </li>
-                                </LoggedInTemplate>
-                            </asp:LoginView>
-
-                        </ul>
-                    </div>
-                </nav>
-
-
+                <uc:Menu runat="server" ID="Menu" />
                 <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Login</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="login-page">
-                                    <div class="form">
-                                        <link href="css/style.css" rel="stylesheet" />
-                                        <script src="js/index.js"></script>
 
-                                        <asp:TextBox ID="UsuarioTextBox" CssClass="from-control" placeholder="Usuario" runat="server"></asp:TextBox>
-                                        <asp:TextBox ID="ContrasenaTextBox" CssClass="from-control" TextMode="Password" placeholder="Password" runat="server"></asp:TextBox>
-                                        <asp:CheckBox ID="RememberCheckBox" runat="server" />
-
-                                        <asp:Button ID="IngresarButton" class="btn btn-embossed btn-success" runat="server" Text="Ingresar" OnClick="IngresarButton_Click" />
-                                        <p class="message">Not registered? <a href="#">Create an account</a></p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-
-                                <asp:Button ID="CancelarButton" class="btn btn-default" data-dismiss="modal" runat="server" Text="Cancelar" />
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <!--end: Navigation -->
                 <!--end: Row -->
                 <!--end: Container-->
+
+                <!-- Modal -->
+               
         </header>
         <!--end: Header-->
 
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick">
-                <Items>
-                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="1" />
-                    <asp:MenuItem NavigateUrl="~/Menu2.aspx" Text="Menu2" Value="2" />
-                    <asp:MenuItem NavigateUrl="~/Menu3.aspx" Text="Menu3" Value="3" />
-                </Items>
-            </asp:Menu>
         </asp:ContentPlaceHolder>
 
     </form>
@@ -304,8 +238,8 @@
 
             </div>
             <!-- end: Row -->
-
         </div>
+
         <!-- end: Container  -->
 
     </div>

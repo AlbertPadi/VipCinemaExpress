@@ -34,6 +34,7 @@ namespace BLL
         }
 
 
+
         public bool ValidarUsuario(string Usuario, string contra)
         {
             bool Encontro = false;
@@ -116,6 +117,23 @@ namespace BLL
             }
 
             return dt.Rows.Count > 0;
+        }
+
+        public bool ValidarNivelUsuario(string UsuarioBuscado)
+        {
+            bool Encontro = false;
+            DataTable dt = new DataTable();
+
+            dt = this.Listado("Tipo", "Usuario = '" + UsuarioBuscado + "'", "Usuario ASC");
+
+            if (dt.Rows.Count > 0)
+            {
+                Encontro = true;
+
+                this.Tipo = (int)dt.Rows[0]["Tipo"];
+            }
+
+            return Encontro;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)

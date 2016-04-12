@@ -15,6 +15,7 @@ namespace VIPCinemaExpress.adm.Registros
 
         int esActiva;
         int cont = 0;
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,12 +31,13 @@ namespace VIPCinemaExpress.adm.Registros
 
         public void Limpiar()
         {
-            CineIdTextBox.Text = string.Empty;
-            NombreTextBox.Text = string.Empty;
-            CiudadTextBox.Text = string.Empty;
-            TelefonoTextBox.Text = string.Empty;
-            DireccionTextBox.Text = string.Empty;
-            EmailTextBox.Text = string.Empty;
+            CineIdTextBox.Text = "";
+            NombreTextBox.Text = "";
+            CiudadTextBox.Text = "";
+            TelefonoTextBox.Text = "";
+            DireccionTextBox.Text = "";
+            EmailTextBox.Text = "";
+            CanSalasTextBox.Text = "";
             SalasGridView.DataSource = null;
             SalasGridView.DataBind();
             EsActivaCheckBox.Checked = false;
@@ -157,38 +159,49 @@ namespace VIPCinemaExpress.adm.Registros
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
             int cineId;
-            cineId = Convert.ToInt32(CineIdTextBox.Text);
+
             Cines cines = new Cines();
-            if (CineIdTextBox.Text.Length > 0)
+            if (CineIdTextBox.Text == "" || CineIdTextBox.Text.Length == 0)
             {
-                cines.CineId = cineId;
+                Utilitarios.ShowToastr(this.Page, "!debe ingresar un id", "!Error", "Error");
             }
             else
             {
-                Utilitarios.ShowToastr(this.Page, "Ingrese un id", "Error", "Error");
+                if (CineIdTextBox.Text.Length > 0)
+                {
+                    cineId = Convert.ToInt32(CineIdTextBox.Text);
+                    cines.CineId = cineId;
+                    if (cines.Eliminar())
+                    {
+                        Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Susses");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
 
+                    }
+                }
             }
 
-            if (cines.Eliminar())
-            {
-                Utilitarios.ShowToastr(this.Page, "Se han eliminado los datos", "Eliminado", "Eliminado");
-                Limpiar();
-            }
-            else
-            {
-                Utilitarios.ShowToastr(this.Page, "Error al eliminar los datos", "Error", "Error");
 
-            }
+
+
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Cines cine = new Cines();
-            int id;
-            id = Convert.ToInt32(CineIdTextBox.Text);
 
-            if (CineIdTextBox.Text.Length > 0)
+
+            if (CineIdTextBox.Text == "")
             {
+                Utilitarios.ShowToastr(this.Page, "Debe ingresar un Id", "Error", "Error");
+            }
+            else
+                if (CineIdTextBox.Text.Length > 0)
+            {
+                id = Convert.ToInt32(CineIdTextBox.Text);
                 if (cine.Buscar(id))
                 {
 
@@ -198,7 +211,7 @@ namespace VIPCinemaExpress.adm.Registros
                     DireccionTextBox.Text = cine.Direccion;
                     TelefonoTextBox.Text = cine.Telefono;
                     EmailTextBox.Text = cine.Email;
-
+                    CanSalasTextBox.Text = cine.CantidadSalas.ToString();
                     SalasGridView.DataSource = cine.Sala;
                     SalasGridView.DataBind();
 
@@ -214,11 +227,14 @@ namespace VIPCinemaExpress.adm.Registros
                 Utilitarios.ShowToastr(this.Page, "Ingrese un id", "Error", "Error");
             }
 
-
-
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
