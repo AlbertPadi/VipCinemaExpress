@@ -144,7 +144,7 @@ namespace VIPCinemaExpress.adm.Registros
                 }
                 else
                 {
-                    Utilitarios.ShowToastr(this.Page, "!Error al guardar", "Error", "Error");
+                    
                     Limpiar();
                 }
             }

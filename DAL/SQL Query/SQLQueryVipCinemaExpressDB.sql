@@ -1,6 +1,7 @@
 
 create database VipCinemaExpressDB
 
+Insert into ReservacionesDetalle(ReservacionId, Cantidad, Nombre, CineId, SalaId, Fecha, Monto) Values(16, 2, 'dos mas dos', 3, 12, '2016-07-04', 900) 
 
 select * from Peliculas 
 Select * from PeliculasDetalle
@@ -31,10 +32,9 @@ create table Cines(
 			Email varchar(40),
 			CantidadSalas int
 )
-select *from Usuarios
-update Usuarios set Tipo = 0 where UsuarioId = 4
+
 go
-select *from CinesSalasDetalle
+
 create table CinesSalasDetalle(
 			CinesSalasId int primary key identity,
 			CineId int References Cines(CineId),
@@ -43,8 +43,7 @@ create table CinesSalasDetalle(
 			EsActiva int
 			
 )
-delete from CinesSalasDetalle
-select *from Usuarios
+
 go
 create table Usuarios(
 			UsuarioId int primary key identity,
@@ -60,7 +59,7 @@ create table Usuarios(
 )
 
 go
-
+select *from Peliculas
 create table Peliculas(
 			PeliculaId int primary key identity,
 			Nombre varchar(40),
@@ -93,19 +92,18 @@ create table Carteleras(
 			PeliculaId int References Peliculas(PeliculaId)
 )
 select *from Peliculas
+
 go
 create table Reservaciones(
 			ReservacionId int primary key identity,
 			UsuarioId int References Usuarios(UsuarioId),
 			MontoTot float
 )
-select *from Reservaciones
-select *from ReservacionesDetalle
+
 go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,
 			ReservacionId int References Reservaciones(ReservacionId),
-			PeliculaId int References Peliculas(PeliculaId),
 			Cantidad int,
 			Nombre varchar(40),
 			SalaId int References CinesSalasDetalle(CinesSalasId),
@@ -113,3 +111,4 @@ create table ReservacionesDetalle(
 			Fecha datetime,
 			Monto float
 )
+

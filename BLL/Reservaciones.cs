@@ -49,7 +49,7 @@ namespace BLL
             object identity;
             int retorno = 0;
             ConexionDb conexion = new ConexionDb();
-            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(UsuarioId, MontoTot)Values({0}, '{1}') Select @@Identity", this.UsuarioId,  this.Monto));
+            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(UsuarioId, MontoTot)Values({0}, {1}) Select @@Identity", this.UsuarioId,  this.Monto));
 
 
             int.TryParse(identity.ToString(), out retorno);
@@ -57,7 +57,7 @@ namespace BLL
 
             foreach (ReservacionesDetalle item in this.Peliculas)
             {
-                conexion.Ejecutar(String.Format("Insert into ReservacionesDetalle(ReservacionId, Cantidad, Nombre, CineId, SalaId, Fecha, Precio) Values({0}, {1}, '{2}', {3}, {4}, '{5}', {6})", retorno, (int)item.Cantidad, (string)item.Nombre, (int)item.CineId, (int)item.SalaId, (DateTime)item.Fecha, (double)item.Monto));
+                conexion.Ejecutar(String.Format("Insert into ReservacionesDetalle(ReservacionId, Cantidad, Nombre, SalaId, CineId, Fecha, Monto) Values({0}, {1}, '{2}', {3}, {4}, '{5}', {6})", retorno, (int)item.Cantidad, (string)item.Nombre, (int)item.CineId, (int)item.SalaId, item.Fecha.ToString("yyyy-MM-dd"), (double)item.Monto));
             }
 
             return retorno > 0;
@@ -76,7 +76,7 @@ namespace BLL
 
                 foreach (ReservacionesDetalle item in this.Peliculas)
                 {
-                    conexion.Ejecutar(String.Format("Insert into ReservacionesDetalle(ReservacionId, Cantidad, Nombre, CineId, SalaId, Fecha, Precio) Values({0}, {1}, '{2}', {3}, {4}, '{5}', {6})", retorno, (int)item.Cantidad, (string)item.Nombre, (int)item.CineId, (int)item.SalaId, (DateTime)item.Fecha, (double)item.Monto));
+                    conexion.Ejecutar(String.Format("Insert into ReservacionesDetalle(ReservacionId, Cantidad, Nombre, SalaId, CineId, Fecha, Monto) Values({0}, {1}, '{2}', {3}, {4}, '{5}', {6})", retorno, (int)item.Cantidad, (string)item.Nombre, (int)item.CineId, (int)item.SalaId, (DateTime)item.Fecha, (double)item.Monto));
                 }
 
 
