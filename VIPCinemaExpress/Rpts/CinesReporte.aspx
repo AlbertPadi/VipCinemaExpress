@@ -5,5 +5,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <rsweb:ReportViewer ID="Padilla" runat="server"></rsweb:ReportViewer>
+    <rsweb:ReportViewer ID="Padilla" runat="server" Width="900" Height="800"></rsweb:ReportViewer>
 </asp:Content>
