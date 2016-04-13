@@ -287,6 +287,7 @@
                             <li><a href="/adm/Consultas/cCines.aspx">Cines</a></li>
                             <li><a href="/adm/Consultas/cPeliculas.aspx">Peliculas</a></li>
                             <li><a href="/adm/Consultas/cUsuarios.aspx">Usuarios</a></li>
+                            <li><a href="/adm/Consultas/cReservaciones.aspx">Reservaciones</a></li>
                         </ul>
                     </li>
 

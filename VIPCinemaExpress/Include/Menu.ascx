@@ -44,7 +44,7 @@
                 <%--<button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>--%>
             </li>
             <li>
-                <a href="#">Contactarnos</a>
+                <a href="#" data-toggle="modal" data-target="#myModal1">Contactarnos</a>
             </li>
             <% if (Request.IsAuthenticated)
                 { %>
@@ -190,7 +190,28 @@
         <h4 class="modal-title">Acerca de</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>Vip Cinema Express es un sitio web de tipo prueba, se esta implementando nuevas mejoras y pronto vendran nuevos cambios - By Padilla Solutions®. .</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="myModal1" class="modal fade" role="dialog" style="display:table;">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Contactos</h4>
+      </div>
+      <div class="modal-body">
+        <p>Puede contactarnos a albertopadi91@hotmail.com o jhoanpadi@gmail.com - Padilla Solutions®. .</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -12,6 +12,11 @@ namespace VIPCinemaExpress.adm.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
             Reservaciones reservas = new Reservaciones();
             DataTable dt = new DataTable();
             string filtro = "1=1";
@@ -38,7 +43,7 @@ namespace VIPCinemaExpress.adm.Consultas
 
                     filtro = "UsuarioId like '%" + DatosTextBox.Text + "%'";
                 }
-            
+
 
             dt = reservas.Listado(" * ", filtro, "ReservacionId ASC");
             DatosGridView.DataSource = dt;

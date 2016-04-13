@@ -72,7 +72,7 @@ namespace VIPCinemaExpress.adm.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Rpt/");
+            Response.Redirect("Rpts/CinesReporte.aspx");
         }
     }
 

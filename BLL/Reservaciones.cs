@@ -12,6 +12,7 @@ namespace BLL
         public int Cantidad { get; set; }
         public double Monto { get; set; }
         public int UsuarioId { get; set; }
+        public int Tipo { get; set; }
         public List<ReservacionesDetalle> Peliculas;
 
         object Identity;
@@ -23,6 +24,7 @@ namespace BLL
             this.UsuarioId = 0;
             this.Cantidad = 0;
             this.Monto = 0;
+            this.Tipo = 0;
             Peliculas = new List<ReservacionesDetalle>();
         }
 
@@ -49,7 +51,7 @@ namespace BLL
             object identity;
             int retorno = 0;
             ConexionDb conexion = new ConexionDb();
-            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(UsuarioId, MontoTot)Values({0}, {1}) Select @@Identity", this.UsuarioId,  this.Monto));
+            identity = conexion.ObtenerValor(String.Format("Insert into Reservaciones(UsuarioId, MontoTot, Tipo)Values({0}, {1}, {2}) Select @@Identity", this.UsuarioId,  this.Monto, this.Tipo));
 
 
             int.TryParse(identity.ToString(), out retorno);
@@ -68,7 +70,7 @@ namespace BLL
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
 
-            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set UsuarioId = {0}, Fecha = '{1}', Cantidad = {2}, MontoTot = {3} where ReservacionId = {6}", this.UsuarioId, this.Cantidad, this.Monto, this.ReservacionId));
+            retorno = conexion.Ejecutar(String.Format("Update Reservasiones set UsuarioId = {0}, Fecha = '{1}', Cantidad = {2}, MontoTot = {3}, Tipo = {4} where ReservacionId = {5}", this.UsuarioId, this.Cantidad, this.Monto, this.Tipo, this.ReservacionId));
             int.TryParse(Identity.ToString(), out valor);
             if (retorno)
             {
@@ -109,6 +111,7 @@ namespace BLL
                 this.ReservacionId = IdBuscado;
                 this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                 this.Monto = (double)dt.Rows[0]["MontoTot"];
+                this.Tipo = (int)dt.Rows[0]["Tipo"];
 
                 dtReservas = conexion.ObtenerDatos(String.Format("Select * from ReservacionesDetalle where ReservacionId = {0} --", IdBuscado));
 
@@ -132,7 +135,7 @@ namespace BLL
             {
                 OrdenFinal = " Order by " + Orden;
             }
-            return conexion.ObtenerDatos("Select " + Campos + " from Reservasiones where " + Condicion + " " + OrdenFinal);
+            return conexion.ObtenerDatos("Select " + Campos + " from Reservaciones where " + Condicion + " " + OrdenFinal);
         }
     }
 }

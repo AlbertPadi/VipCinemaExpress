@@ -16,14 +16,14 @@ namespace VIPCinemaExpress.Rpts
             {
                 Cines cine = new Cines();
 
-                //CinesReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-                //CinesReportViewer.Reset();
-                //CinesReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes/CinesRpt.rdlc");
-
-                //CinesReportViewer.LocalReport.DataSources.Clear();
-
-                //CinesReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", cine.Listado(" * ", "1=1", "")));
-                //CinesReportViewer.LocalReport.Refresh();
+                Padilla.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                Padilla.Reset();
+                Padilla.LocalReport.ReportPath = Server.MapPath(@"~\Reportes/CinesReport.rdlc");
+                
+                Padilla.LocalReport.DataSources.Clear();
+               
+                Padilla.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", cine.Listado(" * ", "1=1", "")));
+                Padilla.LocalReport.Refresh();
             }
         }
     }

@@ -97,10 +97,11 @@ go
 create table Reservaciones(
 			ReservacionId int primary key identity,
 			UsuarioId int References Usuarios(UsuarioId),
-			MontoTot float
+			MontoTot float,
+			Tipo int
 )
-drop table Reservaciones
-drop table ReservacionesDetalle
+select * from Reservaciones
+select * from ReservacionesDetalle
 go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,

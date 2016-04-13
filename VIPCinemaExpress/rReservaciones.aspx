@@ -119,7 +119,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-3">
-                                <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" />
+                                <asp:Button ID="NuevoButton" class="btn btn-default" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
                                 <asp:Button ID="ReservarButton" CssClass="btn btn-info" runat="server" Text="Reservar" OnClick="ReservarButton_Click" />
                             </div>
 

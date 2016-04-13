@@ -16,16 +16,14 @@
                             <label class="control-label col-xs-2">Listar por:</label>
                             <div class="col-md-4">
                                 <asp:DropDownList ID="DatosDropDownList" CssClass="form-control" runat="server">
-                                    <asp:ListItem Value="1">Id</asp:ListItem>
-                                    <asp:ListItem Value="2">Nombres</asp:ListItem>
-                                    <asp:ListItem Value="3">Apellidos</asp:ListItem>
-                                    <asp:ListItem Value="4">Direccion</asp:ListItem>
+                                    <asp:ListItem Value="1">ReservacionId</asp:ListItem>
+                                    <asp:ListItem Value="2">UsuarioId</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <div class="col-md-4">
                                 <asp:TextBox ID="DatosTextBox" CssClass="form-control" placeholder="Buscar por" runat="server"></asp:TextBox>
                             </div>
-                            <asp:Button ID="BuscarButton" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="BuscarButton_Click" />
+                            <asp:Button ID="BuscarButton" CssClass="btn btn-info" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
                         </div>
                         <div class="col-xs-12">
                             <asp:GridView ID="DatosGridView" CssClass="table" runat="server"></asp:GridView>
