@@ -99,7 +99,8 @@ create table Reservaciones(
 			UsuarioId int References Usuarios(UsuarioId),
 			MontoTot float
 )
-
+drop table Reservaciones
+drop table ReservacionesDetalle
 go
 create table ReservacionesDetalle(
 			ReservacionDetalleId int primary key identity,

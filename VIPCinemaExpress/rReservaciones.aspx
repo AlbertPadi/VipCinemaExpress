@@ -69,6 +69,13 @@
                             </div>
                             <div class="col-xs-3">
                                 <asp:TextBox ID="CantidadTextBox" class="form-control" runat="server" placeholder="Cantidad"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                    ControlToValidate="CantidadTextBox"
+                                    ValidationExpression="^\d+"
+                                    Display="Static"
+                                    ErrorMessage="Only Numbers"
+                                    EnableClientScript="False"
+                                    runat="server"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="form-group row">
